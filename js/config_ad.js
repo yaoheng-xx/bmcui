@@ -40,9 +40,10 @@ function ADPageInit() {
   AdUserID = document.getElementById("ADUSERID");
   AdTimeout = document.getElementById("ADTIMEOUT");
   AdPortValue = document.getElementById("ADPORTVALUE");
-  AdGroupName = document.getElementById("GROUPNAME");
-  AdGroupPrivilege = document.getElementById("GROUPPRIVILEGE");
-  AdGroupDomain = document.getElementById("GROUPDOMAIN");
+  AdGroupName = document.getElementById("ADGROUPNAME");
+  AdGroupPrivilege = document.getElementById("ADGROUPPRIVILEGE");
+  //AdGroupDomain = document.getElementById("ADGROUPDOMAIN"); 
+  AdGroupDomain = "NULL";
   AdGroupDelete = document.getElementById("ADButtonDeleteGroup");
   AdGroupDelete.addEventListener("click", deleteAdGroup);
   AdSave = document.getElementById("ADButtonSave");
@@ -82,8 +83,8 @@ function ADOutputString() {
       lang.LANG_AD_GROUP_NAME;
   document.getElementById("ad_groupprivilege_span").textContent =
       lang.LANG_CONFIG_AD_GROUP_PRIVILEGE;
-  document.getElementById("ad_groupdomain_span").textContent =
-      lang.LANG_AD_COLUMN_TITLE2;
+  //document.getElementById("ad_groupdomain_span").textContent =
+  //    lang.LANG_AD_COLUMN_TITLE2;
   document.getElementById("ad_gf_header_span").textContent =
       lang.LANG_CONFIG_AD_GF_TITLE;
   document.getElementById("ADssl_enable").textContent = lang.LANG_AD_ADV_SSL;
@@ -122,7 +123,7 @@ function onClickAdGroupList() {
   selected_row = GetSelectedRowCellInnerHTML(0);
   if (selected_row == "~") {
     AdGroupName.value = '';
-    AdGroupDomain.value = '';
+    //AdGroupDomain.value = '';
     AdGroupPrivilege.value = '';
     document.getElementById("ADButtonDeleteGroup").style.display = "none";
   } else {
@@ -133,7 +134,7 @@ function onClickAdGroupList() {
     for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
       if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
         AdGroupName.value = RemoteRoleMapping_array[i].RemoteGroup;
-        AdGroupDomain.value = RemoteRoleMapping_array[i].Oem.OpenBMC.RemoteDomain;
+        //AdGroupDomain.value = RemoteRoleMapping_array[i].Oem.OpenBMC.RemoteDomain;
         AdGroupPrivilege.value = RemoteRoleMapping_array[i].LocalRole;
       }
     }
@@ -214,7 +215,7 @@ function ADdisablefunc() {
   AdBase.disabled = true;
   AdGroupName.disabled = true;
   AdGroupPrivilege.disabled = true;
-  AdGroupDomain.disabled = true;
+  //AdGroupDomain.disabled = true;
   AdSave.disabled = true;
   EnableAdSwitch.disabled = true;
 }
@@ -414,10 +415,10 @@ function validateAdform() {
     error_msg_dtring += "Group Privilege\n";
     bool_validation = false;
   }
-  if (AdGroupDomain.value == '' && selected_row != '') {
-    error_msg_dtring += "Group Domain\n";
-    bool_validation = false;
-  }
+  //if (AdGroupDomain.value == '' && selected_row != '') {
+  //  error_msg_dtring += "Group Domain\n";
+  //  bool_validation = false;
+  //}
   if (!bool_validation) {
     alert("Invalid Inputs are given to \nthe following fields.\n " +
               error_msg_dtring,
@@ -490,8 +491,8 @@ function saveAdconfig_Cont() {
 
 function Create_AD_Group() {
   Loading(true);
-  if (AdGroupName.value != '' && AdGroupPrivilege.value != '' &&
-      AdGroupDomain.value != '' && EnableAdSwitch.checked) {
+  if (AdGroupName.value != '' && AdGroupPrivilege.value != '' /*&&
+      AdGroupDomain.value != '' */&& EnableAdSwitch.checked) {
     if (selected_row != "~") {
       for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
         if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
@@ -547,7 +548,7 @@ function enableAdInfos(enable) {
 function enableAdGroupInfos(enable) {
   AdGroupName.disabled = !enable;
   AdGroupPrivilege.disabled = !enable;
-  AdGroupDomain.disabled = !enable;
+  //AdGroupDomain.disabled = !enable;
   AdGroupDelete.disabled = !enable;
 }
 

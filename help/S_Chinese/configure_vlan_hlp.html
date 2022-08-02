@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>VLAN — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+
+        <div class='helpmainhead'>VLAN — 帮助</div>
+        <p>使用此页面配置一个802.1 q VLAN私有网络上指定的局域网通道。</p>
+
+        <h2>物理接口</h2>
+        <p>
+        它列出了可用于管理服务器的物理网卡。
+        </p>
+
+        <h2>VLAN 列表</h2>
+        <p>以表格形式显示所选 LAN 通道的所有 VLAN 信息。</p>
+        <ul>
+            <li> - 创建新的 VLAN 信息。请配置以下字段 VLAN标识号 然后单击 添加 按钮以添加 VLAN 虚拟接口。</li>
+            <li> - 删除现有的 VLAN。请单击现有的 VLAN 行末尾的删除图标。</p>
+        </ul>
+
+        <h2>虚拟接口</h2>
+        <p>
+        检查这个通道以启用VLAN。一旦启用，BMC只接受使用正确的VLAN的标识符字段的数据包。
+        所有即将发出的数据包都标有VLAN编号。
+        </p>
+
+        <h2>VLAN标识号</h2>
+        <p>
+        指定要使用的VLAN标识号。值从1到4094。
+        </p>
+
+        <div class='helpactionhead'>操作</div>
+
+        <div class='actionsub'>添加</div>
+        <p>点击“添加”对选择的网络通道添加虚拟接口。</p>
+    </body>
+</html>

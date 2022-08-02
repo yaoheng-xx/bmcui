@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <title>NTP 设置 - 帮助</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/iframe_event.js"></script>
+    <script type="text/javascript" src="../../js/help.js"></script>
+</head>
+
+<body>
+    <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关闭</a></div>
+    <div class="helpmainhead">NTP 设置 - 帮助</div>
+    <p>此页面显示设备的当前日期和时间设置。它可以
+        用于配置日期和时间或 NTP（网络时间协议）
+        设备的服务器设置。</p><br />
+
+    <h2>日期</h2>
+    <p>指定设备的当前日期。</p>
+
+    <h2>时间</h2>
+    <p>指定设备的当前时间。</p>
+
+    <strong>注意：</strong> 由于存在 2038 年问题，可接受的
+    日期范围是从 01-01-2005 到 01-18-2038。
+
+    <h2>时区</h2>
+    <p>时区列表包含 UTC 偏移量以及 NTP 服务器的位置和手动 UTC 偏移量，可用于
+        显示准确的当地时间。</p>
+
+    <h2>主 NTP 服务器和次 NTP 服务器</h2>
+    <p>为设备指定 NTP 服务器。
+        NTP 服务器字段将支持以下内容：
+    <ul>
+        <li>- IP 地址（IPv4 和 IPv6 格式）。
+        <li>- FQDN（完全限定域名）格式。
+        <li>- FQDN 值范围为 1 到 128 个字母数字字符。
+    </ul>
+    </p>
+    <strong>注意：</strong> 次 NTP 服务器是可选字段。
+    <br>如果主 NTP 服务器工作不正常，那么
+    将尝试使用次 NTP 服务器。
+
+    <h2>自动同步</h2>
+    <p>选中此选项可自动将日期和时间与 NTP 服务器。</p>
+
+    <div class='helpactionhead'>操作</div>
+    <div class='actionsub'>刷新</div>
+    <p>单击“刷新”以重新加载当前日期和时间设置。</p>
+    <div class='actionsub'>保存</div>
+    <p>单击“保存”以保存所做的任何更改。</p>
+    <strong>注意：</strong>
+    <p>一旦 NTP 设置配置保存成功，系统将自动将用户重定向到 Web 登录页面。</p>
+    <div class='actionsub'>重置</div>
+    <p>单击“重置”以重置已修改的更改。</p>
+    <br>
+</body>
+
+</html>

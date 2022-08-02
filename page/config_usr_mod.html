@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script> 
+    <script language="javascript" src="../js/config_user.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_usr_mod.js"></script>
+</head>
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="mtable">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="mod_caption_div" class="mtitle"></div></td>
+        </tr>
+        <tr><td><br></td><td><br></td></tr>
+        <tr><td></td>
+            <td>
+                <!-- below area is needed to modify by yourself -->
+                <table>
+                    <tr>
+                        <td><label class="labelhead"><strong id="mod_name_lbl"></strong></label></td>
+                        <td><input type="text" maxlength="16" id="text_name"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="labelhead"><strong id="change_pwd_lbl"></strong></label></td>
+                        <td><input type="checkbox" id="checkbox_changepwd"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="labelhead"><strong id="mod_pwd_lbl"></strong></label></td>
+                        <td><input type="password" maxlength="20" id="password_pwd"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="labelhead"><strong id="conf_pwd_lbl"></strong></label></td>
+                        <td><input type="password" maxlength="20" id="password_pwd_check"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="labelhead"><strong id="mod_priv_lbl"></strong></label></td>
+                        <td><select id="select_priv"></select></td>
+                    </tr>
+                    <tr>
+                        <td><label class="labelhead"><strong id="user_enable_lbl"></strong></label></td>
+                        <td><select id="select_enable"></select></td>
+                    </tr>
+                </table>
+                <br>
+                <input type="button" class="btnStyle" id="btn_modify">
+                <input type="button" class="btnStyle" id="btn_cancel" />
+                <!-- end of this area -->
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

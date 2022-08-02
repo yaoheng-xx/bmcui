@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+	<title></title>
+	<!-- common css -->
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+	<link rel="stylesheet" href="../css/basic.css" type="text/css">
+	<link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+	<!--common javascipt library -->
+	<script language="javascript" src="../js/lang_include.js"></script>
+	<script language="javascript" src="../js/utils.js"></script>
+	<script language="javascript" src="../../js/iframe_event.js"></script>
+	<script language="javascript" src="../js/server_power_control.js"></script>
+</head>
+<body>
+	<span class="LoadingStyle" id="loading"></span>
+	<div class="floatRight" id="wait"></div>
+    <table border="0" cellpadding="0" cellspacing="5"  class="content_table">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="caption_div" class="mtitle"></div></td></tr>
+        <tr><td><br></td>
+            <td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+        <tr>
+        	<td></td>
+        	<td>
+        		<!-- below area is needed to modify by yourself -->
+        		<table width="100%" border="0">
+					<div>
+						<span id="currentStatus" class="subHeader"></span>
+						&nbsp; &nbsp; &nbsp; &nbsp;
+						<span id="_statusMsg2"></span>
+
+						<p class="labelhead">
+							<input type="radio" name="pwrControl" id="pwrReset" value="3"/>
+                                <label id="pwrReset_lbl"></label>
+                        </p>
+
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						    <input type="checkbox" id="forceBIOS" />
+						        <label class="labelhead" id="forceBIOS_lbl">
+						        </label>
+						</p>
+
+						<p class="labelhead"><input type="radio" name="pwrControl" id="pwrImmOff" value="0"/>
+							<label id="pwrImmOff_lbl"></label>
+						</p>
+
+						<p class="labelhead"><input type='radio' name="pwrControl" id="pwrGracefulShutdown" value="5"/>
+							<label id="pwrGracefulShutdown_lbl"></label>
+						</p>
+
+						<p class="labelhead"><input type="radio" name="pwrControl" id="pwrOn" value="1"/>
+							<label id="pwrOn_lbl"></label>
+						</p>
+
+						<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						    <input type="checkbox" id="forceBIOSpwron" />
+						    <label class="labelhead" id="forceBIOSpwron_lbl">
+							</label>
+						</p>
+
+						<p class="labelhead"><input type="radio" name="pwrControl" id="pwrCycle" value="2"/>
+							<label id="pwrCycle_lbl"></label>
+						</p>
+					</div>
+				</table>
+        		<br>
+				<input type="button" class="btnStyle" name="actionBtn" id="actionBtn">
+        		<!-- end of this area -->
+        	</td>
+        </tr>
+	</table>
+</body>
+</html>

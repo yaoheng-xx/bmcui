@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Event Log - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+        <div class='helpmainhead'>Event Log - Help</div>
+            <p>The Event Log displays all <i>System Event Log</i> records captured by the BMC.</p>
+            <p>Each SEL record is tagged with an Event ID, Timestamp, Sensor Name, Controller, Severity, Sensor Type and Description field.</p>
+            <p>The Event Log displays all records present by default. The number of records displayed in one page can be controlled. It is recommended the number of records per page be kept to a minimum to keep page load times small. The event records may be filtered by the <i>source</i> of the event, as well as the <i>severity</i> of the event.</p>
+            <h2>Severity category</h2>
+                <ul>
+                    <li>Informational
+                    <li>Warning
+                    <li>Critical
+                </ul>
+            <h2>Total Event Log</h2>
+                <p>The System Event Log is able to store 4000 event records. A warning message is displayed once the event log has filled. New records added to the Event Log cause the oldest records to be discarded.</p>
+            <h2>Timestamp</h2>
+                <p>The timestamp of the system event log.</p>
+            <h2>Severity</h2>
+                <p>The severity of the system event log.</p>
+            <h2>Description</h2>
+                <p>The description of the system event log.</p>
+            <h2>Number of entries per page</h2>
+                <p>Select the dropdown options to display the number of event logs </p>
+
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>Clear Event Log</div>
+                <p>Click on the <i>Clear Event Log</i> button to remove all Event Log entries.</p>
+            <div class='actionsub'>Save Event Log</div>
+                <p>Click on the <i>Save Event Log</i> button to save all of the records in the Event Log. The records are compressed into a ZIP file. A <i>Save File</i> dialog allows you to choose where the compressed file is written.</p>
+            <div class='actionsub'>Refresh Event Log</div>
+                <p>Click on the <i>Refresh Event Log</i> button to redisplay all of the current set of event records.The Event Log does not automatically refresh, in order to allow review of the entries.</p>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+	<META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+	<title></title>
+	<link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+	<link rel="stylesheet" href="../css/basic.css" type="text/css">
+	<link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+	<script language="javascript" src="../js/utils.js"></script>
+	<script language="javascript" src="../js/servd_diag.js"></script>
+	<script language="javascript" src="../../js/iframe_event.js"></script>
+	<script language="javascript" src="../js/flot/jszip.min.js"></script>
+</head>
+
+<body class="content_body_fixed">
+	<span class="LoadingStyle" id="loading"></span>
+	<table border="0" cellpadding="0" cellspacing="5" class="content_table">
+		<tr>
+			<td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+			<td>
+				<div id="title_div" class="mtitle"></div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<div id="kcs_segment_state" class="Categorytext"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<div id="interpretion_td" class="Categorytext"></div>
+			</td>
+		</tr>
+		<tr>
+			<td><br></td>
+			<td><br></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<fieldset class="wide group">
+					<legend id="caption_legend" class="legendcaption"></legend>
+					<table cellspacing="0" cellpadding="5" border="0" width="600">
+						<tr>
+							<td class="bold">
+								<strong id="lastlog_td"></strong>
+							</td>
+							<td><label id="lastTime"></label></td>
+							<td><input type="button" id="lastLink" value="Generate Log to Download"
+									class="debugLogDownloadBtn" disabled></input>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td><br></td>
+			<td><br></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<div class="btnTray">
+					<input type="button" class="btnStyle" id="runBtn" />
+				</div>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

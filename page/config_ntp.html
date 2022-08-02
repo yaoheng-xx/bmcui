@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+		<META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+		<title></title>
+		<!-- common css -->
+		<link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+		<link rel="stylesheet" href="../css/basic.css" type="text/css">
+		<link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+		<!--<link href="../style/page_style.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../lib/include.js"></script>
+		<script language="javascript" src="../str/EN/tz_str.js"></script>-->
+		
+		<!--common javascipt library -->
+		<script language="javascript" src="../js/utils.js"></script>
+		<script language="javascript" src="../js/eVal.js"></script>
+		<script language="javascript" src="../js/moment.js"></script>
+		<script language="javascript" src="../js/moment-timezone.js"></script>
+		<script language="javascript" src="../js/moment-with-locales.js"></script>
+		<script language="javascript" src="../js/moment-timezone-with-data.js"></script>
+		<script language="javascript" src="../js/lang/English/tz_str.js"></script>
+		<script language="javascript" src="../../js/iframe_event.js"></script>
+		<script language="javascript" src="../js/config_ntp.js"></script>
+	</head>
+
+	<body class="content_body_fixed">
+		<span class="LoadingStyle" id="loading"></span>
+		<table border="0" cellpadding="0" cellspacing="5" class="content_table">
+			<tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td><td><div id="ntp_caption_div" class="mtitle"></div></td></tr>
+			<tr><td><br></td><td><div class="errorDisplay" id="_divNTPError"></div></td></tr>
+			<tr><td><br></td><td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+			<tr>
+				<td></td>
+				<td colspan="3">
+
+					<table cellspacing="2" cellpadding="5" border="0" width="500">
+						<tr>
+							<td><label id="ntp_date_lbl" class="labelhead"> <!--CFG_NTP_DATE--></label></td>
+							<td>
+								<select id="_lstMonth" class="classicTxtBox"></select> &nbsp;
+								<select id="_lstDate" class="smallclassicTxtBox"></select> &nbsp;
+								<select id="_lstYear" class="smallclassicTxtBox"></select>
+							</td>
+						</tr>
+						<tr>
+							<!--<td><b>
+							<script>document.writeln(eLang.getString("configure_ntp", "CFG_NTP_TIME"));</script>
+							</b><br><em>
+							<script>document.writeln(eLang.getString("configure_ntp", "CFG_NTP_HH_MM_SS"));</script>
+							</em></td>-->
+							<td><label id="ntp_time_lbl" class="labelhead"> <!--CFG_NTP_TIME--></label><br>
+								<em>
+									<label id="ntp_timeExpand_lbl" class="labelhead"> <!--CFG_NTP_HH_MM_SS--></label>
+								</em>
+							</td>
+							<td class="timetext">
+								<input type="text" maxlength="2" style="text-align:center;" id="_txtHour" class="smallclassicTxtBox" /> &nbsp;
+								<input type="text" maxlength="2" style="text-align:center;" id="_txtMinute" class="smallclassicTxtBox" /> &nbsp;
+								<input type="text" maxlength="2" style="text-align:center;" id="_txtSecond" class="smallclassicTxtBox" />
+							</td>
+						</tr>
+						<tr>
+							<!--<td><b>
+							<script>document.writeln(eLang.getString("configure_ntp", "CFG_NTP_TIMEZONE"));</script>
+							</b></td>-->
+							<td><label id="ntp_timezone_lbl" class="labelhead"> <!--CFG_NTP_TIMEZONE--></label></td>
+							<td>
+								<select id="_lstUTCTZone" class="classicTxtBox">
+									<option value="+00:00">+00:00</option>
+									<option value="+01:00">+01:00</option>
+									<option value="+02:00">+02:00</option>
+									<option value="+03:00">+03:00</option>
+									<option value="+03:30">+03:30</option>
+									<option value="+04:00">+04:00</option>
+									<option value="+04:30">+04:30</option>
+									<option value="+05:00">+05:00</option>
+									<option value="+05:30">+05:30</option>
+									<option value="+05:45">+05:45</option>
+									<option value="+06:00">+06:00</option>
+									<option value="+06:30">+06:30</option>
+									<option value="+07:00">+07:00</option>
+									<option value="+08.45">+08.45</option>
+									<option value="+08:00">+08:00</option>
+									<option value="+09:00">+09:00</option>
+									<option value="+09:30">+09:30</option>
+									<option value="+10:00">+10:00</option>
+									<option value="+10:30">+10:30</option>
+									<option value="+11:00">+11:00</option>
+									<option value="+11:30">+11:30</option>
+									<option value="+12:00">+12:00</option>
+									<option value="+12:45">+12:45</option>
+									<option value="+13:00">+13:00</option>
+									<option value="+14:00">+14:00</option>
+									<option value="-01:00">-01:00</option>
+									<option value="-02:00">-02:00</option>
+									<option value="-03:00">-03:00</option>
+									<option value="-03:30">-03:30</option>
+									<option value="-04:00">-04:00</option>
+									<option value="-04:30">-04:30</option>
+									<option value="-05:00">-05:00</option>
+									<option value="-06:00">-06:00</option>
+									<option value="-07:00">-07:00</option>
+									<option value="-08:00">-08:00</option>
+									<option value="-09:00">-09:00</option>
+									<option value="-09:30">-09:30</option>
+									<option value="-10:00">-10:00</option>
+									<option value="-11:00">-11:00</option>
+								</select>
+								<!--<span class="hiddenRow" id="_lblHour">
+																<label id="ntp_hrs_lbl" class="labelhead"> </label>
+															</span>CFG_NTP_HOURS-->
+							</td>
+						</tr>
+						<tr>
+							<!--<td><b>
+							<script>document.writeln(eLang.getString("configure_ntp", "CFG_NTP_PRIMARY"));</script>
+							</b></td>-->
+							<td><label id="ntp_primary_lbl" class="labelhead"> <!--CFG_NTP_PRIMARY--></label></td>
+							<td><input type="text" id="_txtNTPServer1" maxlength="128" class="classicTxtBox" /></td>
+						</tr>
+
+						<tr>
+							<!--<td><b>
+							<script>document.writeln(eLang.getString("configure_ntp", "CFG_NTP_SECONDARY"));</script>
+							</b></td>-->
+							<td><label id="ntp_secondary_lbl" class="labelhead"> <!--CFG_NTP_SECONDARY--></label></td>
+							<td><input type="text" id="_txtNTPServer2" maxlength="128" class="classicTxtBox" /></td>
+						</tr>
+
+						<tr>
+							<td colspan=2>
+								<input type="checkbox" id="_chkNTPEnable" value="1" />
+								<label id="ntp_enable_lbl" class="labelhead"> <!--CFG_NTP_SYNC_NTP--></label>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+
+			<tr><td></td>
+				<td colspan="3" >
+					<div class="list_tbl" id="HtmlAlertTable" ></div>
+					<br>
+					<input type="button" class="btnStyle" id="_btnRefresh">
+					<input type="button" class="btnStyle" id="_btnSave">
+					<input type="button" class="btnStyle" id="_btnReset">
+					<!--<input type="button" id="_btnRefresh" />
+					<input type="button" id="_btnSave" />
+					<input type="button" id="_btnReset" />-->
+				</td>
+			<tr>
+		</table>
+	</body>
+</html>

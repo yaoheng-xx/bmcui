@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>事件日志 — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+
+        <div class='helpmainhead'>事件日志 — 帮助</div>
+        <p>事件日志显示由BMC捕获的所有系统事件记录。</p>
+        <p>对于每个SEL记录，我们将显示记录编号、时间戳、传感器名称、严重度、传感器类型和SEL描述。</p>
+        <p>默认设置将显示所有存在的记录。用户可以更改一页中显示的记录数，但我们建议将每页的记录数保持为最小，以加快页面加载时间。事件记录可以由事件的来源以及严重性加以过滤。</p>
+
+
+
+        <h2>严重度类别</h2>
+        <ul>
+            <li>信息的</li>
+            <li>警告</li>
+            <li>重要的</li>
+        </ul>
+            <h2>总事件日志数目</h2>
+            <p>系统事件日志能够存储4000个事件记录。一旦超出SEL存储库的空间，将会在屏幕中显示警告消息来通知用户。新加的记录会导致最早的记录被删除。</p>
+            <h2>时间</h2>
+            <p>系统事件日志的时间戳。</p>
+
+
+            <h2>严重度</h2>
+            <p>系统事件日志的严重度。</p>
+            <h2>描述</h2>
+            <p>系统事件日志的描述。</p>
+            <h2>每页条目数</h2>
+            <p>选择下拉选项以显示事件日志的数量 </p>    
+            <div class='helpactionhead'>操作</div>
+            <div class='actionsub'>清除事件日志</div>
+            <p>点击清除事件日志按钮来删除所有事件日志条目。</p>
+            <div class='actionsub'>保存事件日志</div>
+            <p>单击保存事件日志按钮来压缩SEL成ZIP文件并下载它。</p>
+            <div class='actionsub'>刷新事件日志</div>
+            <p>单击刷新事件日志按钮来重载整个的SEL。</p>
+    </body>
+</html>

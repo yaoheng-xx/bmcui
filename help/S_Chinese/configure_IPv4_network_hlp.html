@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>IPv4 网络设置 — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+
+        <div class='helpmainhead'>IPv4 网络设置 — 帮助</div>
+        <p>使用此页面为服务器管理配置网络设置。</p>
+        <h2>主机名称</h2>
+        <p>
+        主机名称是一个符合RFC 1123, 少于64个字母数字字符的字符串。主机名称可以包括连字符但不能是第一个或者最后一个字符。默认值为BMC+MAC地址 (範例: MAC地址'00 1e 67 f9 2f b3'，预设主机名称会是'BMC001E67F92FB3')。
+        </p>
+        <h2>接口</h2>
+        <p>它列出了可用于管理服务器的接口。</p>
+
+        <h2>MAC地址</h2>
+        <p>设备的MAC地址(只读)。</p>
+        <h2>IPMI 频道</h2>
+        <p>显示 IPMI 通道号（只读）。</p>
+        <h2>接口描述</h2>
+        <p>显示网络接口控制器是专用于BMC/主机或是主机和BMC共用（只读）。</p>
+        <h2>网络链接</h2>
+        <p>显示局域网接口的网络链接状态（只读）。</p>
+
+        <h2>使用DHCPv6/SLAAC来自动获取IP地址</h2>
+        <p>选择启用 IPv4 DHCP 的选项。如果选择“自动获取 IP 地址（使用 DHCP)”选项,IP 地址、子网掩码、网关和 DNS 服务器输入字段将被禁用。</p>
+        <h2>使用如下IP地址</h2>
+        <p>选择配置静态 IPv4 地址的选项。如果选择“使用以下 IP 地址”选项，将启用 IP 地址、子网掩码、网关和 DNS 服务器输入字段来配置</p>
+
+        <h2>IP地址</h2>
+        <p>使用单选按钮选择 IP 分配的类型。如果配置静态 IP，请在给定字段中输入请求的 IP 地址、子网掩码、网关、主 DNS 和辅助 DNS 服务器。</p>
+        <ul>
+            <li>- IP地址是由4个数字用点隔开如“xxx.xxx.xxx.xxx”。</li>
+            <li>- “xxx”范围从0到255</li>
+            <li>- 第一个“xxx”不能是0</li>
+        </ul>
+
+        <h2>子网掩码</h2>
+        <p>显示设备的子网掩码。</p>
+        <h2>默认网关</h2>
+        <p>表示设备的网关详细信息。</p>
+        <h2>优先的DNS服务器IP</h2>
+        <p>显示设备的主 DNS 服务器。</p>
+        <h2>备用的DNS服务器IP</h2>
+        <p>设备的辅助 DNS 服务器。</p>
+
+        <div class='helpactionhead'>操作</div>
+
+        <div class='actionsub'>保存</div>
+        <p>点击“保存”按钮保存任何修改。</p>
+
+        <p class="warning">
+        <img src='../../images/warning.png'>
+        <b>备注:</b>
+        在尝试修改网络设置前，请关闭所有打开的远程控制台重定向会话。否则所有的会话将丢失。
+        </p>
+
+    </body>
+</html>

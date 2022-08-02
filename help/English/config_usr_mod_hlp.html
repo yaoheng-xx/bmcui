@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <title>Modify User - Help</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/iframe_event.js"></script>
+    <script type="text/javascript" src="../../js/help.js"></script>
+</head>
+
+<body>
+    <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+    <div class='helpmainhead'>Modify User - Help</div>
+    <p>Use this page to modify a user's password and permissions.</p>
+
+    <h2>User Name</h2>
+    <p>The name of the user being configured.</p>
+    <p>The name is a string of 1 to 16 alpha-numeric characters or '.','_' or '-'.</p>
+    <p>The name must begin with an alpha-numeric character or '_'.</p>
+    <h2>Change Password</h2>
+    <p>To change the user's password, check this box which will enable the password fields.</p>
+
+    <h2>Password, Confirm Password</h2>
+    <p>Space at the beginning is not allowed.</p>
+    <p>System has Disabled, Low, Medium and High Password Complexity mode.</p>
+    <p>Users can change system password mode and check the password complexity rules on the "Security Settings" page.
+    </p>
+    <p>Enter and confirm the new password here.</p>
+
+    <h2>Network Privilege</h2>
+    <p>The level of network privilege to assign to this user.</p>
+    <ul>
+        <li>- Administrator
+        <li>- Operator
+        <li>- User
+        <li>- No Access
+            <!--<li>- Callback-->
+    </ul>
+
+    <h2>Enable Access</h2>
+    <p>Check this box to enable the user for LAN access.
+        Also enables/disables SOL, KVM, Media Redirection.
+    </p>
+
+    <a href='./ewsprivilege.html' target="_blank" rel="noopener noreferrer">Click here to get detailed network privilege
+        of each level</a>
+
+    <div class='helpactionhead'>Actions</div>
+    <div class='actionsub'>Modify</div>
+    <p>Click 'Modify' to accept the modifications and return to the user list.</p>
+    <div class='actionsub'>Cancel</div>
+    <p>Click 'Cancel' to return to the list without modifying the new user.</p>
+</body>
+
+</html>

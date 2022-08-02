@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>活动目录设置 - 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关闭</a></div>
+        <div class='helpmainhead'>活动目录设置 - 帮助</div>
+        <p>要启用或配置 活动目录 服务器，请选中该复选框。</p>
+        <h2>启用 活动目录 身份验证</h2>
+            <p>选中复选框以启用/禁用 活动目录 身份验证。</p>
+        <h2>通过SSL来对活动目录身份认证</h2>
+            <p>选中复选框以启用/禁用基于 SSL 的活动目录身份验证。</p>
+            <p>启用 活动目录 需要 CA 证书和 LDAP 证书。</p>
+            <p>CA 证书有效期至 -- 表示 CA 证书的到期日期。</p>
+            <p>LDAP 证书有效期至 -- 它表示 LDAP 证书的到期日期。</p>
+        <h2>IP 地址</h2>
+        <p>活动目录服务器的IP地址。</p>
+        <ul>
+            <li>- IP 地址由 4 个数字组成，用点分隔,如“xxx.xxx.xxx.xxx”。</li>
+            <li>- 'xxx' 范围从 0 到 255。</li>
+            <li>- 第一个 'xxx' 不能为 0。</li>
+            <li>- 支持主机名</li>
+        </ul>
+        <h2>绑定DN</h2>
+            <p>活动目录 服务器的专有名称，例如
+            “cn=Manager, dc=my-domain, dc=com”。
+            </p>
+        <h2>绑定密码</h2>
+            <p>活动目录服务器的认证密码;
+            密码长度必须至少为 4 个字符。
+            </p>
+        <h2>搜索基址</h2>
+            <p>活动目录 服务器的搜索基址，例如
+            “dc=my-domain, dc=com”。
+            </p>
+        <h2>超时时间</h2>
+            <p>活动目录 服务器超时时间</p>
+        <h2>用户 ID 属性（可选）</h2>
+            <p>活动目录 服务器的用户 ID</p>
+        <h2>端口（可选）</h2>
+            <p>活动目录服务器的端口号</p>
+        
+        <h2>活动目录 组配置</h2>
+            <p>这是创建组配置的过程，其中包含名称、域、权限等多个详细信息</p>
+
+        <h2>角色组名</h2>
+            <p>输入角色组名称</p>
+        <h2>角色组域</h2>
+            <p>输入角色组域名</p>
+        <h2>角色组权限</h2>
+            <p>选择角色组权限</p>
+        <div class='helpactionhead'>动作</div>
+        <div class='actionsub'>保存</div>
+            <p>单击“保存”按钮以保存 活动目录 配置。</p>
+        <div class='actionsub'>删除</div>
+            <p>单击“删除”按钮以删除 活动目录 组配置</p> 
+            <p>当从表中选择配置的组时，删除按钮将可用</p>
+    </body>
+</html>

@@ -1,0 +1,308 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #2e5a2e;
+}
+
+.banner {
+    background-image: url("../preauth/images/banner_background.png");
+    background-repeat: repeat;
+}
+
+.loginbanner_left {
+    background-image: url("../preauth/images/banner_left.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 85px;
+    width: 618px;
+}
+
+.loginbanner_right {
+    display: none;
+}
+
+.pixeltable {
+        BORDER-RIGHT: #90a7c5 1px solid; BORDER-TOP: #90a7c5 1px solid; BORDER-LEFT: #90a7c5 1px solid; BORDER-BOTTOM: #90a7c5 1px solid; BORDER-COLLAPSE: collapse
+}
+
+.t_title {
+	font-family: Verdana, "新細明體";
+	font-size: 10px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #1f1f1f;
+}
+
+    .t_title a:link {color:#1f1f1f; text-decoration: none}
+
+    .t_title a:active {color:#1f1f1f; text-decoration: none}
+
+    .t_title a:visited {color:#1f1f1f; text-decoration: none}
+
+    .t_title a:hover {color: #0090ff; text-decoration: none}
+	
+
+
+.t_graytext {
+	font-family: Verdana, "新細明體";
+	font-size: 10px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #FFFFFF;
+	
+}
+
+    .t_graytext a:link {color:#FFFFFF; text-decoration: none}
+
+    .t_graytext a:active {color:#FFFFFF; text-decoration: none}
+
+    .t_graytext a:visited {color:#FFFFFF; text-decoration: none}
+
+    .t_graytext a:hover {color: #00e4ff; text-decoration: none}
+
+
+
+.le_title {
+	font-family: Verdana, "新細明體";
+	font-size: 11px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #002776;
+
+}
+
+    .le_title a:link {color:#002776; text-decoration: none}
+
+    .le_title a:active {color:#002776; text-decoration: none}
+
+    .le_title a:visited {color:#002776; text-decoration: none}
+
+    .le_title a:hover {color: #0072ff; text-decoration: none}
+	
+
+	
+.le_text {
+	font-family: Verdana, "新細明體";
+	font-size: 11px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+
+}
+
+    .le_text a:link {color:#000000; text-decoration: none}
+
+    .le_text a:active {color:#000000; text-decoration: none}
+
+    .le_text a:visited {color:#000000; text-decoration: none}
+
+    .le_text a:hover {color: #ff6600; text-decoration: none}
+
+	
+.le_textover {
+	font-family: Verdana, "新細明體";
+	font-size: 10px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #171717;
+
+}
+
+    .le_textover a:link {color:#171717; text-decoration: none}
+
+    .le_textover a:active {color:#171717; text-decoration: none}
+
+    .le_textover a:visited {color:#171717; text-decoration: none}
+
+    .le_textover a:hover {color: #ff6600; text-decoration: none}
+
+.le_options {
+	font-family: Verdana, "新細明體";
+	font-size: 15px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #121938;
+}
+
+.ce_title {
+	font-family: Verdana, "新細明體";
+	font-size: 11px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+
+.ce_titlebu {
+	font-family: Verdana, "新細明體";
+	font-size: 11px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #002776;
+}
+.ce_titletextbo {
+	font-family: Verdana, "新細明體";
+	font-size: 11px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #ff6600;
+	
+}
+
+    .ce_titletext a:link {color:#ff6600; text-decoration: none}
+
+    .ce_titletext a:active {color:#ff6600; text-decoration: none}
+
+    .ce_titletext a:visited {color:#ff6600; text-decoration: none}
+
+    .ce_titletext a:hover {color: #d63700; text-decoration: none}
+
+}
+.ce_titletext {
+	font-family: Verdana, "新細明體";
+	font-size: 11px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #ff6600;
+	
+}
+
+    .ce_titletext a:link {color:#ff6600; text-decoration: none}
+
+    .ce_titletext a:active {color:#ff6600; text-decoration: none}
+
+    .ce_titletext a:visited {color:#ff6600; text-decoration: none}
+
+    .ce_titletext a:hover {color: #d63700; text-decoration: none}
+	
+.ce_text {
+	font-family: Verdana, "新細明體";
+	font-size: 10px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+.ce_textnocheck {
+	font-family: Verdana, "新細明體";
+	font-size: 10px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #a6a6a6;
+}
+
+.ce_textbold {
+	font-family: Verdana, "新細明體";
+	font-size: 10px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+	
+.button {
+	font-family: Verdana, "新細明體";
+	font-size: 12px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+
+}
+
+.bot_text {
+	font-family: Verdana, "新細明體";
+	font-size: 9px;
+	font-style: normal;
+	line-height: 15px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #FFFFFF;	
+
+}
+
+.login_title {
+	font-family: Verdana;
+	font-size: 14px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: bold;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.login_outer_table {
+	margin-top: 70px;
+	width: 400px;
+	/*height: 200px;*/
+	border: 0px;
+	padding: 0px;
+	border-spacing: 0px;
+	background-color: #ffffff;
+}
+
+.login_inner_table {
+	width: 200px;
+	border: 0px;
+	padding: 0px;
+	border-spacing: 0px;
+}
+
+.login_text {
+	font-family: Verdana;
+	font-size: 11px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #000000;
+}
+
+.login_input {
+	width: 146px;
+}

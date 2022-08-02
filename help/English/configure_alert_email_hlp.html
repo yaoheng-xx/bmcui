@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Alert Email - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+      </head>
+      <body>
+          <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+          <div class='helpmainhead'>Alert Email - Help</div>
+              <p>Enter the configuration parameters for Alert Emails and click Save.</p>
+              <h2>Enable</h2>
+              <p>Enable/Disable SMTP Configuration</p>
+              <h2>SMTP Server IP</h2>
+                  <p>The IP address of the remote SMTP Mailserver that Alert email should be sent to.</p>
+                      <ul>
+                          <li>- IP Address is made of 4 numbers separated by dots as in "xxx.xxx.xxx.xxx".</li>
+                          <li>- 'xxx' ranges from 0 to 255.</li>
+                          <li>- First 'xxx' must not be 0.</li>
+                          <li>- Supports Host Name</li>
+                      </ul>
+              <h2>SMTP Server Port</h2>
+                  <p>The IP port number for which the remote SMTP Mailserver is listening. The default port is 25.</p>
+                  <p>SMTP servers without encryption support and servers supporting STARTTLS generally listen on TCP Port 25. SMTP servers supporting SSL/TLS (SMTPS) generally listen on TCP port 465.</p>
+
+              <h2>Sender Email Address</h2>
+                  <p>The Sender address string to be put in the "From:" field of outgoing Alert emails. The string should be of the form user@host.domain.tld.</p>
+          <div class='helpactionhead'>Actions</div>
+              <div class='actionsub'>Save</div>
+                  <p>Click the 'Save' button to save the new Alert Email configuration.</p>
+    </body>
+</html>

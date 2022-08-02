@@ -1,0 +1,87 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body {
+    margin-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+div#about {
+    font-family: Arial, Verdana, Georgia,  Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 10px;
+}
+
+div#about h1 {
+    margin: 0;
+    font-weight: bold;
+    padding-left: 0;
+    padding-top: 5pt;
+    padding-bottom: 2pt;
+    margin-bottom: 0;
+    background-color: transparent;
+    font-size: 12pt;
+}
+
+div#legal_notices h2 {
+    margin: 0;
+    font-weight: bold;
+    padding-top: 5pt;
+    padding-bottom: 2pt;
+    font-size: 11pt;
+}
+
+div#legal_notices h3 {
+    margin: 0;
+    font-weight: bold;
+    padding-top: 15pt;
+    padding-bottom: 2pt;
+    font-size: 10pt;
+}
+
+div#legal_notices h4 {
+    margin: 0;
+    font-weight: normal;
+    font-style: oblique;
+    padding-top: 5pt;
+    padding-bottom: 2pt;
+    font-size: 10pt;
+}
+
+div#legal_notices p {
+    margin: 0;
+    font-size: 10pt;
+}
+
+div#legal_notices p.warranty {
+    padding-top: 5pt;
+}
+
+div#legal_notices ul {
+    list-style-type: circle;
+    margin: 0;
+    padding-left:20px;
+}
+
+div#legal_notices ul li {
+    display: list-item;
+    list-style-type: inherit;
+    margin-left: 0px;
+    font-size: 10pt;
+}
+
+div#legal_notices a:link {
+    color: blue;
+}
+
+div#legal_notices a:visited {
+    color: darkblue;
+}
+
+div#legal_notices a:hover {
+    color: red;
+}

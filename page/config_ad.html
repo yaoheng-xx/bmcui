@@ -1,0 +1,177 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/inputvalidation.js"></script>
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_ad.js"></script>
+</head>
+
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="content_table">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="caption_div" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td colspan="3">
+                <div id="kcs_segment_state" class="Categorytext"></div>
+            </td>
+        </tr>
+        <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table hide">
+        <tr>
+            <td><br></td>
+            <td>
+                <table border="0" width="100%" id="table1">
+                    <tr>
+                        <td>&nbsp;<label><input type="checkbox" id="ADSwitchAD" />
+                                <span id="ad_en_span" class="labelhead"></span></label></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
+                                <span id="ADssl_enable" class="labelhead"></span></label></td>
+                        <td>
+                            <fieldset class="wideldap group">
+                                <p id="ADsslValidInfo" class="labelhead"></p>
+                                <div class="subSection">
+                                    <table border="0">
+                                        <tr>
+                                            <td>
+                                                <span class="labelhead" id="ADcaValid"></span>
+                                            </td>
+                                            <td id="CAvalidDate">
+                                                <span>--</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="labelhead" id="ADldapValid"></span>
+                                            </td>
+                                            <td>
+                                                <span id="ldapValidDate">--</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <table border="0" id="table2">
+                    <tr>
+                        <td>&nbsp;<span id="ad_ip_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" id="ADIP" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ad_dn_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADBINDWN" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ad_pwd_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="password" id="ADBINDPW" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ad_sb_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADBASE" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ad_userid_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADUSERID" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ad_timeout_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADTIMEOUT" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ad_port_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADPORTVALUE" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="head">
+                        <td colspan="2" class="bold">
+                            <span id="ad_gf_header_span" class="labelhead"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="list_tbl" id="ADGroupTable"></div>
+                        </td>
+                    </tr>
+                    <tr id="role_group_name">
+                        <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPNAME" width="90%" /></td>
+                    </tr>
+                    <tr id="role_group_domain">
+                        <td>&nbsp;<span id="ad_groupdomain_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPDOMAIN" width="90%" /></td>
+                    </tr>
+                    <tr id="role_group_priv">
+                        <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
+                        <td width="393">
+                            <select id="GROUPPRIVILEGE" class="labelhead">
+                                <option value="Administrator">Administrator</option>
+                                <option value="Operator">Operator</option>
+                                <option value="ReadOnly">User</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="53"></td>
+            <td height="53">
+                <!-- below area is needed to modify by yourself -->
+                <br>
+                <input type="button" class="btnStyle" id="ADButtonSave" />
+                <input type="button" class="btnStyle" id="ADButtonDeleteGroup" />
+                <!-- end of this area -->
+            </td>
+        </table>
+        <table border="0" id="ad_noconfig_msg" cellpadding="0" cellspacing="0" class="mtable hide">
+            <tr>
+                <td><br/></td>
+                <td><br/></td>
+            </tr>
+            <tr>
+                <td width="150">&nbsp;</td>
+                <td colspan="3">
+                    <table class="boxSection">
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <div id="add_desc_div" class="ADmsg"></div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <!-- common css -->
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <!--common javascipt library -->
+    <script language="javascript" src="../js/lang_include.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_ad_advanced.js"></script>
+</head>
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="caption_div" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <!-- below area is needed to modify by yourself -->
+                <table border="0">
+                <tr>
+                    <td colspan="2">
+                        <span id="adadv_enable" class="labelhead">
+                            <input type="checkbox" name="enableAD" id="enableAD"/>
+                        </span></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span class="labelhead">
+                            <input type="checkbox" name="enableSSL" id="enableSSL"/>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span id="lanb_adv_port" class="labelhead"></span></td>
+                    <td><input type="text" id="ad_port" maxlength="10" name="ad_port" /></td>
+                </tr>
+                <tr>
+                    <td><span id="userdomain" class="labelhead"></span></td>
+                    <td><input type="text" id="userDomain" maxlength="64" name="userDomain" /></td>
+                </tr>
+                <tr>
+                    <td><span id="sp_timeout" class="labelhead"></span></td>
+                    <td><input type="text" id="timeout" name="timeout" /></td>
+                </tr>
+                <tr>
+                    <td><span id="advsrv1" class="labelhead"></span></td>
+                    <td><input type="text" id="adServer1" name="adServer1" /></td>
+                </tr>
+                <tr>
+                    <td><span id="advsrv2" class="labelhead"></span></td>
+                    <td><input type="text" id="adServer2" name="adServer2" /></td>
+                </tr>
+                <tr>
+                    <td><span id="advsrv3" class="labelhead"></span></td>
+                    <td><input type="text" id="adServer3" name="adServer3" /></td>
+                </tr>
+                </table>
+                <br>
+                <input type="button" class="btnStyle" id="saveBtn" name="saveBtn">
+                <input type="button" class="btnStyle" id="cancelBtn" name="cancelBtn">
+                <!-- end of this area -->
+          </td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../js/config_vlan.js"></script>
+    <script language="javascript" src="../js/inputvalidation.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+</head>
+    <body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="content_table">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="vlan_setting_div" class="mtitle"></div></td>
+        </tr>
+        <tr><td><br></td><td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+        <tr><td>&nbsp;</td><td>
+        <table border="0" id="table2">
+            <tr>
+                <td colspan="2">
+                    <label id="lan_channel_lbl" class="vlanlabel labelhead"></label>
+                    <select id="_lanChannel" class="labelhead">
+                        <option value="channel_unknow">Unknow</option>
+                    </select>
+                </td>
+            </tr>            
+            <tr class="head">
+                <td colspan="2" class="bold">
+                    <span id="vlan_list_header_lbl" class="labelhead"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="list_tbl" id="VLANListTable"></div>
+                </td>
+            </tr>
+            <tr id="vlan_id">
+                <td colspan="2">
+                    <label id="vlan_id_lbl" class="vlanlabel labelhead"></label>
+                    <input type="text" id="_vlanID" class="labelhead"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="btnTray"><input type="button" class="classicBtn" id="_save"/></div>
+                </td>
+            </tr>
+        </table>
+        </td></tr>
+    </table>
+    </body>
+</html>

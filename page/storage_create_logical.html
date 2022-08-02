@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+        <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+        <title></title>
+        <!-- common css -->
+        <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+        <link rel="stylesheet" href="../css/basic.css" type="text/css">
+        <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+        <!--common javascipt library -->
+        <script language="javascript" src="../js/generalTableController.js"></script>
+        <script language="javascript" src="../js/utils.js"></script>
+        <script language="javascript" src="../js/storage_create_logical.js"></script>
+        <script language="javascript" src="../../js/iframe_event.js"></script>
+    </head>
+    <body>
+        <span class="LoadingStyle" id="loading"></span>
+        <table border="0" cellpadding="0" cellspacing="0" class="mtable">
+            <tr>
+                <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+                <td>
+                    <div id="createLogicalCaptionDiv" class="mtitle"></div>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><br></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div id="kcs_segment_state" class="Categorytext"></div>
+                </td>
+                <td></td>
+            </tr>
+            
+        </table>
+        <table border="0" id="createLogicalDeviceInputs" cellpadding="0" cellspacing="5" width="350">
+            <tr>
+                <td></td>
+                <td>
+                    <label id="raidContrlabel" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="logical_dropdown" class="wid170"></select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="prl" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idPrl" class="wid170">
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="vdName" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <input type="text" id="idVdName" class="wid163"/>
+                    </div>
+                </td>
+            </tr>
+            <tr id="rowSpanDept">
+                <td></td>
+                <td>
+                    <label id="spanDepth" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <input type="number" min="1" id="idSpanDepth" class="wid163"/>
+                    </div>
+                    <!-- The RAID Levels RAID00, RAID10, RAID50, RAID60 and RAID1E0_RLQ0 are required more than one span count. -->
+                </td>
+            </tr>
+            <tr id="rowNumberOfDrives">
+                <td></td>
+                <td>
+                    <label id="numberOfDrives" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <input type="number" min="1" id="idNumberOfDrives" class="wid163"/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="initState" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idInitState" class="wid170">
+                            <option value="0">No Initialization</option>
+                            <option value="1">Quick Initialization</option>
+                            <option value="2">Fast Initialization</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="stripeSize" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idStripeSize" class="wid170">
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="readPolicy" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idReadPolicy" class="wid170">
+                            <option value="0">No Read Ahead</option>
+                            <option value="1">Always Read Ahead</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="writePolicy" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idWritePolicy" class="wid170">
+                            <option value="0">Write Through</option>
+                            <option value="1">Always Write Back</option>
+                            <option value="2">Write back with BBU</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="ioPolicy" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idIoPolicy" class="wid170">
+                            <option value="0">DirectIO</option>
+                            <option value="1">CachedIO</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="accessPolicy" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idAccessPolicy" class="wid170">
+                            <option value="0">Read-Write</option>
+                            <option value="1">Read Only</option>
+                            <option value="2">Blocked</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="diskCacheCapacity" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select id="idDiskCacheCapacity" class="wid170">
+                            <option value="0">Unchanged</option>
+                            <option value="1">Enabled</option>
+                            <option value="2">Disabled</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <label id="unConfiguredPhysicalDevice" class="labelhead"></label>
+                </td>
+                <td>
+                    <div class="storageTableDescCreate">
+                        <select class="wid170" id="unConfiguredPhysicalDrives" multiple></select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3">
+                    <div class="btnTray">
+                        <input type="button" class="classicBtn" value="Create" id="saveDevice"/>
+                        <input type="button" class="classicBtn" value="Cancel" id="cancelCreateLogical"/>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </body>
+</html>

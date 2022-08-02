@@ -1,0 +1,96 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <!-- common css -->
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <!--common javascipt library -->
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../js/flot/chart.min.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/servh_sensor_reading.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+</head>
+
+<body class="content_body">
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td width="250px">
+                <div id="sensor_reading_caption_div" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td colspan="2"><br></td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td>
+                <div id="selected_sensor_name" class="Categorytext"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td>
+                <button id="back_to_sensorpage">Back</button>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td>
+                <label id="sensorHistoryIntervalLabel" class="labelhead"></label>
+                <select class="Categorytext" id="sensorHistoryIntervalValue"></select>
+            </td>
+                  </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2">
+                <canvas style="width:100%;max-width:800px;height: 400px;" id="ChartSensorInfo"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td>
+                <div class="Categorytext">Logs</div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="2">
+                <div  class="list_tbl" id="log_tbl_header"></div>
+                <div  class="list_tbl" id="log_tbl_place"></div>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

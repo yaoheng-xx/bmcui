@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <!-- common css -->
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <!--common javascipt library -->
+    <script language="javascript" src="../js/lang_include.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_ad_modgroup.js"></script>
+</head>
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="mtable">
+        <tr><td  width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="caption" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td><br></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <!-- below area is needed to modify by yourself -->
+                <table width="450" border="0">
+                    <tr>
+                        <td><span id="adname" class="labelhead"></span></td>
+                        <td><input type="text" id="adGroupName" name="adGroupName" /></td>
+                    </tr>
+                    <tr>
+                        <td><span id="adDomainNameLabel" class="labelhead"></span></td>
+                        <td><input type="text" id="adDomainName" name="adDomainName" /></td>
+                    </tr>
+                    <tr>
+                        <td><span id="priv" class="labelhead"></span></td>
+                        <td>
+                            <select id="adGroupPriv" name="adGroupPriv">
+                                <option id="opt4" value="Administrator"></option>
+                                <option id="opt3" value="Operator"></option>
+                                <option id="opt2" value="ReadOnly"></option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <input type="button" class="btnStyle" id="modBtn" name="modBtn">
+                <input type="button" class="btnStyle" id="cancelBtn" name="cancelBtn">
+                <!-- end of this area -->
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

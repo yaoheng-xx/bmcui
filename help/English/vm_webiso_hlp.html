@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>Virtual Media - Help</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/help.js"></script>
+</head>
+
+<body>
+    <div class='closeX'><a id='closeHelp' href='#' class='closeBtn'>close</a></div>
+    <div class='helpmainhead'>Virtual Media - Help</div>
+    <div class='helpmainhead'>WEB ISO</div>
+    <p id="p1">This page allows you to share a ISO image using the SMB protocol. It allows you to share the image over a Windows Share or Linux Samba. This image will be emulated to the host as a USB device.</p>
+    <h2 id="h1">Device</h2>
+    <p id="p2">Showing the vm status.</p>
+    <h2 id="h2">Shared image information</h2>
+    <p id="p3">Share host: [Share host IP address/Host Name]</p>
+    <p id="p4">Path to image: [Image name with path] - ["\" Windows path separator is not valid. BMC will automatically transfer the Windows path separator "\" to "/"]</p>
+    <p id="p7">Mount Type: [Choose the mount type]</p>
+    <p id="p5">User: [User name]</p>
+    <p id="p6">Password: [User password]</p>
+    <h2>Note:</h2>
+    <p>Only currently configured image can be able to mount and unmount.</p>
+    <p>To mount and unmount different image, Change the configuration and save.</p>
+    <p>Image name with following characters are not supported.</p>
+    <p>[{}()<>&*`|=?;[\]$\-#~!"%/\\:+,']</p>
+    <div class='helpactionhead'>Actions</div>
+    <div id="div1" class='actionsub'>Refresh Status</div>
+    <p id="p7">Click to get all vm status.</p>
+    <div id="div3" class='actionsub'>Mount</div>
+    <p id="p9">Click the "Mount" button to mount a shared image.</p>
+    <div id="div4" class='actionsub'>Unmount</div>
+    <p id="p10">If a Device has been mounted you may click the "Unmount" button to unmount</p>
+
+</body>
+</html>

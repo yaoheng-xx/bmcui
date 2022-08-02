@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>LDAP - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>LDAP - Help</div>
+            <p>To enable/disable LDAP, check or uncheck the "LDAP Authentication" checkbox respectively.</p>
+
+            <h2>LDAP Authentication</h2>
+                <p>Check this box to enable LDAP authentication, then enter the required information to access the LDAP server.</p>
+            <h2>LDAP Authentication over SSL</h2>
+                <p>Select the checkbox to enable/disable LDAP Authentication over SSL.</p>
+            <h2>IP Address</h2>
+                <p>The IP address of LDAP server.</p>
+                    <ul>
+                        <li>- IP Address made of 4 numbers separated by dots as in "xxx.xxx.xxx.xxx".</li>
+                        <li>- 'xxx' ranges from 0 to 255.</li>
+                        <li>- First 'xxx' must not be 0.</li>
+                        <li>- Supports Host Name</li>
+                    </ul>
+            <h2>Bind DN</h2>
+                <p>The Distinguished Name of the LDAP server, e.g.
+                &quot;cn=Manager, dc=my-domain, dc=com&quot;.
+                </p>
+            <h2>Bind Password</h2>
+                <p>Authentication password for LDAP server;
+                the password must be at least 4 characters long.
+                </p>
+            <h2>Searchbase</h2>
+                <p>The searchbase of the LDAP server, e.g.
+                &quot;dc=my-domain, dc=com&quot;.
+                </p>
+            <h2>User ID Attribute (Optional)</h2>
+                <p>User ID for the LDAP Server</p>
+        <div class='helpmainhead'>LDAP Group Configuration - Help</div>
+            <h2>Group Name</h2>
+                <p>Role Group Name is a string of 64 alpha-numeric characters.</p>
+                <p>Special symbols hyphen and underscore are allowed.</p>
+            <h2>Group Privilege</h2>
+                <p>Select the Role Group Privilege. This is the level of privilege to be assigned for this role group</p>
+
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Save</div>
+            <p>Save the current settings.</p>
+        <div class='actionsub'>Delete</div>
+            <p>Select the LDAP Group from the table and Delete the Group.</p>
+    </body>
+</html>

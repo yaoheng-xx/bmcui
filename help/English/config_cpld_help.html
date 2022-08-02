@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>CPLD Update - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+        </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>CPLD Update - Help</div>
+            <p>Use this page to upload new CPLD firmware.</p>
+            <h2>CPLD Update</h2>
+                <p>Current CPLD firmware version information is available for viewing, as well as the option to select and upload or drag and drop a new CPLD firmware image. By dropping a new CPLD firmware image on the page or selecting upload, the BMC will begin its CPLD firmware image upload process, which will take a couple of minutes. The alert message will be displayed after firmware image uploaded successfully.</p>
+
+                <p>If CPLD Update Option - Reset Immediately is selected, the BMC will reboot automatically. As all web sessions will be terminated on a BMC reboot, you will be required to log in again to verify that the CPLD firmware update was successful.</p>
+
+                <p>If CPLD Update Option - Reset Immediately is not selected, You will be required to reboot the BMC manually(DC cycle) to verify that the CPLD firmware update was successful.</p>
+
+            <h2>CPLD FW Rev</h2>
+                <p>Displays the current CPLD firmware version.</p>
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>CPLD Update Options</div>
+            <p>Recovery - Select Recovery option, if you want to update CPLD firmware with recovery option.</p>
+            <p>Reset Immediately - Select Reset Immediately to reboot the BMC after CPLD firmware image uploaded successfully.</p>
+            <div class='actionsub'>Choose File/Browse</div>
+                <p>Choose file to upload.</p>
+            <div class='actionsub'>Drop a file on this page</div>
+                <p>Drop a files to upload on this page.</p>
+            <div class='actionsub'>Upload</div>
+                <p>Upload the CPLD firmware update image file to the BMC for update action.</p>
+    </body>
+</html>

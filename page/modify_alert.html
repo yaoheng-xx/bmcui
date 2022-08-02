@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+	<title></title>
+	<!-- common css -->
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+	<link rel="stylesheet" href="../css/basic.css" type="text/css">
+	<link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+	<!--common javascipt library -->
+	<script type="text/javascript">document.write("<script type=\"text/javascript\", src = \"../js/lang/" + top.lang_setting + "/lang_str.js\"><\/script>");</script>
+	<script language="javascript" src="../js/utils.js"></script> 
+	
+	
+	<script type="text/javascript">
+	
+	//declare all global variables
+	var PreviousURL="/"
+	
+	
+	var ButtonSaveOBJ;
+	var ButtonCancelOBJ;
+	var URLParmEvtSeverityOBJ;
+	var URLParmDestIPOBJ;
+	var URLParmMsgOBJ;
+	var URLParmSubOBJ;
+	var URLParmEmailOBJ;
+	function PageInit()	
+	{
+		
+		ButtonSaveOBJ = document.getElementById("btn_save");
+		ButtonCancelOBJ = document.getElementById("btn_cancel");
+		URLParmEvtSeverityOBJ = document.getElementById("EvtSeverity");
+		URLParmDestIPOBJ = document.getElementById("DestIP");
+		URLParmEmailOBJ = document.getElementById("Email");
+		URLParmSubOBJ = document.getElementById("Subject");
+		URLParmMsgOBJ = document.getElementById("Message")
+		
+		ButtonSaveOBJ.setAttribute("value", lang.LANG_MODALERT_BTNSAVE);
+		ButtonCancelOBJ.setAttribute("value", lang.LANG_MODALERT_BTNCANCEL);
+		
+	
+		//check user Privilege		
+		CheckUserPrivilege(PrivilegeCallBack);
+		
+    	URLParmEvtSeverityOBJ.value = GetVars("l");
+		URLParmDestIPOBJ.value = GetVars("ip");
+		URLParmEmailOBJ.value = GetVars("em");
+		URLParmSubOBJ.value = GetVars("s");
+		URLParmMsgOBJ.value = GetVars("m");
+	
+		ButtonSaveOBJ.onclick = function()
+		 {
+		 	var EvtSeverity = document.getElementById("EvtSeverity").value;
+		 	var IPAddr = Trim( URLParmDestIPOBJ.value);
+		 	var Email  = Trim( URLParmEmailOBJ.value);
+		 	var Subject  = Trim( URLParmSubOBJ.value);
+		 	var Message = Trim(URLParmMsgOBJ.value);
+
+		 	if(IPAddr != '000.000.000.000' && IPAddr != "")
+			{
+				if (!CheckIP(IPAddr))
+				{
+					alert(lang.LANG_MODALERT_ERRIP);
+					return;
+				}
+			}
+			
+			if(Email != 'NULL' && Email != "")
+			{
+				if (!CheckEMAIL(Email))
+				{
+					alert(lang.LANG_MODALERT_ERRMAIL);
+					return;
+				}
+			}
+			
+			var pattern = /^[\x00-\x7f]+$/;
+			if((Trim(Subject).length > 0 && !(pattern.test(Subject))) ||
+				(Trim(Message).length > 0 && !(pattern.test(Message)))
+	  		)
+			{
+				alert(lang.LANG_MODALERT_ERRINPUT);
+				return;
+			}
+			
+			var EvtSeverityValue;
+			switch (EvtSeverity)
+			{
+				case '0':
+					EvtSeverityValue = '00';
+					break;
+				case '1':
+					EvtSeverityValue = '2';
+					break;
+				case '2':
+					EvtSeverityValue = '8';
+					break;
+				case '3':
+					EvtSeverityValue = '16';
+					break;
+				case '4':
+					EvtSeverityValue = '32';
+					break;
+				case '5':
+					EvtSeverityValue = 'FF';
+					break;
+			}	
+		 };
+		ButtonCancelOBJ.onclick = function()
+		 {
+		 	location.href = PreviousURL;
+		 };
+		
+		
+		ModifyAlert();
+	}		
+	
+	function PrivilegeCallBack(Privilege)
+	{
+		if(Privilege == '04')
+		{
+			ButtonSaveOBJ.disabled = true;
+			ButtonCancelOBJ.disabled = true;		
+		}
+		
+	}
+	
+	function ModifyAlert()
+	{
+		 Loading(true);
+		 var optind = 0;
+		 
+		 Loading(false);
+	}
+	
+	function CompleteModifyOperation(originalRequest)
+	{
+		
+		
+		if (originalRequest.readyState == 4 && originalRequest.status == 200)
+		{
+			location.href = PreviousURL;
+		}
+		else
+		{
+			alert(lang.LANG_COMMON_UNCOMPLETE)
+		}
+			
+	}
+	</script>
+	
+	
+	
+</head>
+
+<body onload="PageInit()" >
+<span class="LoadingStyle" id="loading"></span>
+   <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td><td><div class="mtitle"><script>document.writeln(lang.LANG_MODALERT_CAPTION)</script></div></td>
+        </tr>
+        <tr><td><br></td><td><br></td></tr>
+        <tr>
+        	  <td></td>
+            <td>
+                <table class="boxSection"><tr><td><div class="textA"><script>document.writeln(lang.LANG_MODALERT_DESC)</script></div></td><tr></table>
+            </td>
+        </tr>
+        <tr><td><br></td><td><br></td></tr>
+        <tr><td></td><td>
+        	<table>
+        	<tr><td class="labelhead"><strong><script>document.writeln(lang.LANG_MODALERT_EVTSEVERITY);</script></strong></td><td >
+        	<select id="EvtSeverity" >
+        		<option value="0"><script>document.writeln(lang.LANG_CONFALERT_DISALL);</script></option>
+  				<option value="1"><script>document.writeln(lang.LANG_MODALERT_INFO);</script></option>
+  				<option value="2"><script>document.writeln(lang.LANG_MODALERT_WARN);</script></option>
+  				<option value="3"><script>document.writeln(lang.LANG_MODALERT_CRITICAL);</script></option>
+  				<option value="4"><script>document.writeln(lang.LANG_MODALERT_NONRECOVER);</script></option>
+        	</select>
+        	</td></tr>
+        	<tr><td class="labelhead" ><strong><script>document.writeln(lang.LANG_MODALERT_DEST);</script></strong></td><td ><input type="text" id="DestIP" /></td></tr>
+        	<tr><td class="labelhead"><strong><script>document.writeln(lang.LANG_MODALERT_EMAIL);</script></strong></td><td ><input type="text" id="Email" /></td></tr>
+        	<tr><td class="labelhead"><strong><script>document.writeln(lang.LANG_MODALERT_SUBJECT);</script></strong></td><td ><input type="text" id="Subject" maxlength="32" /></td></tr>
+        	<tr><td class="labelhead"><strong><script>document.writeln(lang.LANG_MODALERT_MESSAGE);</script></strong></td><td ><input type="text" id="Message" maxlength="64" /></td></tr>
+			</table>
+		</td></tr>
+        <tr><td>
+        	
+        	</td>
+        	  <td>
+        	  
+        	  <!-- below area is needed to modify by yourself -->
+        	  <br>
+        	  <input type="button" class="btnStyle" id="btn_save" >
+        	  <input type="button" class="btnStyle" id="btn_cancel">
+        	  <!-- end of this area -->
+        	  </td>
+        <tr>
+    </table>
+</body>

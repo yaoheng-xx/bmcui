@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/v_front_panel.js"></script>
+</head>
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <h3 class="pagetitle">
+        <table border="0" cellpadding="0" cellspacing="0"  class="content_table">
+            <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+                <td><div id="caption_div" class="mtitle"></div></td></tr>
+            <tr><td><br></td><td><br></td></tr>
+            <tr><td colspan="2"><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0"  class="content_table">
+            <tr><div class="floatLeft" id="wait"></div></tr>
+        </table>
+        <div class="content">
+            <table id="main-content">
+                <tbody>
+                <tr>
+                    <td >
+                        <div class="col col-1of2 r-view">
+                            <div class="server-i-wrap">
+
+                                <img src="../images/vfp_background.jpg" alt="Virtual Front Panel" width="590" height="170" />
+
+                                <div class="comp-sect comp-sect-3" id="_StatusledDiv">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td id="fpStatusLed" class="comp comp-1">
+                                                <a>
+                                                <div  id="StatusledDiv"> <!-- second icon from left to right-->
+                                                    <img class="comp-alert-i statusled" src="../images/grey.png" id= "_Statusled" />
+                                                </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-1 -->
+
+                                <div class="comp-sect comp-sect-3">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td id="fpStatusTxt" class="comp comp-1">
+                                            <a>
+                                            <img class="comp-alert-i statusled" src="../images/status_txt.png" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-1 -->
+
+                                <div class="comp-sect comp-sect-2">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td class="comp comp-1">
+                                                <img class="comp-alert-i vfpbutton" src="../images/power_btn.png" id= "powerBtn"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-2 -->
+
+                                <div class="comp-sect comp-sect-1"  id="_PowerledDiv">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td class="comp comp-1">
+                                                <a>
+                                                <div  id="powerled"> <!--power icon-->
+                                                    <img class="comp-alert-i statusled" src="../images/grey.png" id= "_Power"/>
+                                                </div>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-3 -->
+
+                                <div class="comp-sect comp-sect-1">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td class="comp comp-1"> <!--power text inner of power icon-->
+                                            <a>
+                                                <img class="comp-alert-i statusled" src="../images/power_txt.png"/>
+                                            </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-3 -->
+
+                                    <div class="comp-sect comp-sect-4">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td class="comp comp-1"> <!-- reset button -->
+                                                <img class="comp-alert-i vfpbutton" src="../images/reset_btn.png" id= "ResetBtn"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-4 -->
+
+                                <div class="comp-sect comp-sect-5" id="_IDledDiv">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td id="fpChassisIcon" class="comp comp-1">
+                                                <a >
+                                                <div id="chassIdLedDiv"> <!--chassis icon-->
+                                                    <img class="comp-alert-i statusled" input type="image"  src="../images/grey.png" id="_IDLed" />
+
+                                                    </div>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-5 -->
+
+                                <div class="comp-sect comp-sect-5">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td id="fpChassisTxt" class="comp comp-1"> <!-- chassis text inner of icon-->
+                                            <a>
+                                                <img class="comp-alert-i statusled" src="../images/id_txt.png" />
+                                            </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-1 -->
+
+                                    <div class="comp-sect comp-sect-6">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                            <td class="comp comp-1">
+                                                <img class="comp-alert-i vfpbutton" src="../images/id_btn.png" id= "chassisIDBtn"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-6 -->
+
+
+                               <div class="comp-sect comp-sect-14">
+                                    <table class="comp-ov-tb">
+                                        <tr>
+                                        <div class="comp comp-1">
+                                        <b><blink><span  id="Message" ></span></blink></b>
+                                        </div>
+                                        </tr>
+                                    </table>
+                                </div>  <!-- /.comp-sect-14 -->
+
+                            </div>
+                        </div>  <!-- /.end col1of2 -->
+                    </td>
+
+            </tr>
+            </tbody>
+            </table>
+            <!-- /.end Notify Bar -->
+        </div>  <!-- /.end Content -->
+        <!-- /.end Siteinfo -->
+
+
+
+</body>
+</html>

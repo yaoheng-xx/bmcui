@@ -1,0 +1,233 @@
+<html>
+<meta charset="UTF-8"/>
+<head>
+    <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+        <table class="dataintable">
+        <Caption><h2>内嵌Web服务器的网页权限对照表</h2><Caption>
+        <tr>
+            <th id="col1">标签</th>
+            <th id="col2">页面</th>
+            <th id="col3">唯读*</th>
+            <th id="col4">变更*</th>
+        </tr>
+        <tr>
+            <td>系统信息</td>
+            <td>系统信息</td>
+            <td>用户或更高</td>
+            <td>用户或更高</td>
+        </tr>
+        <tr>
+            <td>系统信息</td>
+            <td>FRU信息</td>
+            <td>用户或更高</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>系统信息</td>
+            <td>CPU信息</td>
+            <td>用户或更高</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>系统信息</td>
+            <td>DIMM信息</td>
+            <td>用户或更高</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>系统信息</td>
+	    <td>NVMe信息</td>
+	    <td>用户或更高</td>
+	    <td>N/A</td>
+        </tr>
+        <tr>
+            <td>系统信息</td>
+            <td>当前用户</td>
+            <td>管理员</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>服务器健康状态</td>
+            <td>感应器读值</td>
+            <td>用户或更高</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>服务器健康状态</td>
+            <td>事件日志</td>
+            <td>用户或更高</td>
+            <td>操作员或更高</td>
+        </tr>
+        <!-- <tr>
+            <td>Server Health</td>
+            <td>Power Statistics</td>
+            <td>A</td>
+            <td>N/A</td>
+        </tr> -->
+        <tr>
+            <td>配置</td>
+            <td>警报</td>
+            <td>操作员或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>警报邮件</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>IPv4网络</td>
+            <td>操作员或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>IPv6网络</td>
+            <td>操作员或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>VLAN</td>
+            <td>操作员或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>LDAP</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>Active Directory</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>KVM与虚拟媒介的加密设定</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>SSL认证</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>用户</td>
+            <td>操作员或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>安全设定</td>
+            <td>操作员或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>SOL & SMASH</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <!-- <tr>
+            <td>配置</td>
+            <td>Node Manager</td>
+            <td>A</td>
+            <td>A</td>
+        </tr> -->
+        <tr>
+            <td>配置</td>
+            <td>SDR配置</td>
+            <td>操作员或更高</td>
+            <td>操作员或更高</td>
+        </tr>
+        <tr>
+            <td>配置</td>
+            <td>固件更新</td>
+            <td>用户或更高</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>远程控制</td>
+            <td>KVM/控制台重定位</td>
+            <td>管理员</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>远程控制</td>
+            <td>电源控制</td>
+            <td>用户或更高</td>
+            <td>操作员或更高</td>
+        </tr>
+        <tr>
+            <td>远程控制</td>
+            <td>启动SOL</td>
+            <td>管理员</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>远程控制</td>
+            <td>虚拟前置界面</td>
+            <td>用户或更高</td>
+            <td>用户或更高**</td>
+        </tr>
+        <tr>
+            <td>服务器诊断</td>
+            <td>系统诊断</td>
+            <td>用户或更高</td>
+            <td>操作员或更高</td>
+        </tr>
+        <tr>
+            <td>服务器诊断</td>
+            <td>自检代码</td>
+            <td>操作员或更高</td>
+            <td>N/A</td>
+        </tr>
+        <tr>
+            <td>服务器诊断</td>
+            <td>系统默认值</td>
+            <td>管理员</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>服务器诊断</td>
+            <td>SOL记录</td>
+            <td>操作员或更高</td>
+            <td>操作员或更高</td>
+        </tr>
+        <tr>
+            <td>辅助</td>
+            <td>NM配置</td>
+            <td>管理员</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>辅助</td>
+            <td>电源统计</td>
+            <td>管理员</td>
+            <td>管理员</td>
+        </tr>
+        <tr>
+            <td>辅助</td>
+            <td>电源遥测</td>
+            <td>操作员或更高</td>
+            <td>操作员或更高</td>
+        </tr>
+        </table>
+        <br>
+        <small>*N/A = 只读页面</small>
+        </br>
+        <small>**ID按钮可与“用户权限或更高”来访问。所有其他的功能都需要“操作员权限或更高”。</small>
+</body>
+
+</html>

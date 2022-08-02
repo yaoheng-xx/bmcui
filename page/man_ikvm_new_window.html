@@ -1,0 +1,84 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2016 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../css/simple-keyboard.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/softkeyboard.css" type="text/css">
+    <script language="javascript" src="../js/lang_include.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script type="module" src="../js/man_ikvm_html5_auto_import.js"></script>
+    <script language="javascript" src="../js/flot/simple-keyboard.js"></script>
+    <!-- <script type="module" crossorigin="use-credentials" src="../js/novnc/core/rfb.js"></script> -->
+</head>
+
+<body class="content_body">
+    <div class="mtitle" style="display:none;" id="kvm_title">KVM</div>
+    <div class="kvmwindow" id="kvm_window"></div>
+    <table>
+        <tr>
+            <td>
+                <select class="Categorytext" id="send_macro" name="send_macro">
+                    <option>Send Macro</option>
+                    <option id="altTab" value="altTab">Alt+Tab</option>
+                    <option id="CtrlAltDelete" value="CtrlAltDelete">Ctrl+Alt+Delete</option>
+                    <option id="AltSpace" value="AltSpace">Alt+Space</option>
+                    <option id="AltEsc" value="AltEsc">Alt+Esc</option>
+                    <option id="AltEnter" value="AltEnter">Alt+Enter</option>
+                    <option id="Print" value="Print">Print</option>
+                    <option id="AltF4" value="AltF4">Alt+F4</option>
+                    <option id="CtrlEsc" value="CtrlEsc">Ctrl+Esc</option>
+                    <option id="CtrlTab" value="CtrlTab">Ctrl+Tab</option>
+                </select>
+            </td>
+            <!-- English, Dutch, French, German, Italian, Russian, and Spanish. -->
+            <td>
+                <select class="Categorytext" id="select_language" name="select_language">
+                    <option>Keyboard</option>
+                    <option id="english" value="english">English</option>
+                    <option id="dutch" value="dutch">Dutch</option>
+                    <option id="french" value="french">French</option>
+                    <option id="german" value="german">German</option>
+                    <option id="italian" value="italian">Italian</option>
+                    <option id="russian" value="russian">Russian</option>
+                    <option id="spanish" value="spanish">Spanish</option>
+                </select>
+            </td>
+            <td>
+                <select class="Categorytext" id="power_control" name="power_control">
+                    <option selected>Power Control</option>
+                    <option id="power_on" value="power_on">Power on</option>
+                    <option id="power_off" value="power_off">Power Off</option>
+                    <option id="software_shutdown" value="software_shutdown">Software Shutdown</option>
+                    <option id="power_reset" value="power_reset">Power Reset</option>
+                </select>
+            </td>
+            <td>
+                <button id="forceEnterBIOS">Force-Enter BIOS Setup</button>
+            </td>
+            <td>
+                <button id="openKVMNewWindow" style="display:none;">Open In New Window</button>
+            </td>
+        </tr>
+    </table>
+    <div id="_SoftKeyboardLayout" style="display: none;">
+        <div class="keyboardContainer">
+            <div class="simple-keyboard-main"></div>
+            <div class="controlArrows">
+                <div class="simple-keyboard-control"></div>
+                <div class="simple-keyboard-arrows"></div>
+            </div>
+            <div class="numPad">
+                <div class="simple-keyboard-numpad"></div>
+                <div class="simple-keyboard-numpadEnd"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

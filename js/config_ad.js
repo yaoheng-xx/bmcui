@@ -182,7 +182,7 @@ function ADPrivilegeCallBack(Privilege) {
 function AdminSwlCallBack(swl_status) {
   if (swl_status == "ACTIVATED") {
     document.getElementById('ad_table').classList.remove("hide");
-    getCertificateInfo();
+    ADgetCertificateInfo();
     requestReadAdInfo();
   } else {
     Loading(false);
@@ -206,7 +206,7 @@ function ADSwlCallBack(swl_status) {
   }
 }
 
-function disablefunc() {
+function ADdisablefunc() {
   AdIp.disabled = true;
   AdUserID.disabled = true;
   AdBinPW.disabled = true;
@@ -219,19 +219,8 @@ function disablefunc() {
   EnableAdSwitch.disabled = true;
 }
 
-function getCertificateInfo() {
-  Loading(true);
-  var ajaxUrl = '/redfish/v1/CertificateService/CertificateLocations';
-  var ajaxReq = new Ajax.Request(ajaxUrl, {
-    method : 'GET',
-    onSuccess : GETCertificateURL,
-    onFailure : function() {
-      Loading(false);
-      alert(lang.LANG_CONFIG_SSL_CERTIFICATE_GET_FAILED);
-    },
-  });
-}
-function GETCertificateURL(arg) {
+
+function ADGETCertificateURL(arg) {
   if (arg.readyState == 4 && arg.status == 200) {
     var response = JSON.parse(arg.responseText);
     var certificate_array = response.Links.Certificates;
@@ -243,22 +232,22 @@ function GETCertificateURL(arg) {
       sslCaFlag = false;
     }
     for (var i = 0; i < certificate_array.length; i++) {
-      GetSSLReading(certificate_array[i]["@odata.id"]);
+      ADGetSSLReading(certificate_array[i]["@odata.id"]);
     }
   }
 }
-function GetSSLReading(url) {
+function ADGetSSLReading(url) {
   if (url.indexOf("/LDAP/") != -1) {
-    updateCertificateValidInfo(url, "ldapValidDate");
+    ADupdateCertificateValidInfo(url, "ldapValidDate");
     sslLdapFlag = true;
   }
   if (url.indexOf("/Truststore/") != -1) {
-    updateCertificateValidInfo(url, "ADCAvalidDate");
+    ADupdateCertificateValidInfo(url, "ADCAvalidDate");
     sslCaFlag = true;
   }
   Loading(false);
 }
-function updateCertificateValidInfo(url, id) {
+function ADupdateCertificateValidInfo(url, id) {
   var ajax_req = new Ajax.Request(url, {
     method : 'GET',
     onSuccess : function(arg) {
@@ -272,6 +261,8 @@ function updateCertificateValidInfo(url, id) {
     },
   });
 }
+
+
 function requestReadAdInfo() {
   Loading(true);
   var ajax_url = '/redfish/v1/AccountService';
@@ -285,6 +276,21 @@ function requestReadAdInfo() {
     }
   });
 }
+
+function ADgetCertificateInfo() {
+  Loading(true);
+  var ajaxUrl = '/redfish/v1/CertificateService/CertificateLocations';
+  var ajaxReq = new Ajax.Request(ajaxUrl, {
+    method : 'GET',
+    onSuccess : ADGETCertificateURL,
+    onFailure : function() {
+      Loading(false);
+      alert(lang.LANG_CONFIG_SSL_CERTIFICATE_GET_FAILED);
+    },
+  });
+}
+
+
 
 function responseWriteAdInfo(arg) {
   Loading(false);
@@ -309,17 +315,7 @@ function responseWriteAdInfo(arg) {
   }
 }
 
-function filterData(
-    data) { // Removing @odata.type key pair value in get response
-  for (var i = 0; i < data.length; i++) {
-    if (data[i] != null && data[i].hasOwnProperty('Oem') &&
-        data[i].Oem.hasOwnProperty('OpenBMC') &&
-        data[i].Oem.OpenBMC.hasOwnProperty('@odata.type')) {
-      delete data[i].Oem.OpenBMC['@odata.type'];
-    }
-  }
-  return data;
-}
+
 
 function responseAdInfo(arg) {
   Loading(false);
@@ -545,7 +541,7 @@ function enableAdInfos(enable) {
   AdBase.disabled = !enable;
   AdTimeout.disabled = !enable;
   AdPortValue.disabled = !enable;
-  checkSSL(enable);
+  ADcheckSSL(enable);
 }
 
 function enableAdGroupInfos(enable) {
@@ -560,7 +556,11 @@ function onAdEnable() {
   enableAdGroupInfos(EnableAdSwitch.checked);
 }
 
-function checkSSL(ldapStatus) {
+
+
+//utils 
+//ADcheckSSL is the same as checkSSL.
+function ADcheckSSL(ldapStatus) {
   if (sslCaFlag && sslLdapFlag) {
     if (ldapStatus) {
       enableLDAPoverSSL.disabled = false;
@@ -572,4 +572,16 @@ function checkSSL(ldapStatus) {
     enableLDAPoverSSL.disabled = true;
     enableLDAPoverSSL.checked = false;
   }
+}
+
+function filterData(
+  data) { // Removing @odata.type key pair value in get response
+for (var i = 0; i < data.length; i++) {
+  if (data[i] != null && data[i].hasOwnProperty('Oem') &&
+      data[i].Oem.hasOwnProperty('OpenBMC') &&
+      data[i].Oem.OpenBMC.hasOwnProperty('@odata.type')) {
+    delete data[i].Oem.OpenBMC['@odata.type'];
+  }
+}
+return data;
 }

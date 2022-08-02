@@ -20,6 +20,31 @@
 
 <body>
     <span class="LoadingStyle" id="loading"></span>
+                   
+        <fieldset class="wideldap group">
+            <p id="ADsslValidInfo" class="labelhead"></p>
+            <div class="subSection">
+                <table border="0">
+                    <tr>
+                        <td>
+                            <span class="labelhead" id="ADcaValid"></span>
+                        </td>
+                        <td id="ADCAvalidDate">
+                            <span>--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="labelhead" id="ldapValid"></span>
+                        </td>
+                        <td>
+                            <span id="ldapValidDate">--</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </fieldset>
+
     <table border="0" cellpadding="0" cellspacing="5" class="content_table">
         <tr>
             <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
@@ -47,31 +72,6 @@
                     <tr>
                         <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
                                 <span id="ADssl_enable" class="labelhead"></span></label></td>
-                        <td>
-                            <fieldset class="wideldap group">
-                                <p id="ADsslValidInfo" class="labelhead"></p>
-                                <div class="subSection">
-                                    <table border="0">
-                                        <tr>
-                                            <td>
-                                                <span class="labelhead" id="ADcaValid"></span>
-                                            </td>
-                                            <td id="CAvalidDate">
-                                                <span>--</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <span class="labelhead" id="ADldapValid"></span>
-                                            </td>
-                                            <td>
-                                                <span id="ldapValidDate">--</span>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </fieldset>
-                        </td>
                     </tr>
                 </table>
             </td>

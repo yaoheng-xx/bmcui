@@ -21,11 +21,11 @@ var AdGroupDomain;
 var AdGroupDelete;
 var AdSave;
 var GridTable;
-window.addEventListener('load', PageInit);
+window.addEventListener('load', ADPageInit);
 var lang;
 if (parent.lang) { lang = parent.lang; }
 
-function PageInit() {
+function ADPageInit() {
   top.frames.topmenu.document.getElementById("frame_help").src =
       "../help/" + lang_setting + "/configure_ad_hlp.html";
   document.getElementById("ADButtonSave").value = lang.LANG_CONFIG_AD_SAVE;
@@ -55,14 +55,14 @@ function PageInit() {
       saveAdconfig();
     }
   });
-  OutputString();
+  ADOutputString();
   initCheckInputListener("ADIP", lang.LANG_CONFIG_ACTIVE_DIRECTORY_IP,
                          INPUT_FIELD.HOSTNAMEANDIPV4);
-  CheckUserPrivilege(PrivilegeCallBack);
+  CheckUserPrivilege(ADPrivilegeCallBack);
   AdGroupTableInit();
 }
 
-function OutputString() {
+function ADOutputString() {
   document.getElementById("caption_div").textContent = lang.LANG_AD_CAPTION;
   document.getElementById("ad_en_span").textContent = lang.LANG_AD_ADV_ENABLE;
   document.getElementById("ad_ip_span").textContent =
@@ -89,7 +89,7 @@ function OutputString() {
   document.getElementById("ADssl_enable").textContent = lang.LANG_AD_ADV_SSL;
   document.getElementById("ADcaValid").textContent =
       lang.LANG_AD_SSL_CA_VALID_INFO;
-  document.getElementById("ADldapValid").textContent =
+  document.getElementById("ldapValid").textContent =
       lang.LANG_AD_SSL_LDAP_VALID_INFO;
   document.getElementById("ADsslValidInfo").textContent =
       lang.LANG_LDAP_SSL_VALID_INFO;
@@ -168,11 +168,11 @@ function deleteAdGroup() {
   }
 }
 
-function PrivilegeCallBack(Privilege) {
+function ADPrivilegeCallBack(Privilege) {
   if (Privilege == '04') {
     getSwlStatus(AdminSwlCallBack);
   } else if (Privilege == '03' || Privilege == '02') {
-    getSwlStatus(SwlCallBack);
+    getSwlStatus(ADSwlCallBack);
   } else {
     location.href = SubMainPage;
     return;
@@ -192,7 +192,7 @@ function AdminSwlCallBack(swl_status) {
   }
 }
 
-function SwlCallBack(swl_status) {
+function ADSwlCallBack(swl_status) {
   if (swl_status == "ACTIVATED") {
     document.getElementById('ad_table').classList.remove("hide");
     AdSave.disabled = true;
@@ -238,7 +238,7 @@ function GETCertificateURL(arg) {
     if (certificate_array.length == 0) {
       Loading(false);
       document.getElementById("ldapValidDate").textContent = "--";
-      document.getElementById("CAvalidDate").textContent = "--";
+      document.getElementById("ADCAvalidDate").textContent = "--";
       sslLdapFlag = false;
       sslCaFlag = false;
     }
@@ -253,7 +253,7 @@ function GetSSLReading(url) {
     sslLdapFlag = true;
   }
   if (url.indexOf("/Truststore/") != -1) {
-    updateCertificateValidInfo(url, "CAvalidDate");
+    updateCertificateValidInfo(url, "ADCAvalidDate");
     sslCaFlag = true;
   }
   Loading(false);

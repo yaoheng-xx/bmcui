@@ -60,7 +60,7 @@ function ADPageInit() {
   initCheckInputListener("ADIP", lang.LANG_CONFIG_ACTIVE_DIRECTORY_IP,
                          INPUT_FIELD.HOSTNAMEANDIPV4);
   CheckUserPrivilege(ADPrivilegeCallBack);
-  AdGroupTableInit();
+  //AdGroupTableInit();
 }
 
 function ADOutputString() {
@@ -85,8 +85,8 @@ function ADOutputString() {
       lang.LANG_CONFIG_AD_GROUP_PRIVILEGE;
   //document.getElementById("ad_groupdomain_span").textContent =
   //    lang.LANG_AD_COLUMN_TITLE2;
-  document.getElementById("ad_gf_header_span").textContent =
-      lang.LANG_CONFIG_AD_GF_TITLE;
+  //document.getElementById("ad_gf_header_span").textContent =
+  //    lang.LANG_CONFIG_AD_GF_TITLE;
   document.getElementById("ADssl_enable").textContent = lang.LANG_AD_ADV_SSL;
   document.getElementById("ADcaValid").textContent =
       lang.LANG_AD_SSL_CA_VALID_INFO;

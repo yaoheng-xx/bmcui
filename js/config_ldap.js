@@ -8,10 +8,10 @@ var selected_row = '';
 var LDAPpage = "/page/config_ldap.html";
 var sslLdapFlag;
 var sslCaFlag;
-window.addEventListener('load', PageInit);
+window.addEventListener('load', LDPageInit);
 if (parent.lang) { lang = parent.lang; }
 
-function PageInit()
+function LDPageInit()
 {
     top.frames.topmenu.document.getElementById("frame_help").src =  "../help/" + lang_setting + "/configure_ldap_hlp.html";
     document.getElementById("LDButtonSave").value = lang.LANG_CONFIG_LDAP_SAVE;
@@ -36,14 +36,14 @@ function PageInit()
             saveLDAPconfig();
         }
     });
-    OutputString();
+    LDOutputString();
     initCheckInputListener("LDAPIP", lang.LANG_CONFIG_LDAP_IP,
                            INPUT_FIELD.HOSTNAMEANDIPV4);
-    CheckUserPrivilege(PrivilegeCallBack);
-    LDAPGroupTableInit();
+    CheckUserPrivilege(LDPrivilegeCallBack);
+    //LDAPGroupTableInit();
 }
 
-function OutputString() {
+function LDOutputString() {
     document.getElementById("caption_div").textContent = lang.LANG_CONFIG_LDAP_CAPTION;
     document.getElementById("ldap_en_span").textContent = lang.LANG_CONFIG_LDAP_EN;
     document.getElementById("ldap_ip_span").textContent = lang.LANG_CONFIG_LDAP_IP;
@@ -54,7 +54,7 @@ function OutputString() {
         lang.LANG_CONFIG_LDAP_USERID_ATTR;
     document.getElementById("ldap_groupname_span").textContent = lang.LANG_CONFIG_LDAP_GROUP_NAME;
     document.getElementById("ldap_groupprivilege_span").textContent = lang.LANG_CONFIG_LDAP_GROUP_PRIVILEGE;
-    document.getElementById("ldap_gf_header_span").textContent = lang.LANG_CONFIG_LDAP_GF_TITLE;
+    //document.getElementById("ldap_gf_header_span").textContent = lang.LANG_CONFIG_LDAP_GF_TITLE;
     document.getElementById("LDssl_enable").textContent =
         lang.LANG_CONFIG_LDAP_SSL;
     /*
@@ -80,8 +80,8 @@ function LDAPGroupTableInit() {
   LDAPGroupTable.onclick =
       function() { CheckUserPrivilege(onClickLDAPGroupList); };
   document.getElementById("LDButtonDeleteGroup").style.display = "none";
-  document.getElementById("LDgroup_name").style.display = "none";
-  document.getElementById("LDgroup_priv").style.display = "none";
+  //document.getElementById("LDgroup_name").style.display = "none";
+  //document.getElementById("LDgroup_priv").style.display = "none";
 }
 
 function onClickLDAPGroupList(privilege) {
@@ -90,8 +90,8 @@ function onClickLDAPGroupList(privilege) {
   } else {
     enableLDAPGroupInfos(EnableLDAPSwitch.checked);
   }
-  document.getElementById("LDgroup_name").style.display = "";
-  document.getElementById("LDgroup_priv").style.display = "";
+  //document.getElementById("LDgroup_name").style.display = "";
+  //document.getElementById("LDgroup_priv").style.display = "";
   document.getElementById("LDButtonDeleteGroup").style.display = "";
   selected_row = GetSelectedRowCellInnerHTML(0);
   if (selected_row == "~") {
@@ -99,8 +99,8 @@ function onClickLDAPGroupList(privilege) {
     LDGroupPrivilege.value = '';
     document.getElementById("LDButtonDeleteGroup").style.display = "none";
   } else {
-    document.getElementById("LDgroup_name").style.display = "";
-    document.getElementById("LDgroup_priv").style.display = "";
+    //document.getElementById("LDgroup_name").style.display = "";
+    //document.getElementById("LDgroup_priv").style.display = "";
     document.getElementById("LDButtonDeleteGroup").style.display = "";
     for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
       if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
@@ -137,13 +137,13 @@ function deleteLDAPGroup() {
   }
 }
 
-function PrivilegeCallBack(Privilege)
+function LDPrivilegeCallBack(Privilege)
 {
     if(Privilege == '04') {
-      getCertificateInfo();
+      LDgetCertificateInfo();
       requestReadLDAPInfo();
     } else if (Privilege == '03' || Privilege == '02') {
-      disablefunc();
+      LDdisablefunc();
       requestReadLDAPInfo();
     } else {
       location.href = SubMainPage;
@@ -151,7 +151,7 @@ function PrivilegeCallBack(Privilege)
     }
 }
 
-function disablefunc(){
+function LDdisablefunc(){
     LDIP.disabled = true;
     LDBinPW.disabled = true;
     LDBinDN.disabled = true;
@@ -161,19 +161,19 @@ function disablefunc(){
     LDSave.disabled = true;
     EnableLDAPSwitch.disabled = true;
 }
-function getCertificateInfo() {
+function LDgetCertificateInfo() {
   Loading(true);
   var ajaxUrl = '/redfish/v1/CertificateService/CertificateLocations';
   var ajaxReq = new Ajax.Request(ajaxUrl, {
     method : 'GET',
-    onSuccess : GETCertificateURL,
+    onSuccess : LDGETCertificateURL,
     onFailure : function() {
       Loading(false);
       alert(lang.LANG_CONFIG_SSL_CERTIFICATE_GET_FAILED);
     },
   });
 }
-function GETCertificateURL(arg) {
+function LDGETCertificateURL(arg) {
   if (arg.readyState == 4 && arg.status == 200) {
     var response = JSON.parse(arg.responseText);
     var certificate_array = response.Links.Certificates;
@@ -186,22 +186,22 @@ function GETCertificateURL(arg) {
     }
     for (var i = 0; i < certificate_array.length; i++) {
       console.log(certificate_array[i]["@odata.id"]);
-      GetSSLReading(certificate_array[i]["@odata.id"]);
+      LDGetSSLReading(certificate_array[i]["@odata.id"]);
     }
   }
 }
-function GetSSLReading(url) {
+function LDGetSSLReading(url) {
   if (url.indexOf("/LDAP/") != -1) {
-    updateCertificateValidInfo(url, "ldapValidDate");
+    LDupdateCertificateValidInfo(url, "ldapValidDate");
     sslLdapFlag = true;
   }
   if (url.indexOf("/Truststore/") != -1) {
-    updateCertificateValidInfo(url, "CAvalidDate");
+    LDupdateCertificateValidInfo(url, "CAvalidDate");
     sslCaFlag = true;
   }
   Loading(false);
 }
-function updateCertificateValidInfo(url, id) {
+function LDupdateCertificateValidInfo(url, id) {
   var ajax_req = new Ajax.Request(url, {
     method : 'GET',
     onSuccess : function(arg) {
@@ -224,7 +224,7 @@ function requestReadLDAPInfo()
         onSuccess: responseLDAPInfo,
         onFailure: function(response){
             Loading(false);
-            HandleFailureStatus(response, lang.LANG_CONFIG_LDAP_GET_FAILED, disablefunc);
+            HandleFailureStatus(response, lang.LANG_CONFIG_LDAP_GET_FAILED, LDdisablefunc);
         }
     });
 }
@@ -338,7 +338,8 @@ function validateLDAPform() {
     }
 }
 
-function certificateValidation(fileField, errorMessage) {
+/*
+function LDcertificateValidation(fileField, errorMessage) {
     if (!fileField.files.length) {
         alert(lang.LANG_THERMAL_UPLOAD_FILE);
         return false;
@@ -355,6 +356,29 @@ function certificateValidation(fileField, errorMessage) {
     }
 }
 
+function LDsaveresult(originalRequest)
+{
+    if (originalRequest.readyState == 4 && originalRequest.status == 200) {
+        alert(lang.LANG_CONFIG_LDAP_SUCCSAVE, {title: lang.LANG_GENERAL_SUCCESS});
+      requestReadLDAPInfo();
+    }
+    else {
+       alert(lang.LANG_COMMON_UNSAVE);
+    }
+}
+
+
+function response_Create_LDAP_Group(originalRequest){
+    f (originalRequest.readyState == 4 && originalRequest.status == 200) {
+        alert(lang.LANG_CONFIG_LDAP_SUCCSAVE, {title: lang.LANG_GENERAL_SUCCESS});
+      requestReadLDAPInfo();
+    }
+    else {
+       alert(lang.LANG_COMMON_UNSAVE);
+    } 
+  }
+
+*/
 function saveLDAPconfig() {
   var ajax_url = "/redfish/v1/AccountService";
   var ajax_param = {"ActiveDirectory" : {"ServiceEnabled" : false}};
@@ -431,26 +455,9 @@ function Create_LDAP_Group() {
     Loading(false);
 }
 
-function response_Create_LDAP_Group(originalRequest){
-    /*f (originalRequest.readyState == 4 && originalRequest.status == 200) {
-        alert(lang.LANG_CONFIG_LDAP_SUCCSAVE, {title: lang.LANG_GENERAL_SUCCESS});
-      requestReadLDAPInfo();
-    }
-    else {
-       alert(lang.LANG_COMMON_UNSAVE);
-    }*/
-}
 
-function saveresult(originalRequest)
-{
-    if (originalRequest.readyState == 4 && originalRequest.status == 200) {
-        alert(lang.LANG_CONFIG_LDAP_SUCCSAVE, {title: lang.LANG_GENERAL_SUCCESS});
-      requestReadLDAPInfo();
-    }
-    else {
-       alert(lang.LANG_COMMON_UNSAVE);
-    }
-}
+
+
 
 function enableLDAPInfos(enable) {
     LDIP.disabled = !enable;
@@ -458,7 +465,7 @@ function enableLDAPInfos(enable) {
     LDBinDN.disabled = !enable;
     LDBase.disabled = !enable;
     LDUserID.disabled = !enable;
-    checkSSL(enable);
+    LDcheckSSL(enable);
 }
 
 function enableLDAPGroupInfos(enable){
@@ -472,7 +479,7 @@ function onLDAPEnable() {
     enableLDAPGroupInfos(EnableLDAPSwitch.checked);
 }
 
-function checkSSL(ldapStatus) {
+function LDcheckSSL(ldapStatus) {
   if (sslCaFlag && sslLdapFlag) {
     if (ldapStatus) {
       enableLDAPoverSSL.disabled = false;

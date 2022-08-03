@@ -29,11 +29,12 @@
                     <span id="ldap_en_span" class="labelhead"></span></label></td>
                 </tr>
                 <tr>
-                    <td>&nbsp;<label><input type="checkbox" id="enableSSL"/>
-                    <span id="ssl_enable" class="labelhead"></span></label></td>
+                    <td>&nbsp;<label><input type="checkbox" id="LDenableSSL"/>
+                    <span id="LDssl_enable" class="labelhead"></span></label></td>
+                    <!--
                     <td>
                         <fieldset class="wideldap group">
-                            <p id="sslValidInfo" class="labelhead"></p>
+                            <p id="LDsslValidInfo" class="labelhead"></p>
                             <div class="subSection">
                                 <table border="0">
                                     <tr>
@@ -56,6 +57,7 @@
                             </div>
                         </fieldset>
                     </td>
+                    -->
                 </tr>
             </table>
             </td></tr>
@@ -81,6 +83,15 @@
                     <td>&nbsp;<span id="ldap_userid_span" class="labelhead"></span></td>
                     <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPUSERID"/></td>
                 </tr>
+                <tr id="LDgroup_name">
+                    <td>&nbsp;<span id="ldap_groupname_span" class="labelhead"></span></td>
+                    <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPGROUPNAME" width="90%"/></td>
+                </tr>
+                <tr id="group_priv">
+                    <td>&nbsp;<span id="ldap_groupprivilege_span" class="labelhead"></span></td>
+                    <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPPRIVILEGE" width="90%"/></td>
+                </tr>
+
                 <tr>
                     <td>&nbsp;</td>
                 </tr>
@@ -94,28 +105,15 @@
                         <div class="list_tbl" id="LDAPGroupTable"></div>
                     </td>
                 </tr>
-                <tr id="group_name">
-                    <td>&nbsp;<span id="ldap_groupname_span" class="labelhead"></span></td>
-                    <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPNAME" width="90%"/></td>
-                </tr>
-                <tr id="group_priv">
-                    <td>&nbsp;<span id="ldap_groupprivilege_span" class="labelhead"></span></td>
-                    <td width="393">
-                        <select id="GROUPPRIVILEGE" class="labelhead">
-                            <option value="Administrator">Administrator</option>
-                            <option value="Operator">Operator</option>
-                            <option value="ReadOnly">User</option>
-                        </select>
-                    </td>
-                </tr>
+
             </table>
             </td></tr>
             <tr><td height="53"></td>
               <td height="53">
               <!-- below area is needed to modify by yourself -->
               <br>
-              <input type="button" class="btnStyle" id="ButtonSave"/>
-              <input type="button" class="btnStyle" id="ButtonDeleteGroup"/>
+              <input type="button" class="btnStyle" id="LDButtonSave"/>
+              <input type="button" class="btnStyle" id="LDButtonDeleteGroup"/>
               <!-- end of this area -->
               </td>
         </table>

@@ -14,21 +14,21 @@ if (parent.lang) { lang = parent.lang; }
 function PageInit()
 {
     top.frames.topmenu.document.getElementById("frame_help").src =  "../help/" + lang_setting + "/configure_ldap_hlp.html";
-    document.getElementById("ButtonSave").value = lang.LANG_CONFIG_LDAP_SAVE;
-    document.getElementById("ButtonDeleteGroup").value = "Delete";
+    document.getElementById("LDButtonSave").value = lang.LANG_CONFIG_LDAP_SAVE;
+    document.getElementById("LDButtonDeleteGroup").value = "Delete";
     EnableLDAPSwitch = document.getElementById("SwitchLDAP");
     EnableLDAPSwitch.addEventListener("click", onLDAPEnable);
     LDIP = document.getElementById("LDAPIP");
-    enableLDAPoverSSL = document.getElementById("enableSSL");
+    enableLDAPoverSSL = document.getElementById("LDenableSSL");
     LDBinPW = document.getElementById("LDAPBINDPW");
     LDBinDN = document.getElementById("LDAPBINDWN");
     LDBase = document.getElementById("LDAPBASE");
     LDUserID = document.getElementById("LDAPUSERID");
-    LDGroupName = document.getElementById("GROUPNAME");
-    LDGroupPrivilege = document.getElementById("GROUPPRIVILEGE");
-    LDGroupDelete = document.getElementById("ButtonDeleteGroup");
+    LDGroupName = document.getElementById("LDGROUPNAME");
+    LDGroupPrivilege = document.getElementById("LDGROUPPRIVILEGE");
+    LDGroupDelete = document.getElementById("LDButtonDeleteGroup");
     LDGroupDelete.addEventListener("click", deleteLDAPGroup);
-    LDSave = document.getElementById("ButtonSave");
+    LDSave = document.getElementById("LDButtonSave");
     LDSave.addEventListener("click", function(){
         if(EnableLDAPSwitch.checked){
             validateLDAPform();
@@ -55,14 +55,16 @@ function OutputString() {
     document.getElementById("ldap_groupname_span").textContent = lang.LANG_CONFIG_LDAP_GROUP_NAME;
     document.getElementById("ldap_groupprivilege_span").textContent = lang.LANG_CONFIG_LDAP_GROUP_PRIVILEGE;
     document.getElementById("ldap_gf_header_span").textContent = lang.LANG_CONFIG_LDAP_GF_TITLE;
-    document.getElementById("ssl_enable").textContent =
+    document.getElementById("LDssl_enable").textContent =
         lang.LANG_CONFIG_LDAP_SSL;
+    /*
     document.getElementById("caValid").textContent =
         lang.LANG_AD_SSL_CA_VALID_INFO;
     document.getElementById("ldapValid").textContent =
         lang.LANG_AD_SSL_LDAP_VALID_INFO;
-    document.getElementById("sslValidInfo").textContent =
+    document.getElementById("LDsslValidInfo").textContent =
         lang.LANG_LDAP_SSL_VALID_INFO;
+    */    
 }
 
 function LDAPGroupTableInit() {
@@ -77,9 +79,9 @@ function LDAPGroupTableInit() {
   GridTable.init('GridTable', LDAPGroupTable, "100px");
   LDAPGroupTable.onclick =
       function() { CheckUserPrivilege(onClickLDAPGroupList); };
-  document.getElementById("ButtonDeleteGroup").style.display = "none";
-  document.getElementById("group_name").style.display = "none";
-  document.getElementById("group_priv").style.display = "none";
+  document.getElementById("LDButtonDeleteGroup").style.display = "none";
+  document.getElementById("LDgroup_name").style.display = "none";
+  document.getElementById("LDgroup_priv").style.display = "none";
 }
 
 function onClickLDAPGroupList(privilege) {
@@ -88,18 +90,18 @@ function onClickLDAPGroupList(privilege) {
   } else {
     enableLDAPGroupInfos(EnableLDAPSwitch.checked);
   }
-  document.getElementById("group_name").style.display = "";
-  document.getElementById("group_priv").style.display = "";
-  document.getElementById("ButtonDeleteGroup").style.display = "";
+  document.getElementById("LDgroup_name").style.display = "";
+  document.getElementById("LDgroup_priv").style.display = "";
+  document.getElementById("LDButtonDeleteGroup").style.display = "";
   selected_row = GetSelectedRowCellInnerHTML(0);
   if (selected_row == "~") {
     LDGroupName.value = '';
     LDGroupPrivilege.value = '';
-    document.getElementById("ButtonDeleteGroup").style.display = "none";
+    document.getElementById("LDButtonDeleteGroup").style.display = "none";
   } else {
-    document.getElementById("group_name").style.display = "";
-    document.getElementById("group_priv").style.display = "";
-    document.getElementById("ButtonDeleteGroup").style.display = "";
+    document.getElementById("LDgroup_name").style.display = "";
+    document.getElementById("LDgroup_priv").style.display = "";
+    document.getElementById("LDButtonDeleteGroup").style.display = "";
     for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
       if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
         LDGroupName.value = RemoteRoleMapping_array[i].RemoteGroup;

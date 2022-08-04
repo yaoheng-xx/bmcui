@@ -16,11 +16,11 @@
     <script language="javascript" src="../js/generalTableController.js"></script>
     <script language="javascript" src="../../js/iframe_event.js"></script>
     <script language="javascript" src="../js/config_ad.js"></script>
+   
 </head>
 
 <body>
     <span class="LoadingStyle" id="loading"></span>
-                   
         <fieldset class="wideldap group">
             <p id="ADsslValidInfo" class="labelhead"></p>
             <div class="subSection">
@@ -44,6 +44,7 @@
                 </table>
             </div>
         </fieldset>
+
 
     <table border="0" cellpadding="0" cellspacing="5" class="content_table">
         <tr>
@@ -147,6 +148,105 @@
                     </tr>
                 -->
 
+                </table>
+
+                <table border="0" width="100%" id="table1">
+                    <tr>
+                        <td>&nbsp;<label><input type="checkbox" id="SwitchLDAP"/>
+                        <span id="ldap_en_span" class="labelhead"></span></label></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<label><input type="checkbox" id="LDenableSSL"/>
+                        <span id="LDssl_enable" class="labelhead"></span></label></td>
+                        <!--
+                        <td>
+                            <fieldset class="wideldap group">
+                                <p id="LDsslValidInfo" class="labelhead"></p>
+                                <div class="subSection">
+                                    <table border="0">
+                                        <tr>
+                                            <td>
+                                                <span class="labelhead" id="caValid"></span>
+                                            </td>
+                                            <td id="CAvalidDate">
+                                                <span>--</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <span class="labelhead" id="ldapValid"></span>
+                                            </td>
+                                            <td>
+                                                <span id="ldapValidDate">--</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </fieldset>
+                        </td>
+                        -->
+                    </tr>
+                </table>
+                </td></tr>
+            <tr><td>&nbsp;</td><td>
+
+                <table border="0" id="table3">
+                    <tr>
+                        <td>&nbsp;<span id="ldap_ip_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" id="LDAPIP"/></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ldap_dn_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPBINDWN"/></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ldap_pwd_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="password" id="LDAPBINDPW"/></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ldap_sb_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPBASE"/></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;<span id="ldap_userid_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPUSERID"/></td>
+                    </tr>
+                    <!--   
+                    <tr id="LDgroup_name">
+                        <td>&nbsp;<span id="ldap_groupname_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPGROUPNAME" width="90%"/></td>
+                    </tr>
+    
+                    <tr id="LDgroup_priv">
+                        <td>&nbsp;<span id="ldap_groupprivilege_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPPRIVILEGE" width="90%"/></td>
+                    </tr>
+                    -->
+                    <tr >
+                        <td>&nbsp;<span id="ldap_groupname_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPGROUPNAME"  /></td>
+                    </tr>
+    
+                    <tr >
+                        <td>&nbsp;<span id="ldap_groupprivilege_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPPRIVILEGE" /></td>
+                    </tr>
+    
+                    <!--  
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr class="head">
+                        <td colspan="2" class="bold">
+                            <span id="ldap_gf_header_span" class="labelhead"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="list_tbl" id="LDAPGroupTable"></div>
+                        </td>
+                    </tr>
+                    -->
                 </table>
             </td>
         </tr>

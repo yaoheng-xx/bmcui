@@ -16,7 +16,6 @@
     <script language="javascript" src="../js/generalTableController.js"></script>
     <script language="javascript" src="../../js/iframe_event.js"></script>
     <script language="javascript" src="../js/config_ad.js"></script>
-   
 </head>
 
 <body>
@@ -45,7 +44,6 @@
             </div>
         </fieldset>
 
-
     <table border="0" cellpadding="0" cellspacing="5" class="content_table">
         <tr>
             <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
@@ -63,148 +61,87 @@
         
         <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table hide">
         <tr>
-            <td>&nbsp;</td>
             <td>
                 <table border="0" id="table2">
                     <tr>
-                        <td>&nbsp;AD SETTING</span></td> <td> &nbsp;</td><td width="393">&nbsp; LDAP SETTING</span></td>
+                        <td>&nbsp;AD SETTING</span></td> 
                     </tr>
                     <tr>
-                        <td>&nbsp;<label><input type="radio" id="ADSwitchAD" />
+                        <td>&nbsp;<label><input type="radio" id="ADSwitchAD"/>
                         <span id="ad_en_span" class="labelhead"></span></label></td>
-                        <td> &nbsp;</td>
-                        <td width="393">&nbsp;<label><input type="radio" id="SwitchLDAP"/>
-                        <span id="ldap_en_span" class="labelhead"></span></label></td>
-                        <!-- <td width="393">&nbsp;<label><input type="radio" id="SwitchNone"/>
-                            <span id="none_en_span" class="labelhead"></span></label></td> -->
                     </tr>
                     <tr><td> &nbsp;</td></tr>
                     <tr>
                         <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
                                 <span id="ADssl_enable" class="labelhead"></span></label></td>
-                        <td> &nbsp;</td>
-                        <td width="393">&nbsp;<label><input type="checkbox" id="LDenableSSL"/>
-                            <span id="LDssl_enable" class="labelhead"></span></label></td>
                     </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_ip_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" id="ADIP" /></td>
-
-                        <td>&nbsp;<span id="ldap_ip_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" id="LDAPIP"/></td>
-
                     </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_dn_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADBINDWN" /></td>
-
-                        <td>&nbsp;<span id="ldap_dn_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPBINDWN"/></td>
                     </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_pwd_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="password" id="ADBINDPW" /></td>
-
-                        <td>&nbsp;<span id="ldap_pwd_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="password" id="LDAPBINDPW"/></td>
                     </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_sb_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADBASE" /></td>
-
-                        <td>&nbsp;<span id="ldap_sb_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPBASE"/></td>
                     </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_userid_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADUSERID" /></td>
-
-                        <td>&nbsp;<span id="ldap_userid_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPUSERID"/></td>
                     </tr>
-                    <!--
-                    <tr>
-                        <td>&nbsp;<span id="ad_timeout_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADTIMEOUT" /></td>
-                    </tr>
-
-                    <tr>
-                        <td>&nbsp;<span id="ad_port_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADPORTVALUE" /></td>
-                    </tr>
-                    -->
                     <tr id="role_group_name">
                         <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPNAME" width="90%" /></td>
-
-                        <td>&nbsp;<span id="ldap_groupname_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPGROUPNAME"  /></td>
                     </tr>
                     <tr id="role_group_priv">
                         <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPPRIVILEGE" width="90%" /></td>
-
-                        <td>&nbsp;<span id="ldap_groupprivilege_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPPRIVILEGE" /></td>
-                    </tr>
-
-
-                </table>
-
-            </td>
-            <!--
-            <td>&nbsp;</td>
-            <td>
-                <table border="0" id="table3">
-                    <tr>
-                        <td>&nbsp;<span id="ldap_ip_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" id="LDAPIP"/></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;<span id="ldap_dn_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPBINDWN"/></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;<span id="ldap_pwd_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="password" id="LDAPBINDPW"/></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;<span id="ldap_sb_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPBASE"/></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;<span id="ldap_userid_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPUSERID"/></td>
-                    </tr>
-                    <tr >
-                        <td>&nbsp;<span id="ldap_groupname_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="LDAPGROUPNAME"  /></td>
-                    </tr>
-    
-                    <tr >
-                        <td>&nbsp;<span id="ldap_groupprivilege_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPPRIVILEGE" /></td>
                     </tr>
                 </table>
             </td>
-            -->
         </tr>
 
-
-
-
+        <tr class="head">
+            <td colspan="2" class="bold">
+                <span id="ad_gf_header_span" class="labelhead"></span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="list_tbl" id="ADGroupTable"></div>
+            </td>
+        </tr>
+        <tr id="group_name">
+            <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
+            <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPNAME" width="90%" /></td>
+        </tr>
+        <tr id="group_domain">
+            <td>&nbsp;<span id="ad_groupdomain_span" class="labelhead"></span></td>
+            <td width="393">&nbsp;<input type="text" maxlength="255" id="GROUPDOMAIN" width="90%" /></td>
+        </tr>
+        <tr id="group_priv">
+            <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
+            <td width="393">
+                <select id="GROUPPRIVILEGE" class="labelhead">
+                    <option value="Administrator">Administrator</option>
+                    <option value="Operator">Operator</option>
+                    <option value="ReadOnly">User</option>
+                </select>
+            </td>
+        </tr>
 
         <tr>
-
-
-
             <td height="53"></td>
             <td height="53">
-                <!-- below area is needed to modify by yourself -->
                 <br>
                 <input type="button" class="btnStyle" id="ADButtonSave" />
                 <input type="button" class="btnStyle" id="ADButtonDeleteGroup" />
-                <!-- end of this area -->
             </td>
         </table>
 
@@ -226,11 +163,7 @@
                     </table>
                 </td>
             </tr>
-
         </table>
-
-
-
     </table>
 </body>
 

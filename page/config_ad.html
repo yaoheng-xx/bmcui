@@ -99,10 +99,25 @@
                         <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPNAME" /></td>
                     </tr>
+                    <!--
                     <tr id="role_group_priv">
                         <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPPRIVILEGE" /></td>
                     </tr>
+                    -->
+                    <tr id="role_group_priv">
+                        <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
+                        <td width="393">
+                            <select id="ADGROUPPRIVILEGE" class="labelhead">
+                                <option value="Administrator">Administrator</option>
+                                <option value="Operator">Operator</option>
+                                <option value="ReadOnly">User</option>
+                            </select>
+                        </td>
+                    </tr>
+
+
+
                 </table>
             </td>
         </tr>

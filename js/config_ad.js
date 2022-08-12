@@ -1,12 +1,18 @@
 "use strict";
 var urlRdirect = 0;
-var RemoteRoleMapping_array = [];
-var RowData = [];
+var AdRemoteRoleMapping_array = [];
+var LdRemoteRoleMapping_array = [];
+var AdRowData = [];
+var LdRowData = [];
 var selected_row = '';
 var AdPage = "/page/config_ad.html";
 var sslLdapFlag;
 var sslCaFlag;
 var EnableAdSwitch;
+
+
+var enableAd=true;
+
 var AdIp;
 var enableLDAPoverSSL;
 var AdBinPW;
@@ -26,7 +32,14 @@ var LDGridTable;
 window.addEventListener('load', ADPageInit);
 var lang;
 if (parent.lang) { lang = parent.lang; }
+// TODO
+/*
+switch id设置查看ad还是ldap
 
+Save delete 根据 switch调换
+init使用ad
+groupclick根据改变
+*/
 
 function ADPageInit() {
   top.frames.topmenu.document.getElementById("frame_help").src =
@@ -45,24 +58,19 @@ function ADPageInit() {
   AdGroupPrivilege = document.getElementById("ADGROUPPRIVILEGE");
   AdGroupDomain = "NULL";
   AdGroupDelete = document.getElementById("ADButtonDeleteGroup");
-  AdGroupDelete.addEventListener("click", deleteAdGroup);
+  AdGroupDelete.addEventListener("click", deleteGroup);
   AdSave = document.getElementById("ADButtonSave");
   AdSave.addEventListener("click", function() {
-    if (EnableAdSwitch.checked) {
       validateAdform();
-    } else {
-      saveAdconfig();
-    }
   });
   ADOutputString();
-  //initCheckInputListener("ADIP", lang.LANG_CONFIG_ACTIVE_DIRECTORY_IP,
-  //                       INPUT_FIELD.HOSTNAMEANDIPV4);
   CheckUserPrivilege(ADPrivilegeCallBack);
   AdGroupTableInit();
 }
 
+
+
 function ADOutputString() {
-  //document.getElementById("none_en_span").textContent = "NONE";
   document.getElementById("ad_en_span").textContent = lang.LANG_AD_ADV_ENABLE;
   document.getElementById("ad_en_span").textContent = lang.LANG_AD_ADV_ENABLE;
   document.getElementById("ad_ip_span").textContent =
@@ -75,9 +83,6 @@ function ADOutputString() {
       lang.LANG_CONFIG_AD_SEARCH_BASE;
   document.getElementById("ad_userid_span").textContent =
       lang.LANG_CONFIG_ACTIVE_DIRECTORY_USER_ID;
-  //document.getElementById("ad_timeout_span").textContent =
-  //    lang.LANG_CONFIG_ACTIVE_DIRECTORY_TIMEOUT;
-  //document.getElementById("ad_port_span").textContent = lang.LANG_AD_ADV_PORT;
   document.getElementById("ad_groupname_span").textContent =
       lang.LANG_AD_GROUP_NAME;
   document.getElementById("ad_groupprivilege_span").textContent =
@@ -94,7 +99,6 @@ function ADOutputString() {
 function AdGroupTableInit() {
   var TableTitles = [
     [ lang.LANG_ADDAD_NAME, "50%", "center" ],
-    //[ lang.LANG_ADDAD_DOMAIN, "50%", "center" ],
     [ lang.LANG_ADDAD_PRIV, "50%", "center" ],
   ];
   var AdGroupTable = document.getElementById("ADGroupTable");
@@ -103,34 +107,27 @@ function AdGroupTableInit() {
   LDGridTable.setColumns(TableTitles);
   LDGridTable.init('LDGridTable', AdGroupTable, "60px");
   AdGroupTable.onclick = onClickAdGroupList;
-  //document.getElementById("ADButtonDeleteGroup").style.display = "none";
-  //document.getElementById("role_group_name").style.display = "none";
-  //document.getElementById("role_group_domain").style.display = "none";
-  //document.getElementById("role_group_priv").style.display = "none";
-
 }
 
 function onClickAdGroupList() {
-  //enableAdGroupInfos(EnableAdSwitch.checked);
   document.getElementById("role_group_name").style.display = "";
-  //document.getElementById("role_group_domain").style.display = "";
   document.getElementById("role_group_priv").style.display = "";
   document.getElementById("ADButtonDeleteGroup").style.display = "";
   selected_row = GetSelectedRowCellInnerHTML(0);
   if (selected_row == "~") {
     AdGroupName.value = '';
-    //AdGroupDomain.value = '';
     AdGroupPrivilege.value = '';
-    //document.getElementById("ADButtonDeleteGroup").style.display = "none";
   } else {
     document.getElementById("role_group_name").style.display = "";
     document.getElementById("role_group_priv").style.display = "";
     document.getElementById("ADButtonDeleteGroup").style.display = "";
-    for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
-      if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
-        AdGroupName.value = RemoteRoleMapping_array[i].RemoteGroup;
-        AdGroupDomain.value = RemoteRoleMapping_array[i].Oem.OpenBMC.RemoteDomain;
-        AdGroupPrivilege.value = RemoteRoleMapping_array[i].LocalRole;
+
+    var tempmap = EnableAdSwitch.check?AdRemoteRoleMapping_array:LdRemoteRoleMapping_array;
+
+    for (var i = 0; i < tempmap.length; i++) {
+      if (tempmap[i].RemoteGroup == selected_row) {
+        AdGroupName.value = tempmap[i].RemoteGroup;
+        AdGroupPrivilege.value = tempmap[i].LocalRole;
       }
     }
   }
@@ -140,14 +137,14 @@ function deleteAdGroup() {
   selected_row = GetSelectedRowCellInnerHTML(0);
   Loading(true);
   if (selected_row != "~") {
-    for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
-      if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
-        RemoteRoleMapping_array[i] = null;
+    for (var i = 0; i < AdRemoteRoleMapping_array.length; i++) {
+      if (AdRemoteRoleMapping_array[i].RemoteGroup == selected_row) {
+        AdRemoteRoleMapping_array[i] = null;
       }
     }
     var ajax_url = '/redfish/v1/AccountService';
     var ajax_param = {
-      "ActiveDirectory" : {"RemoteRoleMapping" : RemoteRoleMapping_array}
+      "ActiveDirectory" : {"RemoteRoleMapping" : AdRemoteRoleMapping_array}
     };
     var object = JSON.stringify(ajax_param);
     var ajax_req = new Ajax.Request(ajax_url, {
@@ -163,6 +160,77 @@ function deleteAdGroup() {
     Loading(false);
   }
 }
+
+function deleteLDAPGroup() {
+  LDselected_row = GetSelectedRowCellInnerHTML(0);
+  Loading(true);
+  if (LDselected_row != "~") {
+    for (var i = 0; i < LDRemoteRoleMapping_array.length; i++) {
+      if (LDRemoteRoleMapping_array[i].RemoteGroup == LDselected_row) {
+        LDRemoteRoleMapping_array[i] = null;
+      }
+    }
+    var ajax_url = '/redfish/v1/AccountService';
+    ajax_param = {"LDAP" : {"RemoteRoleMapping" : LDRemoteRoleMapping_array}};
+    var object = JSON.stringify(ajax_param);
+    var ajax_req = new Ajax.Request(ajax_url, {
+      method : 'PATCH',
+      contentType : 'application/json',
+      parameters : object,
+      onSuccess : function() {
+        alert(lang.LANG_GRP_DELETE_SUCCESS,
+              {onClose : function() { location.href = LDAPpage; }});
+      },
+      onFailure : function() { alert(lang.LANG_CONFIG_LDAP_GROUP_SAVE_FAILED); }
+    });
+    Loading(false);
+  }
+}
+
+
+function deleteGroup() {
+  LDselected_row = GetSelectedRowCellInnerHTML(0);
+  Loading(true);
+  if (selected_row == "~") return;
+  var tempGroup;
+  if(EnableAdSwitch){
+    for (var i = 0; i < AdRemoteRoleMapping_array.length; i++) {
+      if (AdRemoteRoleMapping_array[i].RemoteGroup == selected_row) {
+        AdRemoteRoleMapping_array[i] = null;
+      }
+    }
+    tempGroup = AdRemoteRoleMapping_array;
+  }else{
+    for (var i = 0; i < LDRemoteRoleMapping_array.length; i++) {
+      if (LDRemoteRoleMapping_array[i].RemoteGroup == LDselected_row) {
+        LDRemoteRoleMapping_array[i] = null;
+      }
+    }
+    tempGroup = LDRemoteRoleMapping_array;
+  }
+
+  var tempService=EnableAdSwitch.checked?"ActiveDirectory":"LDAP";
+  var tempPage= EnableAdSwitch.checked?AdPage:LDAPpage;
+  var tempFailureAlert=EnableAdSwitch.checked?lang.LANG_CONFIG_AD_GROUP_SAVE_FAILED:lang.LANG_CONFIG_LDAP_GROUP_SAVE_FAILED;
+  var ajax_url = '/redfish/v1/AccountService';
+  ajax_param = {tempService: {"RemoteRoleMapping" : tempGroup}};
+  var object = JSON.stringify(ajax_param);
+  var ajax_req = new Ajax.Request(ajax_url, {
+    method : 'PATCH',
+    contentType : 'application/json',
+    parameters : object,
+    onSuccess : function() {
+      alert(lang.LANG_GRP_DELETE_SUCCESS,
+            {onClose : function() { location.href = tempPage; }});
+    },
+    onFailure : function() { alert(tempFailureAlert); }
+  });
+  Loading(false);
+  
+}
+
+
+
 
 function ADPrivilegeCallBack(Privilege) {
   if (Privilege == '04') {
@@ -201,6 +269,7 @@ function ADSwlCallBack(swl_status) {
     alert(lang.LANG_SYS_INFO_SOFT_LICENSE_INACTIVATED);
   }
 }
+
 
 function ADdisablefunc() {
   AdIpPort.disabled = true;
@@ -259,13 +328,15 @@ function ADupdateCertificateValidInfo(url, id) {
   });
 }
 
-
+//查看countservice
 function requestReadAdInfo() {
   Loading(true);
   var ajax_url = '/redfish/v1/AccountService';
   var ajax_req = new Ajax.Request(ajax_url, {
     method : 'GET',
-    onSuccess : responseAdInfo,
+    onSuccess : function(response) {
+      responseAdInfo
+    },
     onFailure : function(response) {
       Loading(false);
       HandleFailureStatus(response, lang.LANG_CONFIG_AD_GET_FAILED,
@@ -294,9 +365,9 @@ function responseWriteAdInfo(arg) {
   if (arg.readyState == 4 && arg.status == 200) {
     var response = JSON.parse(arg.responseText);
     if (response.ActiveDirectory.ServiceEnabled) {
-      RemoteRoleMapping_array = response.ActiveDirectory.RemoteRoleMapping;
+      AdRemoteRoleMapping_array = response.ActiveDirectory.RemoteRoleMapping;
     } else {
-      RemoteRoleMapping_array = [];
+      AdRemoteRoleMapping_array = [];
     }
     Create_AD_Group();
     alert(lang.LANG_CONFIG_AD_UPDATE_SUCCESS, {
@@ -314,131 +385,180 @@ function responseWriteAdInfo(arg) {
 
 function responseAdInfo(arg) {
   Loading(false);
-  if (arg.readyState == 4 && arg.status == 200) {
-    var content = JSON.parse(arg.responseText);
+  if(arg.readyState != 4 || arg.status != 200) return;
+  var content = JSON.parse(arg.responseText);
+  var ad = {};
+  ad = content.ActiveDirectory;
 
-    var ad = {};
-    ad = content.ActiveDirectory;
+  var ad_en = (ad.ServiceEnabled) ? "1" : "0";
 
-    var ad_en = (ad.ServiceEnabled) ? "1" : "0";
+  var ad_ip = '';
 
-    var ad_ip = '';
+  if (ad.ServiceAddresses[0] != "") {
+    ad_ip = ad.ServiceAddresses[0].split("://")[1];
+  }
 
-    if (ad.ServiceAddresses[0] != "") {
-      ad_ip = ad.ServiceAddresses[0].split("://")[1];
+  var ad_bind = ad.Authentication.Username;
+
+  var ad_base = ad.LDAPService.SearchSettings.BaseDistinguishedNames[0];
+  var ad_pwd = "";
+  AdUserID.value = ad.LDAPService.SearchSettings.UsernameAttribute;
+  AdIp.value = ad_ip;
+
+  AdBinPW.value = ad_pwd;
+  AdBinDN.value = ad_bind;
+  AdBase.value = ad_base;
+
+  AdRemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
+
+  if (ad_en == "1") {
+    EnableAdSwitch.checked = true;
+  } else {
+    EnableAdSwitch.checked = false;
+  }
+  var adGroupData = ad.RemoteRoleMapping;
+  if (adGroupData.length == 0) {
+    AdRowData.push([ 1, "~", "~", "~" ]);
+  } else {
+    for (var i = 0; i < adGroupData.length; i++) {
+      var roleGroupPriv = adGroupData[i].LocalRole == "ReadOnly"
+                              ? "User"
+                              : adGroupData[i].LocalRole;
+      AdRowData.push([
+        i, adGroupData[i].RemoteGroup,
+        adGroupData[i].Oem.OpenBMC.RemoteDomain, roleGroupPriv
+      ]);
     }
-
-    var ad_bind = ad.Authentication.Username;
-
-    var ad_base = ad.LDAPService.SearchSettings.BaseDistinguishedNames[0];
-    var ad_pwd = "";
-    //AdTimeout.value = ad.LDAPService.Oem.OpenBMC.LDAPBindTime;
-    AdUserID.value = ad.LDAPService.SearchSettings.UsernameAttribute;
-    //AdPortValue.value = ad.LDAPService.Oem.OpenBMC.LDAPServerPort;
-    AdIp.value = ad_ip;
-
-    AdBinPW.value = ad_pwd;
-    AdBinDN.value = ad_bind;
-    AdBase.value = ad_base;
-
-    RemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
-
-    if (ad_en == "1") {
-      EnableAdSwitch.checked = true;
-    } else {
-      EnableAdSwitch.checked = false;
-    }
-    var adGroupData = ad.RemoteRoleMapping;
-    if (adGroupData.length == 0) {
-      RowData.push([ 1, "~", "~", "~" ]);
-    } else {
-      for (var i = 0; i < adGroupData.length; i++) {
-        var roleGroupPriv = adGroupData[i].LocalRole == "ReadOnly"
-                                ? "User"
-                                : adGroupData[i].LocalRole;
-        RowData.push([
-          i, adGroupData[i].RemoteGroup,
-          adGroupData[i].Oem.OpenBMC.RemoteDomain, roleGroupPriv
-        ]);
-      }
-      RowData.push([ adGroupData.length + 1, "~", "~", "~" ]);
-    }
-    LDGridTable.empty();
-    LDGridTable.show(RowData);
-    enableAdInfos(EnableAdSwitch.checked);
-    if (ad.ServiceAddresses[0].indexOf("ldap://") != -1) {
-      enableLDAPoverSSL.checked = false;
-    }
-    if (ad.ServiceAddresses[0].indexOf("ldaps://") != -1) {
-      enableLDAPoverSSL.checked = true;
-    }
+    AdRowData.push([ adGroupData.length + 1, "~", "~", "~" ]);
+  }
+  LDGridTable.empty();
+  LDGridTable.show(AdRowData);
+  enableAdInfos(EnableAdSwitch.checked);
+  if (ad.ServiceAddresses[0].indexOf("ldap://") != -1) {
+    enableLDAPoverSSL.checked = false;
+  }
+  if (ad.ServiceAddresses[0].indexOf("ldaps://") != -1) {
+    enableLDAPoverSSL.checked = true;
   }
 }
+
+
+function responseLDAPInfo(arg)
+{
+    Loading(false);
+    if (arg.readyState == 4 && arg.status == 200) {
+      var content = JSON.parse(arg.responseText);
+      var ldap = {};
+      ldap = content.LDAP;
+      var ldap_en = (ldap.ServiceEnabled) ? "1" : "0";
+      var ldap_ip = '';
+      if (ldap.ServiceAddresses[0] != "") {
+        ldap_ip = ldap.ServiceAddresses[0].split("://")[1];
+        }
+        var ldap_bind = ldap.Authentication.Username;
+        var ldap_base =
+            ldap.LDAPService.SearchSettings.BaseDistinguishedNames[0];
+        var ldap_pwd = "";
+        LDUserID.value = ldap.LDAPService.SearchSettings.UsernameAttribute;
+        LDIP.value = ldap_ip;
+        LDBinPW.value = ldap_pwd;
+        LDBinDN.value = ldap_bind;
+        LDBase.value = ldap_base;
+        LDRemoteRoleMapping_array = ldap.RemoteRoleMapping;
+        if(ldap_en == "1") {
+            EnableLDAPSwitch.checked = true;
+        } else {
+          EnableLDAPSwitch.checked = false;
+        }
+        var LDAPGroupData = ldap.RemoteRoleMapping;
+        if (LDAPGroupData.length == 0) {
+          LDRowData.push([ 1, "~", "~" ]);
+        } else {
+          for (var i = 0; i < LDAPGroupData.length; i++) {
+            var roleGroupPriv = LDAPGroupData[i].LocalRole == "ReadOnly" ? "User" : LDAPGroupData[i].LocalRole;
+            LDRowData.push([
+              i, LDAPGroupData[i].RemoteGroup, roleGroupPriv
+            ]);
+          }
+          LDRowData.push([ LDAPGroupData.length + 1, "~", "~" ]);
+        }
+        GridTable.empty();
+        GridTable.show(LDRowData);
+        enableLDAPInfos(EnableLDAPSwitch.checked);
+        if (ldap.ServiceAddresses[0].indexOf("ldap://") != -1) {
+          enableLDAPoverSSL.checked = false;
+        }
+        if (ldap.ServiceAddresses[0].indexOf("ldaps://") != -1) {
+          enableLDAPoverSSL.checked = true;
+        }
+    }
+}
+
+
+
+
+
 
 function validateAdform() {
 
-  var bool_validation = true;
-  var error_msg_dtring = "";
-  if ((!(/^(((cn=)|(uid=))[a-z]{1}[\w\-\.]{2,63},?)+$/i.test(
-           AdBinDN.value.split(",")[0])) ||
-       !(/^(((cn=)|(uid=)|(ou=)|(dc=)|(o=))[a-z]{0}[\w\-\.]{1,63},?)+$/i.test(
-           AdBinDN.value)) ||
-       AdBinDN.value.length > 63 || AdBinDN.value.length < 4)) {
-    error_msg_dtring += "Bind DN\n";
-    bool_validation = false;
-  }
-  if (!(/^[^ ]+$/.test(AdBinPW.value))) {
-    error_msg_dtring += "Password\n";
-    bool_validation = false;
-  }
-  if (!(/^(((cn=)|(uid=)|(ou=)|(dc=)|(o=))[a-z]{0}[\w\-\.]{1,63},?)+$/i)
-           .test(AdBase.value) &&
-      !(AdBase.value.length >= 4 && AdBase.value.length <= 64)) {
-    error_msg_dtring += "Search Base\n";
-    bool_validation = false;
-  }
-  /*
-  if (AdTimeout.value == '') {
-    error_msg_dtring += "Time out\n";
-    bool_validation = false;
-  }*/
-  if(AdIp.value=='' ) {
-    error_msg_dtring += "AdIp\n";
-    bool_validation = false;
-  }
-  var tempVar = AdIp.value.split(":");
-  if(tempVar.length!=2) {
-    error_msg_dtring += "AdIp\n";
-    bool_validation = false;
-  }
-  AdIpValue = tempVar[0];
-  AdPortValue = tempVar[1];
+    var bool_validation = true;
+    var error_msg_dtring = "";
+    if ((!(/^(((cn=)|(uid=))[a-z]{1}[\w\-\.]{2,63},?)+$/i.test(
+            AdBinDN.value.split(",")[0])) ||
+        !(/^(((cn=)|(uid=)|(ou=)|(dc=)|(o=))[a-z]{0}[\w\-\.]{1,63},?)+$/i.test(
+            AdBinDN.value)) ||
+        AdBinDN.value.length > 63 || AdBinDN.value.length < 4)) {
+      error_msg_dtring += "Bind DN\n";
+      bool_validation = false;
+    }
+    if (!(/^[^ ]+$/.test(AdBinPW.value))) {
+      error_msg_dtring += "Password\n";
+      bool_validation = false;
+    }
+    if (!(/^(((cn=)|(uid=)|(ou=)|(dc=)|(o=))[a-z]{0}[\w\-\.]{1,63},?)+$/i)
+            .test(AdBase.value) &&
+        !(AdBase.value.length >= 4 && AdBase.value.length <= 64)) {
+      error_msg_dtring += "Search Base\n";
+      bool_validation = false;
+    }
+    if(AdIp.value=='' ) {
+      error_msg_dtring += "AdIp\n";
+      bool_validation = false;
+    }
+    var tempVar = AdIp.value.split(":");
+    if(tempVar.length>2) {
+      error_msg_dtring += "AdIp\n";
+      bool_validation = false;
+    }
+    AdIpValue = tempVar[0];
+    AdPortValue = "";
+    if(tempVar.leng==2)
+      AdPortValue = tempVar[1];
 
-  if (AdGroupName.value == '' && selected_row != '') {
-    error_msg_dtring += "Group Name\n";
-    bool_validation = false;
-  }
-  if (AdGroupPrivilege.value == '' && selected_row != '') {
-    error_msg_dtring += "Group Privilege\n";
-    bool_validation = false;
-  }
-  //if (AdGroupDomain.value == '' && selected_row != '') {
-  //  error_msg_dtring += "Group Domain\n";
-  //  bool_validation = false;
-  //}
+    if (AdGroupName.value == '' && selected_row != '') {
+      error_msg_dtring += "Group Name\n";
+      bool_validation = false;
+    }
+    if (AdGroupPrivilege.value == '' && selected_row != '') {
+      error_msg_dtring += "Group Privilege\n";
+      bool_validation = false;
+    }
 
 
-  if (!bool_validation) {
-    alert("Invalid Inputs are given to \nthe following fields.\n " +
-              error_msg_dtring,
-          {type : "pre"});
-    error_msg_dtring = "";
-  } else {
-    error_msg_dtring = "";
-    saveAdconfig();
-  }
+    if (!bool_validation) {
+      alert("Invalid Inputs are given to \nthe following fields.\n " +
+                error_msg_dtring,
+            {type : "pre"});
+      error_msg_dtring = "";
+    } else {
+      error_msg_dtring = "";
+      if(enableAd){
+        saveAdconfig();
+      }else{
+        saveLDAPconfig();
+      }
+    }
 }
-
 
 function saveAdconfig() {
   var ajax_url = "/redfish/v1/AccountService";
@@ -458,22 +578,6 @@ function saveAdconfig() {
   });
 }
 
-/*
-struct LDAPConfigData
-{
-    std::string uri{};
-    std::string bindDN{};
-    std::string baseDN{};
-    std::string searchScope{};
-    std::string serverType{};
-    bool serviceEnabled = false;
-    std::string userNameAttribute{};
-    std::string groupAttribute{};
-    std::string Limit{};
-    std::string ldapServerPort{};
-    std::vector<std::pair<std::string, LDAPRoleMapData>> groupRoleList;
-};
-*/
 function saveAdconfig_Cont() {
 
   var sslString = enableLDAPoverSSL.checked ? "ldaps://" : "ldap://";
@@ -487,7 +591,7 @@ function saveAdconfig_Cont() {
         "Oem" : {
           "OpenBMC" : {
             "LDAPBindTime" : "5",//AdTimeout.value,
-            "LDAPServerPort" : AdPortValue.value, //todo split :
+            "LDAPServerPort" :  AdPortValue
           }
         },
         "SearchSettings" : {
@@ -495,7 +599,7 @@ function saveAdconfig_Cont() {
           "UsernameAttribute" : AdUserID.value
         }
       },
-      "ServiceAddresses" : [ sslString +  AdIpValue.value]  // AdIp.value ]
+      "ServiceAddresses" : [ sslString +  AdIpValue]  // AdIp.value ]
     }
   };
 
@@ -515,38 +619,181 @@ function saveAdconfig_Cont() {
   });
 }
 
+function saveLDAPconfig() {
+  var ajax_url = "/redfish/v1/AccountService";
+  var ajax_param = {"ActiveDirectory" : {"ServiceEnabled" : false}};
+  var ajax_data = JSON.stringify(ajax_param);
+  var ajax_req = new Ajax.Request(ajax_url, {
+    method : 'PATCH',
+    contentType : "application/json",
+    parameters : ajax_data,
+    onSuccess : saveLDAPconfig_Cont,
+    onFailure : function(response) {
+      Loading(false);
+      HandleFailureStatus(response, lang.LANG_CONFIG_LDAP_SAVE_FAILED, null);
+    }
+  });
+}
+
+function saveLDAPconfig_Cont() {
+  Loading(true);
+  var sslString = enableLDAPoverSSL.checked ? "ldaps://" : "ldap://";
+  var data = {
+    "LDAP" : {
+      "ServiceEnabled" : EnableLDAPSwitch.checked,
+      "Authentication" :
+          {"Username" : LDBinDN.value, "Password" : LDBinPW.value},
+      "LDAPService" : {
+        "SearchSettings" : {
+          "BaseDistinguishedNames" : [ LDBase.value ],
+          "UsernameAttribute" : LDUserID.value
+        }
+      },
+      "ServiceAddresses" : [ sslString + LDIP.value ]
+    }
+  };
+  var ajax_url = '/redfish/v1/AccountService';
+  var object = JSON.stringify(data);
+  var ajax_req = new Ajax.Request(ajax_url, {
+    method : 'PATCH',
+    contentType : 'application/json',
+    parameters : object,
+    onSuccess : responseWriteLDAPInfo,
+    onFailure : function(response) {
+      Loading(false);
+      HandleFailureStatus(response, lang.LANG_CONFIG_LDAP_SAVE_FAILED, null);
+    }
+  });
+}
+
+function Create_LDAP_Group() {
+    Loading(true);
+    if (LDGroupName.value != '' && LDGroupPrivilege.value != '' &&
+        EnableLDAPSwitch.checked) {
+      if (LDselected_row != "~") {
+        for (var i = 0; i < LDRemoteRoleMapping_array.length; i++) {
+          if (LDRemoteRoleMapping_array[i].RemoteGroup == LDselected_row) {
+            LDRemoteRoleMapping_array[i] = null;
+          }
+        }
+      }
+      LDRemoteRoleMapping_array.push({
+        "RemoteGroup" : LDGroupName.value,
+        "LocalRole" : LDGroupPrivilege.value
+      });
+    }
+    var ajax_url = '/redfish/v1/AccountService';
+    ajax_param = {"LDAP" : {"RemoteRoleMapping" : LDRemoteRoleMapping_array}};
+    var object = JSON.stringify(ajax_param);
+    var ajax_req = new Ajax.Request(ajax_url, {
+      method : 'PATCH',
+      contentType : 'application/json',
+      parameters : object,
+      onSuccess : response_Create_LDAP_Group,
+      onFailure : function() { alert(lang.LANG_CONFIG_LDAP_GROUP_SAVE_FAILED); }
+    });
+    Loading(false);
+}
+
+
+
+
+
+
+function responseWriteLDAPInfo(arg)
+{
+    Loading(false);
+    if (arg.readyState == 4 && arg.status == 200) {
+      var response = JSON.parse(arg.responseText);
+      if (response.LDAP.ServiceEnabled) {
+        LDRemoteRoleMapping_array = response.LDAP.RemoteRoleMapping;
+      } else {
+        LDRemoteRoleMapping_array = [];
+      }
+      Create_LDAP_Group();
+      alert(lang.LANG_CONFIG_LDAP_UPDATE_SUCCESS, {
+        title : lang.LANG_GENERAL_SUCCESS,
+        onClose : function() { location.href = LDAPpage; }
+      });
+      if (LDurlRdirect == 1) {
+        var redirect_url = location.host;
+        clearSessionInfo();
+        redirect_url = window.location.protocol + "//" + redirect_url;
+        setTimeout(function() { top.location.assign(redirect_url); }, 500);
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+function Create_LDAP_Group() {
+  Loading(true);
+  if (LDGroupName.value != '' && LDGroupPrivilege.value != '' &&
+      EnableLDAPSwitch.checked) {
+    if (LDselected_row != "~") {
+      for (var i = 0; i < LDRemoteRoleMapping_array.length; i++) {
+        if (LDRemoteRoleMapping_array[i].RemoteGroup == LDselected_row) {
+          LDRemoteRoleMapping_array[i] = null;
+        }
+      }
+    }
+    LDRemoteRoleMapping_array.push({
+      "RemoteGroup" : LDGroupName.value,
+      "LocalRole" : LDGroupPrivilege.value
+    });
+  }
+  var ajax_url = '/redfish/v1/AccountService';
+  ajax_param = {"LDAP" : {"RemoteRoleMapping" : LDRemoteRoleMapping_array}};
+  var object = JSON.stringify(ajax_param);
+  var ajax_req = new Ajax.Request(ajax_url, {
+    method : 'PATCH',
+    contentType : 'application/json',
+    parameters : object,
+    onSuccess : response_Create_LDAP_Group,
+    onFailure : function() { alert(lang.LANG_CONFIG_LDAP_GROUP_SAVE_FAILED); }
+  });
+  Loading(false);
+}
+
 
 function Create_AD_Group() {
   Loading(true);
-  if (AdGroupName.value != '' && AdGroupPrivilege.value != '' /*&&
-      AdGroupDomain.value != '' */&& EnableAdSwitch.checked) {
+  if (AdGroupName.value != '' && AdGroupPrivilege.value != '' && EnableAdSwitch.checked) {
     if (selected_row != "~") {
-      for (var i = 0; i < RemoteRoleMapping_array.length; i++) {
-        if (RemoteRoleMapping_array[i].RemoteGroup == selected_row) {
-          RemoteRoleMapping_array[i] = null;
+      for (var i = 0; i < AdRemoteRoleMapping_array.length; i++) {
+        if (AdRemoteRoleMapping_array[i].RemoteGroup == selected_row) {
+          AdRemoteRoleMapping_array[i] = null;
         }
       }
     }
 
-    RemoteRoleMapping_array.push({
+    AdRemoteRoleMapping_array.push({
       "RemoteGroup" : AdGroupName.value,
       "LocalRole" : AdGroupPrivilege.value
-      //,
-      //"Oem" : {"OpenBMC" : {"RemoteDomain" : AdGroupDomain.value}},
+      //,"Oem" : {"OpenBMC" : {"RemoteDomain" : "bmctest.net"}},   //AdGroupDomain.value}},
     });
   }
 
   var ajax_url = '/redfish/v1/AccountService';
-  //RemoteRoleMapping_array = filterData(RemoteRoleMapping_array);
+  //AdRemoteRoleMapping_array = filterData(AdRemoteRoleMapping_array);
   var ajax_param = {
-    "ActiveDirectory" : {"RemoteRoleMapping" : RemoteRoleMapping_array}
+    "ActiveDirectory" : {"RemoteRoleMapping" : AdRemoteRoleMapping_array}
   };
   var object = JSON.stringify(ajax_param);
   var ajax_req = new Ajax.Request(ajax_url, {
     method : 'PATCH',
     contentType : 'application/json',
     parameters : object,
-    onSuccess : response_Create_Ad_Group,
+    onSuccess : function(){alert("Create_AD_Group success");},
     onFailure : function() { alert(lang.LANG_CONFIG_AD_GROUP_SAVE_FAILED); }
   });
   Loading(false);
@@ -596,29 +843,6 @@ return data;
 }
 
 
-function LDOutputString() {
-    document.getElementById("caption_div").textContent = "AD and LDAP Settings"//lang.LANG_CONFIG_LDAP_CAPTION;
-    document.getElementById("ldap_en_span").textContent = "Enable LDAP Authentication";//lang.LANG_CONFIG_LDAP_EN;
-    document.getElementById("ldap_ip_span").textContent = lang.LANG_CONFIG_LDAP_IP;
-    document.getElementById("ldap_pwd_span").textContent = lang.LANG_CONFIG_LDAP_PWD;
-    document.getElementById("ldap_dn_span").textContent = lang.LANG_CONFIG_LDAP_DN;
-    document.getElementById("ldap_sb_span").textContent = lang.LANG_CONFIG_LDAP_SB;
-    document.getElementById("ldap_userid_span").textContent =
-        lang.LANG_CONFIG_LDAP_USERID_ATTR;
-    document.getElementById("ldap_groupname_span").textContent = lang.LANG_CONFIG_LDAP_GROUP_NAME;
-    document.getElementById("ldap_groupprivilege_span").textContent = lang.LANG_CONFIG_LDAP_GROUP_PRIVILEGE;
-    //document.getElementById("ldap_gf_header_span").textContent = lang.LANG_CONFIG_LDAP_GF_TITLE;
-    document.getElementById("LDssl_enable").textContent =
-        lang.LANG_CONFIG_LDAP_SSL;
-    /*
-    document.getElementById("caValid").textContent =
-        lang.LANG_AD_SSL_CA_VALID_INFO;
-    document.getElementById("ldapValid").textContent =
-        lang.LANG_AD_SSL_LDAP_VALID_INFO;
-    document.getElementById("LDsslValidInfo").textContent =
-        lang.LANG_LDAP_SSL_VALID_INFO;
-    */    
-}
 
 function LDAPGroupTableInit() {
   var TableTitles = [
@@ -692,7 +916,7 @@ function deleteLDAPGroup() {
 
 
 function onAdEnable() {
+  enableAd = !enableAd;
   enableAdInfos(EnableAdSwitch.checked);
   enableAdGroupInfos(EnableAdSwitch.checked);
 }
- 

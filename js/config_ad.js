@@ -6,12 +6,16 @@ var AdRowData = [];
 var LdRowData = [];
 var selected_row = '';
 var AdPage = "/page/config_ad.html";
+var LDAPpage = "/page/config_ldap.html";
 var sslLdapFlag;
 var sslCaFlag;
 var EnableAdSwitch;
-
+var EnableLdSwitch;
+var EnableNoneSwitch;
 
 var enableAd=true;
+var enableLd=true;
+var enableNone=true;
 
 var AdIp;
 var enableLDAPoverSSL;
@@ -46,8 +50,15 @@ function ADPageInit() {
       "../help/" + lang_setting + "/configure_ad_hlp.html";
   document.getElementById("ADButtonSave").value = lang.LANG_CONFIG_AD_SAVE;
   document.getElementById("ADButtonDeleteGroup").value = "Delete";
-  EnableAdSwitch = document.getElementById("ADSwitchAD");
+  EnableAdSwitch = document.getElementById("AdSwitch");
+  EnableLdSwitch = document.getElementById("LdSwitch");
+  EnableNoneSwitch = document.getElementById("NoneSwitch");
+  
   EnableAdSwitch.addEventListener("click", onAdEnable);
+  EnableLdSwitch.addEventListener("click", onLdEnable);
+  EnableNoneSwitch.addEventListener("click", onNoneEnable);
+
+
   AdIp = document.getElementById("ADIP");
   enableLDAPoverSSL = document.getElementById("ADenableSSL");
   enableAd = true;
@@ -67,13 +78,16 @@ function ADPageInit() {
   ADOutputString();
   CheckUserPrivilege(ADPrivilegeCallBack);
   AdGroupTableInit();
+
+  onNoneEnable();
 }
 
 
 
 function ADOutputString() {
   document.getElementById("ad_en_span").textContent = lang.LANG_AD_ADV_ENABLE;
-  document.getElementById("ad_en_span").textContent = lang.LANG_AD_ADV_ENABLE;
+  document.getElementById("ldap_en_span").textContent = lang.LANG_AD_ADV_ENABLE;
+  document.getElementById("none_en_span").textContent = "None";
   document.getElementById("ad_ip_span").textContent =
       lang.LANG_CONFIG_ACTIVE_DIRECTORY_IP;
   document.getElementById("ad_dn_span").textContent =
@@ -88,7 +102,7 @@ function ADOutputString() {
       lang.LANG_AD_GROUP_NAME;
   document.getElementById("ad_groupprivilege_span").textContent =
       lang.LANG_CONFIG_AD_GROUP_PRIVILEGE;
-  document.getElementById("ADssl_enable").textContent = "Active LDAP over SSL";//lang.LANG_AD_ADV_SSL;
+  document.getElementById("ADssl_enable").textContent = "Active authentication over SSL";//lang.LANG_AD_ADV_SSL;
   document.getElementById("ADcaValid").textContent =
       lang.LANG_AD_SSL_CA_VALID_INFO;
   document.getElementById("ldapValid").textContent =
@@ -107,9 +121,11 @@ function AdGroupTableInit() {
   SetRowSelectEnable(1);
   LDGridTable.setColumns(TableTitles);
   LDGridTable.init('LDGridTable', AdGroupTable, "60px");
-  AdGroupTable.onclick = onClickAdGroupList;
+  AdGroupTable.onclick =function() { CheckUserPrivilege(onClickAdGroupList); }; ;
+  //document.getElementById("ADGroupTable").style.display = "none";
 }
 
+ 
 function onClickAdGroupList() {
   document.getElementById("role_group_name").style.display = "";
   document.getElementById("role_group_priv").style.display = "";
@@ -140,31 +156,23 @@ function deleteGroup() {
   var selectedRow = GetSelectedRowCellInnerHTML(0);
   Loading(true);
   if (selectedRow == "~") return;
-  //var tempGroup;
   if(EnableAdSwitch){
     for (var i = 0; i < AdRemoteRoleMapping_array.length; i++) {
       if (AdRemoteRoleMapping_array[i].RemoteGroup == selectedRow) {
         AdRemoteRoleMapping_array[i] = null;
       }
     }
-    //tempGroup = AdRemoteRoleMapping_array;
   }else{
     for (var i = 0; i < LdRemoteRoleMapping_array.length; i++) {
       if (LdRemoteRoleMapping_array[i].RemoteGroup == selectedRow) {
         LdRemoteRoleMapping_array[i] = null;
       }
     }
-    //tempGroup = LdRemoteRoleMapping_array;
   }
-
-  //var tempService=EnableAdSwitch.checked?:"LDAP";
   var tempPage= EnableAdSwitch.checked?AdPage:LDAPpage;
   var tempFailureAlert=EnableAdSwitch.checked?lang.LANG_CONFIG_AD_GROUP_SAVE_FAILED:lang.LANG_CONFIG_LDAP_GROUP_SAVE_FAILED;
   var ajax_url = '/redfish/v1/AccountService';
   var ajax_param =EnableAdSwitch?{"ActiveDirectory": {"RemoteRoleMapping" : AdRemoteRoleMapping_array}}:{"LDAP": {"RemoteRoleMapping" : LdRemoteRoleMapping_array}};
-
-
-
   var object = JSON.stringify(ajax_param);
   var ajax_req = new Ajax.Request(ajax_url, {
     method : 'PATCH',
@@ -177,7 +185,6 @@ function deleteGroup() {
     onFailure : function() { alert(tempFailureAlert); }
   });
   Loading(false);
-  
 }
 
 
@@ -358,18 +365,17 @@ function responseAdInfo(arg) {
   }
   var adGroupData = ad.RemoteRoleMapping;
   if (adGroupData.length == 0) {
-    AdRowData.push([ 1, "~", "~", "~" ]);
+    AdRowData.push([ 1, "~", "~"]);
   } else {
     for (var i = 0; i < adGroupData.length; i++) {
       var roleGroupPriv = adGroupData[i].LocalRole == "ReadOnly"
                               ? "User"
                               : adGroupData[i].LocalRole;
       AdRowData.push([
-        i, adGroupData[i].RemoteGroup,
-        adGroupData[i].Oem.OpenBMC.RemoteDomain, roleGroupPriv
+        i, adGroupData[i].RemoteGroup, roleGroupPriv
       ]);
     }
-    AdRowData.push([ adGroupData.length + 1, "~", "~", "~" ]);
+    AdRowData.push([ adGroupData.length + 1, "~", "~"]);
   }
   LDGridTable.empty();
   LDGridTable.show(AdRowData);
@@ -436,9 +442,6 @@ function responseLDAPInfo(arg)
 
 
 
-
-
-
 function validateAdform() {
 
     var bool_validation = true;
@@ -495,6 +498,7 @@ function validateAdform() {
       saveAdconfig();}
 }
 
+
 function saveAdconfig() {
   var ajax_url = "/redfish/v1/AccountService";
   var failureAlert=enableAd?lang.LANG_CONFIG_AD_SAVE_FAILED:lang.LANG_CONFIG_LDAP_SAVE_FAILED;
@@ -515,7 +519,6 @@ function saveAdconfig() {
     }
   });
 }
-
 
 
 
@@ -639,7 +642,6 @@ function Create_Group() {
       "RemoteGroup" : AdGroupName.value,
       "LocalRole" : AdGroupPrivilege.value
     });
-
     if(enableAd){
       AdRemoteRoleMapping_array = tempMap;
     }else{
@@ -674,13 +676,14 @@ function ADcheckSSL(ldapStatus){
   }
 }
 
+
 function enableAdInfos(enable) {
   AdIp.disabled = !enable;
   AdBinPW.disabled = !enable;
   AdUserID.disabled = !enable;
   AdBinDN.disabled = !enable;
   AdBase.disabled = !enable;
-
+  AdSave.disabled = !enable;
   ADcheckSSL(enable);
 }
 
@@ -732,6 +735,38 @@ function deleteLDAPGroup() {
 
 function onAdEnable() {
   enableAd = EnableAdSwitch.checked;
+  if(enableAd){
+    EnableLdSwitch.checked=false;
+    EnableNoneSwitch.checked=false;
+    enableLd=false;
+    enableNone=false;
+  }
   enableAdInfos(EnableAdSwitch.checked);
   enableAdGroupInfos(EnableAdSwitch.checked);
 }
+
+function onLdEnable() {   
+  enableLd = EnableLdSwitch.checked;
+  if(enableLd){
+    EnableAdSwitch.checked=false;
+    EnableNoneSwitch.checked=false;
+    enableAd=false;
+    enableNone=false;
+  }
+  enableAdInfos(enableLd);
+  enableAdGroupInfos(enableLd);
+}
+
+function onNoneEnable() {
+  enableNone = true;
+  EnableNoneSwitch.checked=true;
+  EnableAdSwitch.checked=false;
+  EnableLdSwitch.checked=false;
+  enableLd=false;
+  enableAd=false;
+  enableAdInfos(false);
+  enableAdGroupInfos(false);
+}
+
+
+

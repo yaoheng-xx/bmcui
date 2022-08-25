@@ -20,29 +20,7 @@
 
 <body>
     <span class="LoadingStyle" id="loading"></span>
-        <fieldset class="wideldap group">
-            <p id="ADsslValidInfo" class="labelhead"></p>
-            <div class="subSection">
-                <table border="0">
-                    <tr>
-                        <td>
-                            <span class="labelhead" id="ADcaValid"></span>
-                        </td>
-                        <td id="ADCAvalidDate">
-                            <span>--</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="labelhead" id="ldapValid"></span>
-                        </td>
-                        <td>
-                            <span id="ldapValidDate">--</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </fieldset>
+
 
     <table border="0" cellpadding="0" cellspacing="5" class="content_table">
         <tr>
@@ -58,29 +36,63 @@
                 <div id="kcs_segment_state" class="Categorytext"></div>
             </td>
         </tr>
-        
+ 
+                <table border="0" id="table4" cellpadding="0" cellspacing="5" >
+                    <tr>
+                    <td>&nbsp;<label><input type="radio" id="AdSwitch"/>
+                    <span id="ad_en_span" class="labelhead"  width="393"></span></label></td>
+
+                    <td>&nbsp;<label><input type="radio" id="LdSwitch"/>
+                    <span id="ldap_en_span" class="labelhead"  width="393"></span></label></td>
+                        
+                    <td>&nbsp;<label><input type="radio" id="NoneSwitch"/>
+                    <span id="none_en_span" class="labelhead"  width="393"></span></label></td>
+                    </tr>
+                </table>
+
+                <table border="0" id="table5" cellpadding="0" cellspacing="5" >       
+                    <tr>
+                        <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
+                            <span id="ADssl_enable" class="labelhead"></span></label></td>
+                        <td >&nbsp;
+                    </tr>
+                </table>
+        <tr>
+            <td >&nbsp;
+                <fieldset class="wideldap group">
+                    <p id="ADsslValidInfo" class="labelhead"></p>
+                    <div class="subSection">
+                        <table border="0">
+                            <tr>
+                                <td>
+                                    <span class="labelhead" id="ADcaValid"></span>
+                                </td>
+                                <td id=" ADCAvalidDate">
+                                    <span>--</span>  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="labelhead" id="ldapValid"></span>
+                                </td>
+                                <td>
+                                    <span id="ldapValidDate">--</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </fieldset>
+            </td>
+        </tr>
+
+
+
+
         <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table hide">
         <tr>
             <td>
                 <table border="0" id="table2">
-                    <tr>
-                        <td>&nbsp;SETTING</span></td> 
-                    </tr>
-                    <tr>
-                        <td>&nbsp;<label><input type="radio" id="AdSwitch"/>
-                        <span id="ad_en_span" class="labelhead"></span></label></td>
-
-                        <td>&nbsp;<label><input type="radio" id="LdSwitch"/>
-                        <span id="ldap_en_span" class="labelhead"></span></label></td>
-                            
-                        <td>&nbsp;<label><input type="radio" id="NoneSwitch"/>
-                        <span id="none_en_span" class="labelhead"></span></label></td>
-                    </tr>
                     <tr><td> &nbsp;</td></tr>
-                    <tr>
-                        <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
-                                <span id="ADssl_enable" class="labelhead"></span></label></td>
-                    </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_ip_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" id="ADIP" /></td>
@@ -101,51 +113,53 @@
                         <td>&nbsp;<span id="ad_userid_span" class="labelhead"></span></td>
                         <td width="393">&nbsp;<input type="text" maxlength="255" id="ADUSERID" /></td>
                     </tr>
-                    <tr id="role_group_name">
-                        <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPNAME" /></td>
-                    </tr>
-                    <!--
-                    <tr id="role_group_priv">
-                        <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPPRIVILEGE" /></td>
-                    </tr>
-                    -->
-                    <tr id="role_group_priv">
-                        <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
-                        <td width="393">
-                            <select id="ADGROUPPRIVILEGE" class="labelhead">
-                                <option value="Administrator">Administrator</option>
-                                <option value="Operator">Operator</option>
-                                <option value="ReadOnly">User</option>
-                            </select>
-                        </td>
-                    </tr>
-
-
-
                 </table>
             </td>
         </tr>
 
         <tr class="head">
-            <td colspan="2" class="bold">
+            <td colspan="1" class="bold">
                 <span id="ad_gf_header_span" class="labelhead"></span>
             </td>
         </tr>
+
         <tr>
-            <td colspan="2" >
-                <div class="list_tbl" id="ADGroupTable"  width="600"></div>
+            <td colspan="1" width="400">
+                <div class="list_tbl" id="ADGroupTable"  width="400"></div>
             </td>
         </tr>
+
         <tr>
-            <!--<td height="53"></td>-->
+            <td>
+                <table border="0" id="table2">
+                <tr id="role_group_name">
+                    <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
+                    <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPNAME" /></td>
+                </tr>
+                <tr id="role_group_priv">
+                    <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
+                    <td width="393">
+                        <select id="ADGROUPPRIVILEGE" class="labelhead">
+                            <option value="Administrator">Administrator</option>
+                            <option value="Operator">Operator</option>
+                            <option value="ReadOnly">User</option>
+                        </select>
+                    </td>
+                </tr>
+                </table>
+            </td>
+        </tr>
+        
+        <tr>
             <td height="53">
                 <br>
                 <input type="button" class="btnStyle" id="ADButtonSave" />
                 <input type="button" class="btnStyle" id="ADButtonDeleteGroup" />
             </td>
+        </tr>
+        
         </table>
+
 
         <table border="0" id="ad_noconfig_msg" cellpadding="0" cellspacing="0" class="mtable hide">
             <tr>
@@ -166,6 +180,7 @@
                 </td>
             </tr>
         </table>
+
     </table>
 </body>
 

@@ -84,18 +84,15 @@
                 </fieldset>
             </td>
         </tr>
-
-
-
-
+ 
         <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table hide">
         <tr>
-            <td>
+            <td> &nbsp;
                 <table border="0" id="table2">
                     <tr><td> &nbsp;</td></tr>
                     <tr>
                         <td>&nbsp;<span id="ad_ip_span" class="labelhead"></span></td>
-                        <td width="393">&nbsp;<input type="text" id="ADIP" /></td>
+                        <td width="393">&nbsp;<input type="text" id="ADIP" /></td> 
                     </tr>
                     <tr>
                         <td>&nbsp;<span id="ad_dn_span" class="labelhead"></span></td>
@@ -115,6 +112,33 @@
                     </tr>
                 </table>
             </td>
+            <td> 
+                    <fieldset class="wideldap group">
+                    <table border="0" id="table3">
+                        <tr class="head">
+                            <td colspan="1" class="bold">
+                                <span id="grouptitle" class="labelhead">info:</span>
+                            </td>
+                        </tr>
+                        <tr><td> &nbsp;</td></tr>
+                        <tr>
+                            <td width="493">&nbsp;1. when enabling Authentication over SSL, 
+                                make sure the server certificate is uploaded.
+                                Please check in SSL Certificates page.
+                                </td>
+                        </tr>
+                        <tr>
+                            <td width="493">&nbsp;2. The format for Server URL should follow LDAP standard, for example: </td>
+                        </tr>
+                        <tr>
+                            <td width="493">&nbsp;* ldap://1.2.3.4:389 without authentication over SSL.</td>
+                        </tr>
+                        <tr>
+                            <td width="493">&nbsp;* ldaps://1.2.3.4:636 with authentication over SSL.</td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
         </tr>
 
         <tr class="head">
@@ -129,8 +153,7 @@
             </td>
         </tr>
 
-        <tr>
-            <td>
+
                 <table border="0" id="table2">
                 <tr id="role_group_name">
                     <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
@@ -139,6 +162,7 @@
                 <tr id="role_group_priv">
                     <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
                     <td width="393">
+                        &nbsp;
                         <select id="ADGROUPPRIVILEGE" class="labelhead">
                             <option value="Administrator">Administrator</option>
                             <option value="Operator">Operator</option>
@@ -147,8 +171,7 @@
                     </td>
                 </tr>
                 </table>
-            </td>
-        </tr>
+
         
         <tr>
             <td height="53">

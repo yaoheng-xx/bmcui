@@ -78,13 +78,11 @@ function ADPageInit() {
 }
 
 
-
 function ADOutputString() {
   document.getElementById("ad_en_span").textContent = "Enable Active Directory";
   document.getElementById("ldap_en_span").textContent = "Enable LDAP";
-  document.getElementById("none_en_span").textContent = "None";
-  document.getElementById("ad_ip_span").textContent =
-      lang.LANG_CONFIG_ACTIVE_DIRECTORY_IP;
+  document.getElementById("none_en_span").textContent = "Disable";
+  document.getElementById("ad_ip_span").textContent = "Server URL";
   document.getElementById("ad_dn_span").textContent =
       lang.LANG_CONFIG_ACTIVE_DIRECTORY_BIND_DN;
   document.getElementById("ad_pwd_span").textContent =
@@ -347,11 +345,7 @@ function responseAdInfo(arg,isAd) {
     ad_ip="ldaps://";
     else ad_ip="ldap://";
   }
-  /*
-  if (ad.ServiceAddresses[0] != "") {
-    ad_ip = ad.ServiceAddresses[0].split("://")[1];
-  }
-  */
+
   if (ad.ServiceAddresses[0].indexOf("ldap://") != -1) {
     enableLDAPoverSSL.checked = false;
   }
@@ -362,12 +356,15 @@ function responseAdInfo(arg,isAd) {
   var ad_bind = ad.Authentication.Username;
   var ad_base = ad.LDAPService.SearchSettings.BaseDistinguishedNames[0];
   var ad_pwd = "";
-  AdUserID.value = ad.LDAPService.SearchSettings.UsernameAttribute;
+
   AdIp.value = ad_ip;
 
   AdBinPW.value = ad_pwd;
   AdBinDN.value = ad_bind;
   AdBase.value = ad_base;
+  if(AdIp.value!="" && AdBinPW.value!="" )
+    AdUserID.value = ad.LDAPService.SearchSettings.UsernameAttribute;
+
 
   if(isAd)
   AdRemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
@@ -721,6 +718,9 @@ function onAdEnable() {
   enableAdInfos(EnableAdSwitch.checked);
   enableAdGroupInfos(EnableAdSwitch.checked);
   requestReadAdInfo();
+  if(AdBinPW.value=="" && AdUserID.value=="")
+    AdUserID.value =  "sAMAccountName";
+
   if (AdIp.value.indexOf("ldap://") != 0) {
     AdIp.value="ldap://";
   }
@@ -742,6 +742,8 @@ function onLdEnable() {
   enableAdInfos(enableLd);
   enableAdGroupInfos(enableLd);
   requestReadAdInfo();
+  if(AdBinPW.value=="" && AdUserID.value=="")
+    AdUserID.value = "uid";
   if (AdIp.value.indexOf("ldaps://") != 0) {
     AdIp.value="ldaps://";
   }
@@ -760,6 +762,8 @@ function onNoneEnable() {
   enableLd=false;
   enableAd=false;
   AdIp.placeholder="";
+  AdUserID.value="";
+  AdIp.value="";
   enableAdInfos(false);
   enableAdGroupInfos(false);
 }

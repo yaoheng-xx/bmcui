@@ -79,6 +79,7 @@ function ADPageInit() {
 
 
 function ADOutputString() {
+  document.getElementById("caption_div").textContent = " Active Directory and LDAP Settings";
   document.getElementById("ad_en_span").textContent = "Enable Active Directory";
   document.getElementById("ldap_en_span").textContent = "Enable LDAP";
   document.getElementById("none_en_span").textContent = "Disable";
@@ -362,7 +363,7 @@ function responseAdInfo(arg,isAd) {
   AdBinPW.value = ad_pwd;
   AdBinDN.value = ad_bind;
   AdBase.value = ad_base;
-  if(AdIp.value!="" && AdBinPW.value!="" )
+  if(AdBinDN.value!="")
     AdUserID.value = ad.LDAPService.SearchSettings.UsernameAttribute;
 
 
@@ -388,60 +389,7 @@ function responseAdInfo(arg,isAd) {
   LDGridTable.show(AdRowData);
 
 }
-
-
-
-function responseLDAPInfo(arg)
-{
-    Loading(false);
-    if (arg.readyState == 4 && arg.status == 200) {
-      var content = JSON.parse(arg.responseText);
-      var ldap = {};
-      ldap = content.LDAP;
-      //var ldap_en = (ldap.ServiceEnabled) ? "1" : "0";
-      var ldap_ip = '';
-      if (ldap.ServiceAddresses[0] != "") {
-        ldap_ip = ldap.ServiceAddresses[0].split("://")[1];
-        }
-
-        var ad_bind = ldap.Authentication.Username;
-        var ad_base = ldap.LDAPService.SearchSettings.BaseDistinguishedNames[0];
-        var ad_pwd = "";
-        AdUserID.value = ldap.LDAPService.SearchSettings.UsernameAttribute;
-        AdIp.value = ldap_ip;
-      
-        AdBinPW.value = ad_pwd;
-        AdBinDN.value = ad_bind;
-        AdBase.value = ad_base;
-      
-        LdRemoteRoleMapping_array = ldap.RemoteRoleMapping;
-
-        var LDAPGroupData = ldap.RemoteRoleMapping;
-        LdRowData=[]
-        if (LDAPGroupData.length == 0) {
-          LdRowData.push([ 1, "~", "~" ]);
-        } else {
-          for (var i = 0; i < LDAPGroupData.length; i++) {
-            var roleGroupPriv = LDAPGroupData[i].LocalRole == "ReadOnly" ? "User" : LDAPGroupData[i].LocalRole;
-            LdRowData.push([
-              i, LDAPGroupData[i].RemoteGroup, roleGroupPriv
-            ]);
-          }
-          LdRowData.push([ LDAPGroupData.length + 1, "~", "~" ]);
-        }
-
-        LDGridTable.empty();
-        LDGridTable.show(LdRowData);
-        if (ldap.ServiceAddresses[0].indexOf("ldap://") != -1) {
-          enableLDAPoverSSL.checked = false;
-        }
-        if (ldap.ServiceAddresses[0].indexOf("ldaps://") != -1) {
-          enableLDAPoverSSL.checked = true;
-        }
-    }
-}
-
-
+ 
 function validateAdform() {
 
     var bool_validation = true;
@@ -549,18 +497,15 @@ function saveAdconfig_Cont() {
       "ServiceAddresses" : [ sslString +  AdIpValue]  // AdIp.value ]
     }
   };
+
+
+
   var ldConfigJson = {
     "LDAP" : {
       "ServiceEnabled" : true,
       "Authentication" :
           {"Username" : AdBinDN.value, "Password" : AdBinPW.value},
       "LDAPService" : {
-        "Oem" : {
-          "OpenBMC" : {
-            "LDAPBindTime" : "5",//AdTimeout.value,
-            "LDAPServerPort" :  AdPortValue
-          }
-        },
         "SearchSettings" : {
           "BaseDistinguishedNames" : [ AdBase.value],
           "UsernameAttribute" : AdUserID.value
@@ -714,13 +659,18 @@ function onAdEnable() {
   document.getElementById("ADGroupTable").style.display = "";
   document.getElementById("ad_gf_header_span").textContent = " Active Directory Group Configuration";
   document.getElementById("ad_gf_header_span").style.display = "";
-  //AdIp.placeholder="ldap://";
+  
+  AdIp.placeholder="";
+  AdUserID.value="";
+  AdIp.value="";
+  AdBinDN.value="";
+  AdBase.value = "";
+
   enableAdInfos(EnableAdSwitch.checked);
   enableAdGroupInfos(EnableAdSwitch.checked);
   requestReadAdInfo();
-  if(AdBinPW.value=="" && AdUserID.value=="")
+  if(AdBinDN.value=="" )
     AdUserID.value =  "sAMAccountName";
-
   if (AdIp.value.indexOf("ldap://") != 0) {
     AdIp.value="ldap://";
   }
@@ -737,17 +687,24 @@ function onLdEnable() {
   document.getElementById("ADGroupTable").style.display = "";
   document.getElementById("ad_gf_header_span").textContent = "LDAP Group Configuration";
   document.getElementById("ad_gf_header_span").style.display = "";
-  //AdIp.placeholder="ldap://";
+
+  AdIp.placeholder="";
+  AdUserID.value="";
+  AdIp.value="";
+  AdBinDN.value="";
+  AdBase.value = "";
+
 
   enableAdInfos(enableLd);
   enableAdGroupInfos(enableLd);
   requestReadAdInfo();
-  if(AdBinPW.value=="" && AdUserID.value=="")
+  if(AdBinDN.value=="" )
     AdUserID.value = "uid";
   if (AdIp.value.indexOf("ldaps://") != 0) {
     AdIp.value="ldaps://";
   }
 }
+
 
 function onNoneEnable() {
   document.getElementById("ADButtonDeleteGroup").style.display = "none";
@@ -764,6 +721,8 @@ function onNoneEnable() {
   AdIp.placeholder="";
   AdUserID.value="";
   AdIp.value="";
+  AdBinDN.value="";
+  AdBase.value = "";
   enableAdInfos(false);
   enableAdGroupInfos(false);
 }
@@ -787,3 +746,13 @@ function  onSSLEnable(){
 
 
 
+/*
+
+
+  AdIp.value = ad_ip;
+  AdBinPW.value = ad_pwd;
+  AdBinDN.value = ad_bind;
+  AdBase.value = ad_base;
+
+
+*/

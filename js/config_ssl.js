@@ -447,6 +447,7 @@ function btnReplaceCert(cert_val) {
 }
 function clickSave() {
   if (save_btn.value == "Upload") {
+    /*
     var selected_cert_type = document.getElementsByName('new_cert');
     var new_cert = "";
     for (var i = 0; i < selected_cert_type.length; i++) {
@@ -465,8 +466,8 @@ function clickSave() {
       uploadkey('/redfish/v1/AccountService/LDAP/Certificates');
     }
     if (new_cert == 'ca') {
-      uploadkey('/redfish/v1/Managers/bmc/Truststore/Certificates');
-    }
+    */
+    uploadkey('/redfish/v1/Managers/bmc/Truststore/Certificates');
   }
   if (save_btn.value == "Generate") {
     GenerateCSR();
@@ -557,6 +558,7 @@ function GETCertificateURL(arg) {
 
 function GetSSLReading(url) {
   Loading(true);
+    /*
   if (url.indexOf("/LDAP/") != -1) {
     document.getElementById("ldap").style.display = "none";
     document.getElementById("label_ldap").style.display = "none";
@@ -566,7 +568,7 @@ function GetSSLReading(url) {
     document.getElementById("http").style.display = "none";
     document.getElementById("label_https").style.display = "none";
   }
-
+*/
   var ajax_url = url;
   var ajax_req = new Ajax.Request(ajax_url, {
     method : 'GET',

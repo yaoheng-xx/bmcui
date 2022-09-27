@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Active Directory Setting - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+        <div class='helpmainhead'>Active Directory and LDAP Setting - Help</div>
+        <p>To enable or configure the Active Directory server, please select the checkbox.</p>
+        <h2>Enable Active Directory Authentication</h2>
+            <p>Select the checkbox to enable/disable Active Directory Authentication.</p>
+        <h2>Active Directory Authentication over SSL</h2>
+            <p>Select the checkbox to enable/disable Active Directory Authentication over SSL.</p>
+            <p>Certificate is common for both LDAP & AD.</p>
+            <p>CA Certificate valid until -- It denotes the expiry date for CA Certificate.</p>
+        <h2>IP Address</h2>
+        <p>The IP address of AD server.</p>
+        <ul>
+            <li>- IP Address made of 4 numbers separated by dots as in "xxx.xxx.xxx.xxx".</li>
+            <li>- 'xxx' ranges from 0 to 255.</li>
+            <li>- First 'xxx' must not be 0.</li>
+            <li>- Supports Host Name</li>
+        </ul>
+        <h2>Bind DN</h2>
+            <p>The Distinguished Name of the AD server, e.g.
+            &quot;cn=Manager, dc=my-domain, dc=com&quot;.
+            </p>
+        <h2>Bind Password</h2>
+            <p>Authentication password for AD server;
+            the password must be at least 4 characters long.
+            </p>
+        <h2>Searchbase</h2>
+            <p>The searchbase of the AD server, e.g.
+            &quot;dc=my-domain, dc=com&quot;.
+            </p>
+        <h2>Timeout</h2>
+            <p>The Timeout of the AD Server</p>
+        <h2>User ID Attribute (Optional)</h2>
+            <p>User ID for the AD Server</p>
+        <h2>Port (Optional)</h2>
+            <p>The Port Number of the AD Server</p>
+
+         <h2> Group Configuration</h2>
+            <p>It is the process of creating group configuration with several details like name, domain, privilege,etc</p>
+
+
+        <h2>Role Group Name</h2>
+                <p>Enter the Role Group name.</p> 
+        <h2>Role Group Privilege</h2>
+                <p>Select the Role Group Privilege.</p>
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Save</div>
+            <p>Click "Save" button to save the Active Directory configurations.</p>
+        <div class='actionsub'>Delete</div>
+            <p>Click "Delete" button to delete the Active Directory group configurations.</p>
+            <p>Delete button will be available when the configured group is selected from the table</p>
+    </body>
+</html>

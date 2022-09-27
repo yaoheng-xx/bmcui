@@ -20,8 +20,8 @@
 
 <body>
     <span class="LoadingStyle" id="loading"></span>
-    <div style="display:inline-block">
-        <div style="display:inline-block;margin-right:20px;float: left;">
+    <div id="main" style="width:100%;">
+        <div id="left" style="width:40%;float:left;">
 
             <table border="0" cellpadding="0" cellspacing="5" class="content_table">
                 <tr>
@@ -37,7 +37,7 @@
                         <div id="kcs_segment_state" class="Categorytext"></div>
                     </td>
                 </tr>
-        
+                <tr>
                         <table border="0" id="table4" cellpadding="0" cellspacing="5" >
                             <tr>
                             <td>&nbsp;<label><input type="radio" id="AdSwitch"/>
@@ -50,7 +50,9 @@
                             <span id="none_en_span" class="labelhead"  width="393"></span></label></td>
                             </tr>
                         </table>
-
+                </tr>
+                <tr>
+                        <td>
                         <table border="0" id="table5" cellpadding="0" cellspacing="5" >       
                             <tr>
                                 <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
@@ -58,35 +60,10 @@
                                 <td >&nbsp;
                             </tr>
                         </table>
-                <tr>
-                    <td >&nbsp;
-                        <fieldset class="wideldap group">
-                            <p id="ADsslValidInfo" class="labelhead"></p>
-                            <div class="subSection">
-                                <table border="0">
-                                    <tr>
-                                        <td>
-                                            <span class="labelhead" id="ADcaValid"></span>
-                                        </td>
-                                        <td id=" ADCAvalidDate">
-                                            <span>--</span>  
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <span class="labelhead" id="ldapValid"></span>
-                                        </td>
-                                        <td>
-                                            <span id="ldapValidDate">--</span>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </fieldset>
-                    </td>
+                        </td>
+ 
 
                 </tr>
-        
                 <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table hide">
                 <tr>
                     <td> &nbsp;
@@ -127,9 +104,13 @@
                     <td colspan="1" width="400">
                         <div class="list_tbl" id="ADGroupTable"  width="400"></div>
                     </td>
+                    <td >
+                        &nbsp;
+                    </td>
                 </tr>
 
-
+                <tr>
+ 
                         <table border="0" id="table2">
                         <tr id="role_group_name">
                             <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
@@ -137,7 +118,7 @@
                         </tr>
                         <tr id="role_group_priv">
                             <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
-                            <td width="393">
+                            <td width="393" maxlength="255">
                                 &nbsp;
                                 <select id="ADGROUPPRIVILEGE" class="labelhead">
                                     <option value="Administrator">Administrator</option>
@@ -147,7 +128,8 @@
                             </td>
                         </tr>
                         </table>
-
+ 
+                </tr>
                 
                 <tr>
                     <td height="53">
@@ -183,8 +165,8 @@
             </table>
 
         </div>
-    
-        <div style="display:inline-block;float: none;">
+
+        <div id="right" style="width:60%;float:left;">
 
             <table border="0" cellpadding="0" cellspacing="5" class="content_table">
                 <tr>
@@ -199,19 +181,16 @@
                 <tr>
                     <td> &nbsp;</td> 
                 </tr>
-                <tr>
-                    <td> &nbsp;</td> 
-                </tr>
+
                 <tr>
                     <td> &nbsp;
                         <fieldset class="wideldap group">
                         <table border="0" id="table3">
-                            <tr class="head">
-                                <td colspan="1" class="bold">
-                                    <span id="grouptitle" class="labelhead">info:</span>
+                            <tr >
+                                <td colspan="1" class="bold" > 
+                                        <h2 class="intro">Info:</h2> 
                                 </td>
-                            </tr>
-                            <tr><td> &nbsp;</td></tr>
+                            </tr> 
                             <tr>
                                 <td width="493">&nbsp;1. when enabling Authentication over SSL, 
                                     make sure the server certificate is uploaded.
@@ -234,7 +213,6 @@
             </table>
 
         </div>
-    </div>
 </body>
 
 </html>

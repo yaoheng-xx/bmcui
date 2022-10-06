@@ -7,7 +7,6 @@ var LdRowData = [];
 var selected_row = '';
 var AdPage = "/page/config_ad.html";
 var LDAPpage = "/page/config_ldap.html";
-var sslLdapFlag;
 var sslCaFlag;
 var EnableAdSwitch;
 var EnableLdSwitch;
@@ -17,7 +16,8 @@ var enableAd=true;
 var enableLd=true;
 var enableNone=true;
 
-var AdIp;
+
+var ServerUrl;
 var enableLDAPoverSSL;
 var AdBinPW;
 var AdBinDN;
@@ -33,6 +33,8 @@ var AdSave;
 var LDGridTable;
 
 var accountServiceResponse;
+
+var IpLable;
 
 window.addEventListener('load', ADPageInit);
 var lang;
@@ -56,7 +58,9 @@ function ADPageInit() {
 
   enableAd = true;
 
-  AdIp = document.getElementById("ADIP");
+  ServerUrl = document.getElementById("ADIP");
+  IpLable = document.getElementById("IPLABLE");
+  
   AdBinPW = document.getElementById("ADBINDPW");
   AdBinDN = document.getElementById("ADBINDWN");
   AdBase = document.getElementById("ADBASE");
@@ -98,9 +102,7 @@ function ADOutputString() {
   
   document.getElementById("ADButtonDeleteGroup").style.display = "none";
   document.getElementById("ad_groupname_span").textContent ="Remote Group";
-  //lang.LANG_AD_GROUP_NAME;
   document.getElementById("ad_groupprivilege_span").textContent ="Local Privilege";
-  //lang.LANG_CONFIG_AD_GROUP_PRIVILEGE;
   document.getElementById("role_group_name").style.display = "none";
   document.getElementById("role_group_priv").style.display = "none";
 }
@@ -224,17 +226,6 @@ function ADSwlCallBack(swl_status) {
 }
 
 
-function ADdisablefunc() {
-  AdIpPort.disabled = true;
-  AdUserID.disabled = true;
-  AdBinPW.disabled = true;
-  AdBinDN.disabled = true;
-  AdBase.disabled = true;
-  AdGroupName.disabled = true;
-  AdGroupPrivilege.disabled = true;
-  AdSave.disabled = true;
-  EnableAdSwitch.disabled = true;
-}
 
 
 function ADGETCertificateURL(arg) {
@@ -243,9 +234,6 @@ function ADGETCertificateURL(arg) {
     var certificate_array = response.Links.Certificates;
     if (certificate_array.length == 0) {
       Loading(false);
-      //document.getElementById("ldapValidDate").textContent = "--";
-      //document.getElementById("ADCAvalidDate").textContent = "--";
-      sslLdapFlag = false;
       sslCaFlag = false;
     }
     for (var i = 0; i < certificate_array.length; i++) {
@@ -255,11 +243,6 @@ function ADGETCertificateURL(arg) {
 }
 
 function ADGetSSLReading(url) {
-  if (url.indexOf("/LDAP/") != -1) {
-    alert("LDAP Certificate Error!");
-    ADupdateCertificateValidInfo(url, "ldapValidDate");
-    sslLdapFlag = true;
-  }
   if (url.indexOf("/Truststore/") != -1) {
     ADupdateCertificateValidInfo(url, "ADCAvalidDate");
     sslCaFlag = true;
@@ -282,7 +265,7 @@ function ADupdateCertificateValidInfo(url, id) {
   });
 }
 
-//查看countservice
+
 function requestReadAdInfo() {
   Loading(true);
   var failureAlert = enableAd?lang.LANG_CONFIG_AD_GET_FAILED:lang.LANG_CONFIG_LDAP_GET_FAILED;
@@ -293,6 +276,7 @@ function requestReadAdInfo() {
       accountServiceResponse = response;
       if(enableNone) return;
       responseAdInfo(response,enableAd);
+
     },
     onFailure : function(response) {
       Loading(false);
@@ -337,16 +321,18 @@ function responseAdInfo(arg,isAd) {
 
   if (ad.ServiceAddresses[0].indexOf("ldap://") != -1) {
     enableLDAPoverSSL.checked = false;
+    ad_ip = ad_ip.replace("ldap://","");
   }
   if (ad.ServiceAddresses[0].indexOf("ldaps://") != -1) {
     enableLDAPoverSSL.checked = true;
+    ad_ip = ad_ip.replace("ldaps://","");
   }
 
   var ad_bind = ad.Authentication.Username;
   var ad_base = ad.LDAPService.SearchSettings.BaseDistinguishedNames[0];
   var ad_pwd = "";
 
-  AdIp.value = ad_ip;
+  ServerUrl.value = ad_ip;
 
   AdBinPW.value = ad_pwd;
   AdBinDN.value = ad_bind;
@@ -356,8 +342,9 @@ function responseAdInfo(arg,isAd) {
 
 
   if(isAd)
-  AdRemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
-  else LdRemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
+    AdRemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
+  else 
+    LdRemoteRoleMapping_array = filterData(ad.RemoteRoleMapping);
   var adGroupData = ad.RemoteRoleMapping;
   AdRowData=[];
   if (adGroupData.length == 0) {
@@ -375,7 +362,15 @@ function responseAdInfo(arg,isAd) {
   }
   LDGridTable.empty();
   LDGridTable.show(AdRowData);
+  onSSLEnable();
+}
 
+
+function isValidPort(port) {
+  if (/^[1-9]\d*|0$/.test(port) && port * 1 >= 0 && port * 1 <= 65535){
+      return true
+  }
+  return false;
 }
 
 function validateAdform() {
@@ -400,29 +395,38 @@ function validateAdform() {
       error_msg_dtring += "Search Base\n";
       bool_validation = false;
     }
-    if(AdIp.value=='' || !((AdIp.value.indexOf("ldap://")==0) 
-                      || (AdIp.value.indexOf("ldaps://")==0)) 
-                      || (sslCaFlag==false && (AdIp.value.indexOf("ldaps://")==0))
-    ) {
-      error_msg_dtring += "AdIp\n";
+
+    var tempVar = ServerUrl.value.split(":");
+    if(tempVar.length>=3) {
+      error_msg_dtring += "ServerUrl\n";
       bool_validation = false;
     }
 
-    var tempVar = AdIp.value.split(":");
-    if(tempVar.length>3) {
-      error_msg_dtring += "AdIp\n";
-      bool_validation = false;
-    }
-    AdIpValue = tempVar[1].replace("//","");
     AdPortValue = "";
+    if(tempVar.leng==2)
+      AdPortValue = tempVar[1];
+    AdIpValue = tempVar[0];
     var IpExp=/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/;
     var reg = AdIpValue.match(IpExp);
+    
     if(reg==null){
       error_msg_dtring += "AdIp\n";
       bool_validation = false;
     }
-    if(tempVar.leng==2)
-      AdPortValue = tempVar[1];
+
+    if(AdPortValue!="" && !isValidPort(AdPortValue)){
+      error_msg_dtring += "Port\n";
+      bool_validation = false;
+    }
+
+    ServerUrl.value=IpLable.value+ServerUrl.value;
+    if(ServerUrl.value=='' || !((ServerUrl.value.indexOf("ldap://")==0) 
+                      || (ServerUrl.value.indexOf("ldaps://")==0)) 
+                      || (sslCaFlag==false && (ServerUrl.value.indexOf("ldaps://")==0))
+    ) {
+      error_msg_dtring += "ServerUrl\n";
+      bool_validation = false;
+    }
 
     if (AdGroupName.value == '' && selected_row != '') {
       error_msg_dtring += "Group Name\n";
@@ -432,7 +436,12 @@ function validateAdform() {
       error_msg_dtring += "Group Privilege\n";
       bool_validation = false;
     }
-
+    if(AdUserID.value==""&&enableLd==true){
+      AdUserID.value = "sAMAccountName";
+    }
+    if(AdUserID.value==""&&enableAd==true){
+      AdUserID.value = "uid";
+    }
 
     if (!bool_validation) {
       alert("Invalid Inputs are given to \nthe following fields.\n " +
@@ -491,7 +500,7 @@ function saveAdconfig_Cont() {
           "UsernameAttribute" : AdUserID.value
         }
       },
-      "ServiceAddresses" : [ sslString +  AdIpValue]  // AdIp.value ]
+      "ServiceAddresses" : [ ServerUrl.value]  
     }
   };
 
@@ -600,7 +609,7 @@ function Create_Group() {
  
 
 function enableAdInfos(enable) {
-  AdIp.disabled = !enable;
+  ServerUrl.disabled = !enable;
   AdBinPW.disabled = !enable;
   AdUserID.disabled = !enable;
   AdBinDN.disabled = !enable;
@@ -631,12 +640,15 @@ return data;
 }
 
 
+
 function onAdEnable() {
   enableAd = EnableAdSwitch.checked;
 
   if(enableAd){
     EnableLdSwitch.checked=false;
     EnableNoneSwitch.checked=false;
+    if(sslCaFlag)
+      enableLDAPoverSSL.disabled=false;
     enableLd=false;
     enableNone=false;
   }
@@ -644,20 +656,18 @@ function onAdEnable() {
   document.getElementById("ad_gf_header_span").textContent = " Active Directory Group Configuration";
   document.getElementById("ad_gf_header_span").style.display = "";
   
-  AdIp.placeholder="";
+
   AdUserID.value="";
-  AdIp.value="";
+  ServerUrl.value="";
   AdBinDN.value="";
   AdBase.value = "";
 
   enableAdInfos(EnableAdSwitch.checked);
   enableAdGroupInfos(EnableAdSwitch.checked);
   requestReadAdInfo();
-  if(AdBinDN.value=="" )
-    AdUserID.value =  "sAMAccountName";
-  if (AdIp.value.indexOf("ldap://") != 0) {
-    AdIp.value="ldap://";
-  }
+  document.getElementById("IPLABLE").textContent=
+    enableLDAPoverSSL.checked ? 'ldaps://':'ldap://';
+  //onSSLEnable()
 }
 
 function onLdEnable() {   
@@ -665,6 +675,8 @@ function onLdEnable() {
   if(enableLd){
     EnableAdSwitch.checked=false;
     EnableNoneSwitch.checked=false;
+    if(sslCaFlag)
+      enableLDAPoverSSL.disabled=false;
     enableAd=false;
     enableNone=false;
   }
@@ -672,9 +684,8 @@ function onLdEnable() {
   document.getElementById("ad_gf_header_span").textContent = "LDAP Group Configuration";
   document.getElementById("ad_gf_header_span").style.display = "";
 
-  AdIp.placeholder="";
   AdUserID.value="";
-  AdIp.value="";
+  ServerUrl.value="";
   AdBinDN.value="";
   AdBase.value = "";
 
@@ -682,11 +693,11 @@ function onLdEnable() {
   enableAdInfos(enableLd);
   enableAdGroupInfos(enableLd);
   requestReadAdInfo();
-  if(AdBinDN.value=="" )
-    AdUserID.value = "uid";
-  if (AdIp.value.indexOf("ldaps://") != 0) {
-    AdIp.value="ldaps://";
-  }
+
+  document.getElementById("IPLABLE").textContent=
+    enableLDAPoverSSL.checked ? 'ldaps://':'ldap://';
+  //onSSLEnable()
+  
 }
 
 
@@ -700,32 +711,24 @@ function onNoneEnable() {
   EnableNoneSwitch.checked=true;
   EnableAdSwitch.checked=false;
   EnableLdSwitch.checked=false;
+  enableLDAPoverSSL.checked = false;
   enableLd=false;
   enableAd=false;
-  AdIp.placeholder="";
+  ServerUrl.placeholder="";
   AdUserID.value="";
-  AdIp.value="";
+  ServerUrl.value="";
   AdBinDN.value="";
   AdBase.value = "";
+
+  document.getElementById("IPLABLE").textContent = "";
+  enableLDAPoverSSL.disabled = true;
   enableAdInfos(false);
   enableAdGroupInfos(false);
 }
 
-function  onSSLEnable(){
-  if(enableLDAPoverSSL.checked && AdIp.value.indexOf("ldaps://") != 0){
-     if(AdIp.value.indexOf("ldap://")==0){
-      AdIp.value=AdIp.value.replace('ldap://', 'ldaps://'); 
-    }else{
-      AdIp.value="ldaps://"+AdIp.value;
-    }
-  }
-  if((!enableLDAPoverSSL.checked) && AdIp.value.indexOf("ldap://") != 0){
-    if(AdIp.value.indexOf("ldaps://")==0){
-      AdIp.value=AdIp.value.replace('ldaps://', 'ldap://');
-     }else{
-      AdIp.value ="ldap://"+AdIp.value;
-     }
-    }
+
+function  onSSLEnable(){ 
+    document.getElementById("IPLABLE").textContent=
+      enableLDAPoverSSL.checked ? 'ldaps://':'ldap://';
+      document.getElementById("ADIP").style.textIndent = enableLDAPoverSSL.checked ?'44px':'38px';
 }
-
-

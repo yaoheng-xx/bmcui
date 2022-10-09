@@ -195,7 +195,7 @@ lang =
       LANG_CONFIG_LDAP_UPDATE_SUCCESS :
           "Successfully updated LDAP configuration.",
       LANG_CONFIG_LDAP_UPDATE_FAIL : "Failed to update LDAP configuration.",
-      LANG_CONFIG_ACTIVE_DIRECTORY : "Active Directory",
+      LANG_CONFIG_ACTIVE_DIRECTORY : "AD/LDAP Settings",
       LANG_CONFIG_ACTIVE_DIRECTORY_DESC :
           "Configure settings to authenticate and access the Active Directory server",
       LANG_CONFIG_ACTIVE_DIRECTORY_MOD_GRP :

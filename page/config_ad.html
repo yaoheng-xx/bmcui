@@ -64,6 +64,36 @@
  
 
                 </tr>
+
+                <tr>
+                    <td> &nbsp;
+                    <fieldset class="wideldap group">
+                        <table border="0" id="table3"  >
+                            <tr >
+                                <td colspan="1" class="bold" > 
+                                        <h3 class="intro">Info:</h3> 
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td width="493" font-size = 8px;>&nbsp;1. when enabling Authentication over SSL, 
+                                    make sure the server certificate is uploaded.
+                                    Please check in SSL Certificates page.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px;>&nbsp;2. The format for Server URL should follow LDAP standard, for example: </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px;>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   * ldap://1.2.3.4:389 without authentication over SSL.</td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px;>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   * ldaps://1.2.3.4:636 with authentication over SSL.</td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    </td>
+                </tr>
+                
                 <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table hide">
                 <tr>
                     <td> &nbsp;
@@ -72,7 +102,7 @@
                             <style >
                                 #IPLABLE{
                                 position: absolute;
-                                font-size: 12px;
+                                font-size: 14px;
                                 margin-left: 2px;
                                 padding: 2px;
                                 color: black;
@@ -87,7 +117,7 @@
                             </style>
                             <tr>
                                 <td width="393">&nbsp;<span id="ad_ip_span" class="labelhead"></span></td>
-                                <td width="393"><lable id="IPLABLE" type="text"> </lable> <input type="text" id="ADIP" /></td> 
+                                <td width="393"> <lable id="IPLABLE" type="text"> </lable> <input type="text" id="ADIP" /></td> 
                             </tr>
                             <tr>
                                 <td width="393">&nbsp;<span id="ad_dn_span" class="labelhead"></span></td>
@@ -183,6 +213,7 @@
 
         </div>
 
+        <!--
         <div id="right" style="width:60%;float:left;">
 
             <table border="0" cellpadding="0" cellspacing="5" class="content_table">
@@ -230,6 +261,7 @@
             </table>
 
         </div>
+        -->
 </body>
 
 </html>

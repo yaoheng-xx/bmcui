@@ -6,7 +6,6 @@ var AdRowData = [];
 var LdRowData = [];
 var selected_row = '';
 var AdPage = "/page/config_ad.html";
-var LDAPpage = "/page/config_ldap.html";
 var sslCaFlag;
 var EnableAdSwitch;
 var EnableLdSwitch;
@@ -149,7 +148,7 @@ function deleteGroup() {
   var selectedRow = GetSelectedRowCellInnerHTML(0);
   Loading(true);
   if (selectedRow == "~") return;
-  if(EnableAdSwitch){
+  if(EnableAdSwitch.check){
     for (var i = 0; i < AdRemoteRoleMapping_array.length; i++) {
       if (AdRemoteRoleMapping_array[i].RemoteGroup == selectedRow) {
         AdRemoteRoleMapping_array[i] = null;
@@ -162,10 +161,10 @@ function deleteGroup() {
       }
     }
   }
-  var tempPage= EnableAdSwitch.checked?AdPage:LDAPpage;
-  var tempFailureAlert=EnableAdSwitch.checked?lang.LANG_CONFIG_AD_GROUP_SAVE_FAILED:lang.LANG_CONFIG_LDAP_GROUP_SAVE_FAILED;
+
+  var tempFailureAlert= "Could not delete group item";
   var ajax_url = '/redfish/v1/AccountService';
-  var ajax_param =EnableAdSwitch?{"ActiveDirectory": {"RemoteRoleMapping" : AdRemoteRoleMapping_array}}:{"LDAP": {"RemoteRoleMapping" : LdRemoteRoleMapping_array}};
+  var ajax_param =EnableAdSwitch.check?{"ActiveDirectory": {"RemoteRoleMapping" : AdRemoteRoleMapping_array}}:{"LDAP": {"RemoteRoleMapping" : LdRemoteRoleMapping_array}};
   var object = JSON.stringify(ajax_param);
   var ajax_req = new Ajax.Request(ajax_url, {
     method : 'PATCH',
@@ -173,7 +172,7 @@ function deleteGroup() {
     parameters : object,
     onSuccess : function() {
       alert(lang.LANG_GRP_DELETE_SUCCESS,
-            {onClose : function() { location.href = tempPage; }});
+            {onClose : function() { location.href = AdPage; }});
     },
     onFailure : function() { alert(tempFailureAlert); }
   });
@@ -540,7 +539,6 @@ function saveAdconfig_Cont() {
 function responseWriteInfo(arg) {
   Loading(false);
   var successAlert=enableAd?lang.LANG_CONFIG_AD_UPDATE_SUCCESS:lang.LANG_CONFIG_LDAP_UPDATE_SUCCESS;
-  var temppage=enableAd?AdPage:LDAPpage;
   if(arg.readyState != 4 || arg.status != 200) return;
   var response = JSON.parse(arg.responseText);
   var isLd=response.hasOwnProperty("LDAP");
@@ -559,7 +557,7 @@ function responseWriteInfo(arg) {
     Create_Group();
     alert(successAlert, {
       title : lang.LANG_GENERAL_SUCCESS,
-      onClose : function() { location.href = temppage; }
+      onClose : function() { location.href = AdPage; }
     });
     if (urlRdirect == 1) {
       var redirect_url = location.host;

@@ -160,14 +160,7 @@ grayout: 0*/
               fn : function() { page_mapping('configuration', 'config_ntp') }
             },
             index : "config_ntp"
-          },/*
-          {
-            text : lang.LANG_CONFIG_SUBMENU_LDAP,
-            onclick : {
-              fn : function() { page_mapping('configuration', 'config_ldap') }
-            },
-            index : "config_ldap"
-          },*/
+          },
           {
             text : lang.LANG_CONFIG_SUBMENU_SOFT_LICENSE,
             onclick : {

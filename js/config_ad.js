@@ -418,14 +418,13 @@ function validateAdform() {
       bool_validation = false;
     }
 
-    ServerUrl.value=IpLable.value+ServerUrl.value;
-    if(ServerUrl.value=='' || !((ServerUrl.value.indexOf("ldap://")==0) 
-                      || (ServerUrl.value.indexOf("ldaps://")==0)) 
-                      || (sslCaFlag==false && (ServerUrl.value.indexOf("ldaps://")==0))
-    ) {
+    var prefix = enableLDAPoverSSL.checked ? 'ldaps://':'ldap://';
+    if(ServerUrl.value=='' || (sslCaFlag==false && enableLDAPoverSSL.checked)){
       error_msg_dtring += "ServerUrl\n";
       bool_validation = false;
     }
+
+    ServerUrl.value=prefix+ServerUrl.value;
 
     if (AdGroupName.value == '' && selected_row != '') {
       error_msg_dtring += "Group Name\n";

@@ -1,0 +1,51 @@
+<html>
+  <head>
+        <title>LDAP — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+  </head>
+  <body>
+    <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+	<div class='helpmainhead'>LDAP — 帮助</div>
+		<p>选择或者不选“LDAP认证”选项来启用或禁用LDAP。</p>
+	  <h2>LDAP认证</h2>
+		<p>选择这个选项来启用LDAP认证，然后输入需要的信息来存取LDAP服务器。</p>
+	<h2>通过SSL来对LDAP认证</h2>
+		<p>选中该复选框以启用/禁用通过 SSL 的 LDAP 身份验证。</p>
+	  <h2>IP地址</h2>
+		<p>LDAP服务器的IP地址。</p>
+			<ul>
+				<li>- IP地址是由4个数字用点隔开如“xxx.xxx.xxx.xxx”。</li>
+				<li>- “xxx”范围从0到255</li>
+				<li>- 第一个“xxx”不能是0</li>
+				<li>- 支持主机名</li>
+			</ul>
+		<h2>绑定的DN</h2>
+			<p>LDAP服务器的专有名称，比如
+			&quot;cn=Manager, dc=my-domain, dc=com&quot;.
+			</p>
+	  <h2>绑定的密码</h2>
+		<p>为LDAP服务器认证密码，密码长度必须大于4个字符。
+		</p>
+	  <h2>搜索基址</h2>
+		<p>LDAP的搜索基址，比如
+		   &quot;dc=my-domain, dc=com&quot;.
+		</p>
+		<h2>用户 ID 属性（可选）</h2>
+			<p>LDAP 服务器的用户 ID</p>
+    <div class='helpmainhead'>配置LDAP用户组 - 帮助</div>
+		<h2>组名称</h2>
+			<p>角色组名称是 64 个字母数字字符的字符串。</p>
+			<p>允许使用特殊符号连字符和下划线。</p>
+		<h2>组权限</h2>
+			<p>选择角色组权限。这是为此角色组分配的权限级别</p>
+	<div class='helpactionhead'>操作</div>
+	<div class='actionsub'>保存</div>
+		<p>保存当前设定。</p>
+	<div class='actionsub'>删除</div>
+		<p>从表中选择 LDAP 组并删除该组。</p>
+  </body>
+</html>

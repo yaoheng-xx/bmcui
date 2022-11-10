@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>KVM — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+
+        <div class='helpmainhead'>KVM — 帮助</div>
+        <p>
+        从这个页面启动远程 KVM 窗口。
+        </p>
+        <p>
+        点击“启动”会在当前页面实现KVM窗口，然后点击“在新窗口中打开”会弹出一个新的KVM窗口。
+        </p>
+
+        <!-- <div class='helpmainhead'>键盘宏定义 — 帮助</div>
+        <p>使用此页面来配置远程控制台的键盘宏定义按钮。</p>
+        <h2>键盘时序</h2>
+        <p>
+        当宏定义的按钮被按下的时候，按键事件顺序会被回放。
+        <ul>
+            <li>在按键之间的“+”符号代表按键要同时按下。</li>
+        </ul>
+        </p>
+        <p>
+        举例：
+        <ul>
+            <li>Ctrl+Alt+Del</li>
+        </ul>
+        </p>
+        <h2>按钮名称</h2>
+        <p>
+        短名称将显示在远程控制台的按钮上。
+        </p>
+        <p class="warning">
+        <img src='../../images//warning.png'>
+        <b>备注:</b>
+        键盘时序或按钮名称不可以是空值。
+        否則按下保存按钮后，键盘宏定义将被删除。
+        </p>
+        <p class="warning">
+        <img src='../../images/warning.png'>
+        <b>备注:</b>
+        </p>
+        <p class="warning">
+        按键名称不是类似“a” “5” “@”等等这样打印的字符，就是下列表格中非打印的按键。
+        名称在括号中是相同的按键别名。数字小键盘键用“NP”作为前缀。
+        </p>
+        <p class="warning">
+        注意，按键顺序作为扫描码发送到目标机器，会被目标操作系统翻译。
+        所以他们会被修改工具影响到，例如数字锁定键和操作系统键盘语言设定。
+        </p>
+        <table border="1">
+            <tr><td><p>Shift (LShift)</p></td><td><p>RShift</p></td><td><p>Ctrl (LCtrl)</p></td><td><p>RCtrl</p></td></tr>
+            <tr><td><p>Alt (LAlt)</p></td><td><p>RAlt (AltGr)</p></td><td><p>Win (LWin)</p></td><td><p>RWin</p></td></tr>
+            <tr><td><p>Enter</p></td><td><p>Esc</p></td><td><p>F1 - F12</p></td><td><p></p></td></tr>
+            <tr><td><p>Bksp</p></td><td><p>Tab</p></td><td><p>CapsLk</p></td><td><p>Space</p></td></tr>
+            <tr><td><p>Ins</p></td><td><p>Del</p></td><td><p>Home</p></td><td><p>End</p></td></tr>
+            <tr><td><p>PgUp</p></td><td><p>PgDn</p></td><td><p>Context (Menu)</p></td><td><p></p></td></tr>
+            <tr><td><p>Up</p></td><td><p>Left</p></td><td><p>Down</p></td><td><p>Right</p></td></tr>
+            <tr><td><p>NumLk</p></td><td><p>NP_Div</p></td><td><p>NP_Mult</p></td><td><p>NP_Minus</p></td></tr>
+            <tr><td><p>NP_Plus</p></td><td><p>NP_0 - NP_9</p></td><td><p>NP_Dec</p></td><td><p>NP_Enter</p></td></tr>
+            <tr><td><p>PrtSc (SysRq)</p></td><td><p>ScrLk</p></td><td><p>Pause (Break)</p></td><td><p></p></td></tr>
+        </table> -->
+        <h2>键盘宏</h2>
+        <p>可以选择执行下列键盘宏：</p>
+        <ul>
+            <li>- Alt+Tab</li>
+            <li>- Ctrl+Alt+Delete</li>
+            <li>- Alt+Space</li>
+            <li>- Alt+Esc</li>
+            <li>- Alt+Enter</li>
+            <li>- Print</li>
+            <li>- Alt+F4</li>
+            <li>- Ctrl+Esc</li>
+            <li>- Ctrl+Tab</li>
+        </ul>
+
+        <h2>键盘</h2>
+        <p>可以选择下列虚拟键盘：</p>
+        <ul>
+            <li>- 英语键盘</li>
+            <!-- <li>- 荷兰语键盘</li>
+            <li>- 法语键盘</li>
+            <li>- 德语键盘</li>
+            <li>- 意大利语键盘</li>
+            <li>- 俄语键盘</li>
+            <li>- 西班牙语键盘</li> -->
+        </ul>
+
+        <h2>电源控制</h2>
+        <p>可以执行下列电源控制操作：</p>
+        <ul>
+            <li>- 电源开</li>
+            <li>- 电源关</li>
+            <li>- 软件关机</li>
+            <li>- 电源重启</li>
+        </ul>
+
+        <div class='helpactionhead'>操作</div>
+
+        <div class='actionsub'>启动</div>
+        <p>单击以在此页面中启动 KVM 窗口。</p>
+        <div class='actionsub'>停止</div>
+        <p>单击以在此页面中停止 KVM 窗口。</p>
+        <div class='actionsub'>强制进入BIOS设置界面</div>
+        <p>在重启服务器之后，选择这个选项进入BIOS设置界面。</p>
+        <div class='actionsub'>在新窗口中打开</div>
+        <p>点击会弹出一个新的 KVM 窗口。</p>
+    </body>
+</html>

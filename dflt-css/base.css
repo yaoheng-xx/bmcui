@@ -1,0 +1,153 @@
+#_headerlogoutlink { text-decoration:none; cursor:pointer }
+#_headerrefreshlink { text-decoration:none; cursor:pointer }
+#_headerhelplink { text-decoration:none; cursor:pointer }
+#_headerabouttxt { text-decoration:none; cursor:pointer }
+#topm_topdiv { text-align: left; height: 100%; width: 100% }
+#topm_maintbl { height: 100%; width: 100% }
+
+table.mtable { width: 100%}
+fieldset.wideul { min-width: 700px; width: fit-content;}
+fieldset.wide { width: 550px}
+fieldset.wide_fru { width: 500px}
+fieldset.widel { width: 550px; float: left}
+fieldset.widepl { width: 90%; float: left}
+fieldset.wideldap { float: left}
+fieldset.narrow { width: 50px}
+.nodisplay { display:none}
+.novis { visibility:hidden}
+fieldset.medcenter { width: 335px; text-align:center}
+div.cpu_info {padding-bottom:25px}
+div.fru_info {padding-bottom:25px}
+fieldset.nvme_info {width:750px}
+div.nvme_info {padding-bottom:10px}
+body.content_body {overflow:hidden; overflow:auto}
+body.content_body_fixed {overflow:hidden;overflow:-moz-hidden-unscrollable}
+table.content_table {width: 100%}
+div.list_tbl {overflow-x:hidden;overflow-y:auto;overflow:-moz-hidden-unscrollable}
+table.post_table {width: 100%; font-size: 13px}
+.lignright { text-align: right }
+.lignleft { text-align: left }
+td.cfg_alert_col { width: 125px }
+
+#kvm_mouse_sub_cap1 { margin-top: -5px }
+#kvm_mouse_sub_cap2 { margin-top: 10px }
+
+#log_selcount_lbl {
+  text-align:right;
+  font-family: Arial, Verdana, Geneva,  Helvetica, sans-serif;
+}
+
+#selSelect {
+    display: inline-block;
+    width: 50px;
+    margin: 0;
+}
+
+#selPageUp {
+    margin-right: 0;
+}
+
+#selPageDown {
+    margin-left: 0;
+}
+
+#selMeterParent {
+    width:200px;
+    height:10px;
+    float:right;
+    border:1px solid black;
+    margin-bottom:4px
+}
+
+#selMeter {
+    height:10px;
+    background-color:red;
+    float:left
+}
+
+#NmPwrTimerTable { width: 50% }
+#nm_col1 { width: 200px }
+#nm_col2 { width: 125px }
+#nm_col3 { width: 150px }
+#nm_col4 { width: 125px }
+
+.buttonStyle {
+    font-size:12px;
+    font-family: Arial, Verdana, Georgia, sans serif;
+    font-weight:bold;
+    /*padding:3px;*/
+    margin-left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.kvmsave { width: 360px; padding:3px }
+#kvmInputTbl { padding:10px;line-height:11px }
+
+.porttext {
+    font-size: 12px;
+    color:#000000;
+    font-family: Arial, Verdana, Geneva,  Helvetica, sans-serif;
+    font-style: normal;
+    line-height: 18px;
+    padding-left:10px;
+}
+
+.postTimeInfo { text-align:center; font-size:13px }
+
+#enableControl { text-align:left; float:left }
+#cfgSdrInputControls { display:none; text-align:left }
+.cfgsdrinput { width:220px }
+#cfgSdrCaption { width: 650px; float:left }
+
+#biospwd { width:145px }
+
+.cfgAdTbl { width: 98% }
+.cfgAlertFs { float:left }
+
+
+#_check_liq_leakage_detection { visibility:hidden }
+#liq_leakage_detection_lbl { visibility:hidden }
+#_check_liq_leakage_shutdown { visibility:hidden }
+#liq_leakage_shutdown_lbl { visibility:hidden }
+
+.btnTray { width: 360px }
+#kcs_segment_state {
+    color: orange;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Arial, Verdana, Georgia, sans serif;
+}
+
+#iKVM_topmenu_div { text-align: left; width: 100% }
+#IKVM_toprow {
+    padding-left: 0px;
+    padding-right: 0px;
+    vertical-align: top;
+}
+#iKVM_keyboard { height:0px }
+#iKVM_VirtualKeyboard { left:30px; top:30px;  display:none }
+#iKVM_VirtualKeyboard_Close {
+    position: absolute;
+    right:14px;
+    top:6px;
+    width:16px;
+    height:16px;
+    cursor:default;
+}
+
+.postcodesFS { width: 45%; float:left }
+
+#solLogViewFS { width: 95%; float:left }
+#solLogView { text-align:center }
+
+#fpStatusTxt { margin-left:16px }
+#fpStatusLed { margin-left:16px }
+#fpChassisIcon { margin-left:28px }
+#fpChassisTxt { margin-left:28px }
+
+p.vmHtml5Warn { color:red; font-size:13pt }
+
+input.killicon {
+     height: 15px;
+ }

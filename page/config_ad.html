@@ -1,0 +1,221 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/inputvalidation.js"></script>
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_ad.js"></script>
+</head>
+
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <div id="main" style="width:100%;">
+        <div id="left" style="width:40%;float:left;">
+
+            <table border="0" cellpadding="0" cellspacing="5" class="content_table">
+                <tr>
+                    <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+                    <td>
+                        <div id="caption_div" class="mtitle"></div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><br></td>
+                    <td colspan="3">
+                        <div id="kcs_segment_state" class="Categorytext"></div>
+                    </td>
+                </tr>
+                        <table border="0" id="table4" cellpadding="0" cellspacing="5" >
+                            <tr>
+                            <td>&nbsp;<label><input type="radio" id="AdSwitch"/>
+                            <span id="ad_en_span" class="labelhead"  width="393"></span></label></td>
+
+                            <td>&nbsp;<label><input type="radio" id="LdSwitch"/>
+                            <span id="ldap_en_span" class="labelhead"  width="393"></span></label></td>
+                                
+                            <td>&nbsp;<label><input type="radio" id="NoneSwitch"/>
+                            <span id="none_en_span" class="labelhead"  width="393"></span></label></td>
+                            </tr>
+                        </table>
+                <tr>
+                        <td>
+                        <table border="0" id="table5" cellpadding="0" cellspacing="5" >       
+                            <tr>
+                                <td>&nbsp;<label><input type="checkbox" id="ADenableSSL" />
+                                    <span id="ADssl_enable" class="labelhead"></span></label></td>
+                                <td >&nbsp;
+                            </tr>
+                        </table>
+                        </td>
+                </tr>
+
+                <tr>
+                    <td> &nbsp;
+                    <fieldset class="wideldap group">
+                        <table border="0" id="table3"  >
+                            <tr >
+                                <td colspan="1" class="bold" > 
+                                        <h4 class="intro" id="infoTitle">Info:</h4>
+                                </td>
+                            </tr> 
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr1">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr2">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr3">
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr4">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr5">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr6">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="493" font-size = 8px id="infoTr7">
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                    </td>
+                </tr>
+                
+                <table border="0" id="table2">
+                    <tr><td> &nbsp;</td></tr>
+                    <!-- IPLABLE is the fixed prefix of url, its value is "ldap://" or "ldaps://". -->
+                    <style >
+                        #IPLABLE{
+                        position: absolute;
+                        font-size: 14px;
+                        margin-left: 4px;
+                        padding: 2px;
+                        color: black;
+                        vertical-align: middle;
+                        font-weight: 400;
+                        }
+                        #ADIP{                    
+                            text-indent: 36px;
+                        }
+                    </style>
+                    <tr>
+                        <td width="393">&nbsp;<span id="ad_ip_span" class="labelhead"></span></td>
+                        <td width="393"> <lable id="IPLABLE" type="text"> </lable> &nbsp;<input type="text" id="ADIP" /></td> 
+                    </tr>
+                    <tr>
+                        <td width="393">&nbsp;<span id="ad_dn_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADBINDWN" /></td>
+                    </tr>
+                    <tr>
+                        <td width="393">&nbsp;<span id="ad_pwd_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="password" id="ADBINDPW" /></td>
+                    </tr>
+                    <tr>
+                        <td width="393">&nbsp;<span id="ad_sb_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADBASE" /></td>
+                    </tr>
+                    <tr>
+                        <td width="393">&nbsp;<span id="ad_userid_span" class="labelhead"></span></td>
+                        <td width="393">&nbsp;<input type="text" maxlength="255" id="ADUSERID" /></td>
+                    </tr>
+                </table>
+
+                <table border="0" id="ad_table" cellpadding="0" cellspacing="5" class="content_table">
+                <tr class="head">
+                    <td colspan="1" class="bold">
+                        <span id="ad_gf_header_span" class="labelhead"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="1" width="400">
+                        <div class="list_tbl" id="ADGroupTable"  width="400"></div>
+                    </td>
+                    <td >
+                        &nbsp;
+                    </td>
+                </tr>
+
+                <tr>
+ 
+                        <table border="0" id="table2">
+                        <tr id="role_group_name">
+                            <td>&nbsp;<span id="ad_groupname_span" class="labelhead"></span></td>
+                            <td width="393">&nbsp;<input type="text" maxlength="255" id="ADGROUPNAME" /></td>
+                        </tr>
+                        <tr id="role_group_priv">
+                            <td>&nbsp;<span id="ad_groupprivilege_span" class="labelhead"></span></td>
+                            <td width="393" maxlength="255">
+                                &nbsp;
+                                <select id="ADGROUPPRIVILEGE" class="labelhead">
+                                    <option value="Administrator">Administrator</option>
+                                    <option value="Operator">Operator</option>
+                                    <option value="ReadOnly">User</option>
+                                </select>
+                            </td>
+                        </tr>
+                        </table>
+ 
+                </tr>
+                
+                <tr>
+                    <td height="53">
+                        <br>
+                        <input type="button" class="btnStyle" id="ADButtonSave" />
+                        <input type="button" class="btnStyle" id="ADButtonDeleteGroup" />
+                    </td>
+                </tr>
+                
+                </table>
+
+
+                <table border="0" id="ad_noconfig_msg" cellpadding="0" cellspacing="0" class="mtable hide">
+                    <tr>
+                        <td><br/></td>
+                        <td><br/></td>
+                    </tr>
+                    <tr>
+                        <td width="150">&nbsp;</td>
+                        <td colspan="3">
+                            <table class="boxSection">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                        <div id="add_desc_div" class="ADmsg"></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+            </table>
+
+        </div>
+
+</body>
+
+</html>

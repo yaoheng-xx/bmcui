@@ -1,0 +1,138 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/config_ssl.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/dummy.css">
+</head>
+
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="mtable">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="ssl_caption_div_server" class="mtitle"></div></td>
+        </tr>
+    </table>
+    <table>
+        <tr><td>&nbsp;</td>
+            <td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+        <tr><td>&nbsp;</td>
+            <td>
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <table border="0" width="100%" id="table2">
+                        <tr><td class= "bold">&nbsp;<span id="ssl_form_span" class="labelhead"></span></td>
+                            <td width="393">&nbsp;
+                                <span class="labelhead" id="validfrom"></span>
+                            </td>
+                        </tr>
+                        <tr><td class= "bold">&nbsp;<span id="ssl_until_span" class="labelhead"></span></td>
+                            <td width="393">&nbsp;
+                                <span class="labelhead" id="validuntil"></span>
+                            </td>
+                        </tr>
+                        <tr><td class= "bold">&nbsp;
+                                <span id="newsslcert_span" class="labelhead"></span></td>
+                            <td width="393">&nbsp;
+                                <input class="file" type="file" name="cert_file" id="sslcrt_file"/>
+                            </td>
+                        </tr>
+                        <tr><td class= "bold">&nbsp;
+                                <span id="newprikey_span" class="labelhead"></span></td>
+                            <td width="393">&nbsp;
+                                <input class="file" type="file" name="key_file" id="privkey_file_server" onchange="handleFiles(this.files)"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+        <tr><td height="53"></td>
+            <td height="53">
+                <!-- below area is needed to modify by yourself -->
+
+                <br>
+                <input type="button" class="btnStyle" id="ButtonUpload"/>
+                <!-- end of this area -->
+            </td>
+        </tr>
+    </table>
+    <table border="0" cellpadding="0" cellspacing="5" width="500">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="ssl_caption_div_ca" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <div id="kcs_segment_state" class="Categorytext"></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="5" class="mtable">
+                    <tr>
+                        <td>
+                            <div id="ssl_detail_table" style="height: auto !important; overflow: hidden auto;"></div>
+                        </td>
+                    </tr>
+                </table>
+                <table id="web_iso_table" border="0" cellpadding="0" cellspacing="5" width="500">
+                    <tr>
+                        <td class="content_session">
+                            <!-- below area is needed to modify by yourself -->
+                            <div>
+                                <div>
+                                    <table cellspacing="0" cellpadding="3" border="0" width="80%">
+                                        <tr>
+                                            <td align="left" width="170px" class="labelhead">
+                                                <div id="div_device"></div>
+                                            </td>
+                                            <td align="left"><label id="dev_stat" class="labelhead"></label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="button" class="btnStyle" id="ButtonAddNewCert" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                <hr>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <table id="add_new_cert_table" cellspacing="0" cellpadding="3" border="0" width="80%">
+                                        <tr>
+                                            <td width="120px" class="labelhead">
+                                                <div id="div_user">Choose Certificate</div>
+                                            </td>
+                                            <td>
+                                                <input type="file" id="privkey_file" class="file" name="key_file" style="width:280px;"/>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div style="margin-top: 10px;">
+                                        <input type="button" class="btnStyle" id="save_btn" />
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    <tr>
+                </table>
+            </td>
+        <tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>添加新用户 — 帮助</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/iframe_event.js"></script>
+    <script type="text/javascript" src="../../js/help.js"></script>
+</head>
+
+<body>
+    <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+    <div class='helpmainhead'>添加新的用户帮助</div>
+    <p>使用此页面添加新用户。</p>
+
+    <h2>用户名</h2>
+    <p>正在配置的用户的名称。</p>
+    <p>名称是由 1 到 16 个字母数字字符或“.”、“_”或“-”组成的字符串。</p>
+    <p>该名称必须以字母数字字符或“_”开头。</p>
+    <p>这些保留字不能是用户名。 [root, bin, daemon, sys, lp, sync, mail, news, uucp
+        games, proxy, www-data, backup, list, irc, gnats, man, rpc, rpcuser, avahi, messagebus, systemd-network, systemd-timesync, systemd-coredump, systemd-bus-proxy, systemd-resolve, bmcweb, nobody]</p>
+
+    <h2>密码确认密码</h2>
+    <p>有保留字不能是密码。 [sshd、bin、守护进程、sys、adm、lp、同步、关机、暂停、邮件、新闻、uucp 操作员、游戏、ftp、人、没人、stunnel4] </p>
+    <p>系统具有低、中和高密码复杂性模式。</p>
+    <p>开头的空格是不允许的。</p>
+    <p>用户可以在“安全设置”页面更改系统密码模式，查看密码复杂度规则。</p>
+    <p>在此处输入并确认新密码。</p>
+
+    <h2>网络权限</h2>
+    <p>分配给该用户的网络权限级别。</p>
+    <ul>
+        <li>- Administrator
+        <li>- Operator
+        <li>- User
+        <li>- No Access
+            <!--<li>- Callback-->
+    </ul>
+
+    <a href='./ewsprivilege.html' target="_blank" rel="noopener noreferrer">点击此处获取详细的各级别网络权限</a>
+
+    <div class='helpactionhead'>行动</div>
+    <div class='actionsub'>添加</div>
+    <p>单击“添加”按钮保存新用户并返回用户列表。</p>
+    <div class='actionsub'>取消</div>
+    <p>单击“取消”返回列表而不修改新用户。</p>
+</body>
+
+</html>

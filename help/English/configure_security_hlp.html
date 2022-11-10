@@ -1,0 +1,131 @@
+<html>
+
+<head>
+    <title>Security Settings - Help</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/iframe_event.js"></script>
+    <script type="text/javascript" src="../../js/help.js"></script>
+</head>
+
+<body>
+    <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+    <div class='helpmainhead'>Security Settings - Help</div>
+    <p>You can view and modify the security settings on this page.</p>
+    <h2>KCS Policy Control Mode</h2>
+    <p>The KCS Policy Control Mode allows an administrator to control access to the BMC over the Keyboard Controller
+        Style (KCS) interface. The KCS interface is a communications channel used by the server host (UEFI, Operating
+        System) to communicate with the server BMC. Although the KCS interface is protected by Ring 0 access, it is
+        unauthenticated and considered insecure for some deployment models. KCS Policy Control Mode restricts commands
+        defined by the Intelligent Platform Management Interface (IPMI) specification sent over the KCS interface after
+        core BIOS functions have been completed. Choices from:</p>
+    <ul>
+        <li>KCS Policy Control Mode - Provisioning</li>
+        <p>This configuration setting is intended for normal IPMI compliant communications between the Host OS and the
+            BMC. This mode should be used when provisioning the BMC configuration for deployment.</p>
+        <li>KCS Policy Control Mode - Provisioned Host Disabled</li>
+        <p>This configuration setting disables the IPMI KCS command interfaces between the Host OS and the BMC. This is
+            a non-compliant IPMI configuration that will impact the operation of the Server Management Software running
+            on the Host OS. This only applies to the IPMI commands over the KCS interfaces and does not apply to the
+            authenticated network interfaces to the BMC.</p>
+        <li>KCS Policy Control Mode - Provisioned Host Allowlist</li>
+        <p>This configuration setting enables the use of an Access Control List by the BMC Firmware that allows
+            applications executing on the host OS to have access to a limited set of IPMI commands using the KCS
+            interfaces. This is a non-compliant IPMI configuration that may impact the operation of the Server
+            Management Software running on the Host OS. For example, the IPMI commands that are used to provision the
+            BMC configuration settings, or control the state of the Host OS, will be disallowed when the BMC KCS
+            interface is in restricted mode. This only applies to the IPMI commands over the KCS interfaces and does
+            not apply to the authenticated network interfaces to the BMC.</p>
+    </ul>
+    <h2>Host Interface</h2>
+    <p>Enable/Disable Host interface for eth2.</p>
+    <h2>Failed Login Attempts</h2>
+    <p>Input the Failed Login Attempts times.
+        Set the number of failed login attempts a user is allowed before being locked out. Zero means no lockout. Failed
+        Login Attempts should be between 0 and 255. The default is 10 attempts.
+    </p>
+
+    <h2>User Lockout Time (sec)</h2>
+    <p>Set the time in seconds that the user is locked out before being allowed to login again. Zero means User Lockout
+        Time is disabled. If a user was automatically disabled due to the Bad Password threshold, the user will remain
+        disabled until re-enabled via the Set User Access command. User Lockout Time should be between 0 and 65535.
+        The default is 300sec.</p>
+
+    <h2>Port Settings</h2>
+    <p>
+    <h2>HTTPS (Secure) Port</h2>
+    <p>Set the port used for HTTPS (default: 443) web sessions. Changing this setting will immediately terminate all
+        current web sessions.</p>
+    <h2>SOL SSH Port</h2>
+    <p>Set the port used for SOL SSH sessions.</p>
+    <h2>Password Rules - Complexity</h2>
+    <p>Select the Password Complexity dropdown to set the password complexity (Low, Medium, High). </p>
+    <p>Password cannot exceed 20 bytes in length due to IPMI 2.0 restrictions.</p>
+    <dl>
+        <dt><b>Low</b></dt>
+        <dd>-Passwords can be formed with the characters a-zA-Z0-9_ including punctuation</dd>
+        <dd>-Password length should not be shorter than 8 characters</dd>
+        <dd>-pam_cracklib is used to strengthen checking the password before accepting it. Passwords must not conform to dictionary words,
+            palindrome and so on.</dd>
+    </dl>
+
+    <dl>
+        <dt><b>Medium</b></dt>
+        <dd>-Contains printable characters only</dd>
+        <dd>-Password length should not be shorter than 8 characters</dd>
+        <dd>-Could not contain password or username in reverse order (case insensitive)</dd>
+        <dt>-Meets the following 4 criteria:</dt>
+        <dd>1. Contains uppercase</dd>
+        <dd>2. Contains lowercase</dd>
+        <dd>3. Contains digit numbers</dd>
+        <dd>4. Contain at least a space or symbols</dd>
+    </dl>
+
+    <dl>
+        <dt><b>High</b></dt>
+        <dd>-Contains printable characters only</dd>
+        <dd>-Password length should not be shorter than 8 characters</dd>
+        <dt>-Meets the following 4 criteria:</dt>
+        <dd>1. Contains uppercase</dd>
+        <dd>2. Contains lowercase</dd>
+        <dd>3. Contains digit numbers</dd>
+        <dd>4. Contains symbols</dd>
+        <dd>-Could not contain password or username in reverse order (case insensitive).</dd>
+        <dd>-Could not contain continuous digits longer than 3 characters (e.g. BMC(123)ste, BMC(654)sfc are not
+            allowed)
+        </dd>
+        <dd>-Could not contain continuous alphabets longer than 3 characters (e.g. (AbC)3478!, 57$(DeF)68k are not
+            allowed))</dd>
+        <dd>-Alphabets could no longer than 3 characters (e.g. (Fher)145! are not allowed))</dd>
+        <dd>-Digits could no longer than 3 characters (e.g. Fgke(1245)#@, (4390)FGL$ are not allowed)</dd>
+        <dd>-Contains no more than 3 same alphabets(case insensitive) (e.g. Fkr4fcpF&f (4 'f' or 'F'), Glg5gt2G! (4 'g' or 'G') are not allowed)</dd>
+        <dd>-For symbols, use the ASCII code instead. The combination of alphabets/digits/symbols in continuous ASCII code could not be longer than or equal to 3 characters (e.g., below are not allowed)
+            <br /> &nbsp; #$%, ASCII 35, 36, 37 <- symbols
+            <br /> &nbsp; 9:;, ASCII 57, 58, 59 <- digits + symbols
+            <br /> &nbsp; YZ[, ASCII 89, 90, 91 <- alphabets + symbols</dd>
+        <dd>-Symbols could not be longer than 3 characters (e.g., #$&; is not allowed)</dd>
+
+    </dl>
+    <h2>Password Rules - Password History</h2>
+    <p>Select the Password History dropdown to set the password History (0 to 5).
+        saves the last N(0~5) passwords for each user in order to force password change history and keep the user from alternating between the same password too frequently.
+    </p>
+    <h2>Optional Network Services</h2>
+    <p>
+    <h2>SOL SSH</h2>
+    <p>Checking/Unchecking the checkbox to enable/disable the SOL SSH service.</p>
+    <h2>IPMI over LAN</h2>
+    <p>Checking/Unchecking the checkbox to enable/disable the IPMI over LAN service.</p>
+    <h2>Remote Media</h2>
+    <p>Checking/Unchecking the checkbox to enable/disable the Virtual Media service.</p>
+    <b>NOTE:</b>
+    <p>Virtual Media service checkbox will be in disabled mode for the invalid license key.</p>
+    <div class='helpactionhead'>Actions</div>
+    <div class='actionsub'>Save</div>
+    <p>Click 'Save' to save any changes made.</p>
+
+</body>
+
+</html>

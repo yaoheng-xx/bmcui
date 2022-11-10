@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/config_no_smash_security_settings.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+</head>
+<body class="content_body">
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="title_div" class="mtitle"></div></td>
+        </tr>
+    </table>
+    <br>
+    <table cellspacing="0" cellpadding="5" border="0" width="100%">
+        <tr><td></td>
+            <td><div id="kcs_segment_state" class="Categorytext"></div></td>
+        </tr>
+        <!-- KCS Policy Mode -->
+        <tr><td></td>
+            <td>
+                <fieldset  class ="wide group">
+                    <legend id="kcs_policy_control_mode_legend" class ="legendcaption"></legend>
+                        <table border ="0" cellspacing ="0" cellpadding ="0" width ="100%">
+                            <tr><td width ="25px">&nbsp;</td>
+                                <td class ="bold" width ="245">
+                                    <label id="kcs_pcm_lbl" class ="labelhead"></label>
+                                </td><td>
+                                    <select class="Categorytext" id="kcs_type_select"></select>
+                                </td>
+                            </tr>
+                        </table>
+                </fieldset>
+            </td>
+        </tr>
+        <!-- host interface-->
+        <tr id="host_interface_row"><td></td>
+            <td>
+                <fieldset class="wide group">
+                    <legend id="enable_host_interface_legend" class="legendcaption"></legend>
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tbody><tr><td width="25px">&nbsp;</td>
+                                <td class="bold" width="245">
+                                    <label id="enable_host_interface_lbl" class="labelhead"></label>
+                                </td><td>
+                                    <input type="checkbox" id="_enableHostInterface">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <fieldset  class="wide group">
+                    <legend id="attemp_legen" class="legendcaption"></legend>
+                    <table border="0" cellspacing="0" cellpadding="0" width ="100%">
+                        <tr><td width ="25px">&nbsp;</td>
+                            <td class= "bold" width ="245">
+                                <label id="failed_attempts_lbl" class="labelhead"></label>
+                            </td><td>
+                                <input type="text" id="failedAttempts" maxlength= 3/>
+                            </td>
+                        </tr>
+                        <tr><td>&nbsp;</td>
+                            <td></td><td></td>
+                        </tr>
+                        <tr><td>&nbsp;</td>
+                            <td class= "bold" width ="245">
+                                <label id="lockout_time_lbl" class="labelhead"></label>
+                            </td>
+                            <td>
+                                <input type="text" id="lockoutTime" maxlength= 5/>
+                            </td>
+                        </tr>
+                        <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <fieldset class="wide group">
+                    <legend id="port_setting_legend" class="legendcaption"></legend>
+                    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                        <!-- HTTPS Port -->
+                        <tr>
+                            <td width="25px">&nbsp;</td>
+                            <td class="bold" width="245">
+                                <label id="https_port_lbl" class="labelhead"></label>
+                            </td>
+                            <td><input type="text" id="httpsPort" maxlength=5 /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <!-- SOL SSH Port -->
+                        <tr>
+                            <td width="25px">&nbsp;</td>
+                            <td class="bold" width="245">
+                                <label id="solssh_port_lbl" class="labelhead"></label>
+                            </td>
+                            <td><input type="text" id="solsshPort" maxlength=5 /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr><td></td>
+            <td>
+                <fieldset  class ="wide group">
+                    <legend id="password_services_legend" class ="legendcaption"></legend>
+                    <table border ="0" cellspacing ="0" cellpadding ="0" width ="100%">
+                        <tr><td width ="25px">&nbsp;</td>
+                            <td class ="bold" width ="245">
+                                <label id="password_service_lbl" class= "labelhead"></label>
+                            </td>
+                            <td>
+                                <select id="passwordService" name="passwordService_group">
+                                    <option id="Low" value="Low">Low</option>
+                                    <option id="Medium" value="Medium">Medium</option>
+                                    <option id="High" value="High">High</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr><td>&nbsp;</td><td></td><td></td></tr>
+                        <tr><td width ="25px">&nbsp;</td>
+                            <td class ="bold" width ="245">
+                                <label id="password_history_service_lbl" class= "labelhead"></label></td>
+                                    <td>
+                                        <select id="password_history" name="password_history_group">
+                                            <option id="0" value="0">0</option>
+                                            <option id="1" value="1">1</option>
+                                            <option id="2" value="2">2</option>
+                                            <option id="3" value="3">3</option>
+                                            <option id="4" value="4">4</option>
+                                            <option id="5" value="5">5</option>
+                                        </select>
+                                    </td>
+                        </tr>
+                        <tr><td>&nbsp;</td><td></td><td></td></tr>
+                    </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr class="optional_network_services"><td></td>
+            <td>
+                <fieldset  class ="wide group">
+                    <legend id="network_services_legend" class ="legendcaption"></legend>
+                        <table border ="0" cellspacing ="0" cellpadding ="0" width ="100%">
+                            <tr><td>&nbsp;</td>
+                                <td></td><td></td>
+                            </tr>
+                            <!-- SOL SSH Status -->
+                            <tr><td>&nbsp;</td>
+                                <td class ="bold" width ="245">
+                                    <label id="sol_service_lbl" class ="labelhead"></label>
+                                </td><td>
+                                    <input type ="checkbox" id ="SOLsshService"/>
+                                    <label id="login3_enable_lbl" class ="labelhead" for ="SOLsshService"></label>
+                                </td>
+                            </tr>
+                            <!-- IPMI over LAN Status -->
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                            <tr><td>&nbsp;</td>
+                                <td class ="bold" width ="245">
+                                    <label id="rmcp_service_lbl" class ="labelhead"></label>
+                                </td><td>
+                                    <input type ="checkbox" id ="rmcpService"/>
+                                    <label id="login4_enable_lbl" class ="labelhead" for ="rmcpService"></label>
+                                </td>
+                            </tr>
+
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                            <tr><td>&nbsp;</td>
+                                <td class ="bold" width ="245">
+                                    <label id="rm_service_lbl" class ="labelhead"></label>
+                                </td><td>
+                                    <input type ="checkbox" id ="RemoteMediaService"/>
+                                    <label id="login5_enable_lbl" class ="labelhead" for ="RemoteMediaService"></label>
+                                </td>
+                            </tr>
+
+                            <tr><td>&nbsp;</td><td></td><td></td></tr>
+                        </table>
+                </fieldset>
+            </td>
+        </tr>
+        <tr><td></td><td>
+                <div class="btnTray"><input type ="button" class ="btnStyle" id ="saveBtn" /></div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

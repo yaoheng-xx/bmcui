@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>IPv6 Network Settings - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>IPv6 Network Settings - Help</div>
+            <p>Use this page to configure the IPv6 network settings for server management.</p>
+            <h2>Interface</h2>
+                <p>Lists the Interface available for server management.</p>
+
+            <h2>MAC Address</h2>
+                <p>The MAC address of the device (read-only).</p>
+                
+            <h2>IPMI Channel</h2>
+                <p>Display IPMI Channel number (read-only).</p>
+
+            <h2>NIC Description</h2>
+                <p>Display NIC dedicated to BMC / Host or shared between Host and BMC of Interface (read-only).</p>
+
+            <h2>Link Status</h2>
+                <p>Display NIC Link status of Interface (read-only).</p>
+
+            <h2> Obtain an IP address automatically (use DHCPv6/SLAAC)</h2>
+                <p>Select the option to enable the IPv6 DHCP. IP Address, Prefix Length, Gateway and DNS Server input fields will be disabled if the "Obtain an IP address automatically (use DHCPv6/SLAAC)" option is selected.</p>
+            <h2>Use the following IP address</h2>
+                <p>Select the option to configure the static IPv6 address. IP Address, Prefix Length, Gateway and DNS Server input fields will be enabled to configure if the "Use the following IP address" option selected </p>
+
+            <h2>IP Address</h2>
+                <p>Select the type of IP assignment with the radio buttons. If configuring a static IP, enter the requested IP Address, IPv6 prefix length, and optionally the Gateway, Primary DNS and Secondary DNS Server in the given fields.</p>
+                    <ul>
+                        <li>- IPv6 addresses consist of 8 4-digit hexadecimal numbers separated by colons.</li>
+                        <li>- A :: can be used for a single sequence of two or more zero fields.</li>
+                    </ul>
+
+            <h2>Prefix Length</h2>
+                <p>Display the details of Prefix Length.</p>
+            <h2>Gateway</h2>
+                <p>Denotes the Gateway details of the device.</p>
+            <h2>Primary DNS Server</h2> 
+                <p>Displays the Primary DNS Server details.</p>
+            <h2>Secondary DNS Server</h2>
+                <p>Displays the Secondary DNS Server details.</p>
+
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>Save</div>
+                <p>Click 'Save' to save any changes made.</p>
+
+                <p class="warning">
+                <img src='../../images/warning.png'>
+                <b>NOTE:</b>
+                The Dedicated Management NIC IP address must be on a different subnet than the baseboard IP address used for management traffic.</p>
+                <br>
+
+                <p class="warning">
+                <img src='../../images/warning.png'>
+                <b>NOTE:</b>
+                Please close any active KVM sessions prior to changing the network settings, in order to avoid disconnection from the server.</p>
+    </body>
+</html>

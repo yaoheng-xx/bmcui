@@ -1,0 +1,111 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <!-- common css -->
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <!--common javascipt library -->
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/servh_event.js?201805301349"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/flot/jszip.min.js"></script>
+</head>
+
+<body class="content_body">
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="mtable" class="content_table">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="event_heading_div" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>
+                <div id="kcs_segment_state" class="Categorytext"></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+                    <tr>
+                        <td>
+                            <label id="event_log_desc_lbl" class="Categorytext">
+                            </label>
+                        </td>
+                    </tr>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label id="log_severity_type_lbl" class="Categorytext">
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" id="severity_infor_chkbox" />
+                <label id="alert_info_lbl" class="labelhead" for="severity_infor_chkbox">
+                </label>
+                <input type="checkbox" id="severity_warning_chkbox" />
+                <label id="alert_warn_lbl" class="labelhead" for="severity_warning_chkbox">
+                </label>
+                <input type="checkbox" id="severity_critical_chkbox" />
+                <label id="alert_critical_lbl" class="labelhead" for="severity_critical_chkbox">
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label id="pageSelCount" class="Categorytext bold"></label>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <label class="Categorytext bold">
+                    <label id="event_log_page_select" class="Categorytex"></label>
+                    <select class="Categorytext" id="selSelectSize"></select>
+                    <input type="button" class="btnStyle" id="selPageTop" />
+                    <input type="button" class="btnStyle" id="selPageUp" />
+                    <span id="selSelect"></span>
+                    <input type="button" class="btnStyle" id="selPageDown" />
+                    <input type="button" class="btnStyle" id="selPageBottom" />
+                </label>
+            </td>
+            <td width="25%" align="right">
+                <label id="log_selcount_lbl" class="bold"></label>
+                <span id="selCount"></span><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div id="fullNotice" class="text_alert_normal Categorytext"></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <div class="list_tbl" id="sel_tbl_header"></div>
+                <div class="list_tbl" id="sel_tbl_place"></div>
+                <br>
+                <input type="button" class="btnStyle" id="sel_clear_log_btn" />
+                <input type="button" class="btnStyle" id="sel_save_log_btn" />
+                <input type="button" class="btnStyle" id="sel_refresh_btn" />
+            </td>
+        </tr>
+    </table>
+    </td>
+    </tr>
+    </table>
+</body>
+
+</html>

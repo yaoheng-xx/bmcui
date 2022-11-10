@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>NTP Settings - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+      </head>
+	<body>
+	<div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+	<div class="helpmainhead">NTP Settings - Help</div>
+		<p>This page displays the device's current Date & Time Settings. It can 
+			be used to configure either Date & Time or NTP (Network Time Protocol) 
+			server settings for the device.</p><br/>
+
+		<h2>Time information</h2>
+
+		<h2>Date information</h2>
+
+		<h2>Timezone</h2>
+		<p>The timezone list contains the UTC offsets for the NTP server, which can be used to 
+			display the exact local time.</p>
+
+		<h2>Primary NTP Server & Secondary NTP Server</h2>
+		<p>Specify the NTP Servers for the device.
+			NTP Server fields will support the following:
+			<ul>
+				<li>- IP Address (Both IPv4 and IPv6 format).
+				<li>- FQDN (Fully qualified domain name) format.
+				<li>- FQDN Value ranges from 1 to 128 alpha-numeric characters.
+			</ul>
+		</p>
+		<strong>NOTE:</strong> Secondary NTP server is an optional field.
+		<br>If the Primary NTP server is not working fine, then the Secondary 
+		NTP Server will be tried.
+
+		<h2>Automatically synchronize</h2>
+		<p>Check this option to automatically synchronize the Date and Time with 
+		the NTP Server.</p>
+		<div class='helpactionhead'>Actions</div>
+		<div class='actionsub'>Refresh</div>
+		<p>Click 'Refresh' to reload the current date & time settings.</p>
+		<div class='actionsub'>Save</div>
+		<p>Click 'Save' to save any changes made.</p>
+		<strong>NOTE:</strong>
+		<p>Once the NTP settings configuration was saved successfully then the system will automatically redirect the user to the web login page.</p>
+		<br>
+	</body>
+</html>

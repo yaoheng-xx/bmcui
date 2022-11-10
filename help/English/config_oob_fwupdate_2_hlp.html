@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>BIOS/ME Firmware Update - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+        </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>BIOS/ME Firmware Update - Help</div>
+            <p>Use this page to upload new firmware(BIOS/ME/FD).</p>
+
+            <h2>BIOS/ME Firmware Update</h2>
+                <p>The image version information is available for viewing, as well as the option to select and upload or drag and drop a new firmware image. By dropping a new image on the page or selecting upload, web service begins its firmware update process, which will take a couple of minutes. When it is finished, it will store the image inside BMC. Perform the update server reboot (DC cycle), BIOS will mount the image as a USB virtual media image.</p>
+
+            <h2>BIOS Rev</h2>
+                <p>Displays the current BIOS version.</p>
+            <h2>Mgmt Engine (ME) FW Rev</h2>
+                <p>Displays the current ME firmware version.</p>
+            <h2>PCH PFM Active Rev</h2>
+                <p>Displays the current PCH PFM active version.</p>
+            <h2>PCH PFM Recovery Rev </h2>
+                <p>Displays the current PCH PFM recovery version.</p>
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>Select image type</div>
+                <p>Select image type</p>
+            <div class='actionsub'>Choose File</div>
+                <p>Choose file to upload.</p>
+            <div class='actionsub'>Backup</div>
+                <p>When the option is enabled, the Backup region of current BIOS will be updated together.</p>
+            <div class='actionsub'>NVRam</div>
+                <p>When the option is enabled, the NVRam region of current BIOS will be updated together..</p>
+            <div class='actionsub'>DeferReset</div>
+                <p>When the option is enabled, the Host System reset will be deferred.</p>
+            <div class='actionsub'>Password</div>
+                <p>The option will appear when "Enforce Password Mode" is Enabled in BIOS. Users should input password before uploading the image.</p>
+            <div class='actionsub'>Upload</div>
+                <p>Upload the firmware image file.</p>
+    </body>
+</html>

@@ -1,0 +1,159 @@
+<!--
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+        <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+        <link rel="stylesheet" type="text/css" href="../css/yui-reset-fonts-grids.css">
+        <!-- CSS for Menu -->
+        <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+        <link rel="stylesheet" type="text/css" href="../css/yui-menu.css">
+        <link rel="stylesheet" type="text/css" href="../css/basic.css" />
+        <link rel="stylesheet" type="text/css" href="../css/topmenu.css" />
+        <!-- Page-specific styles -->
+
+        <!-- Dependency source files -->
+        <script type="text/javascript" src="../preauth/js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+        <script type="text/javascript" src="../yui/build/container/container_core.js"></script>
+        <script src="../js/prototype.js"></script>
+        <script src="../js/utils_preauth.js" ></script>
+        <script src="../js/utils.js"></script>
+        <script src="../js/about.js"></script>
+        <!-- Menu source file -->
+        <script src="../yui/build/menu/menu.js"></script>
+        <!-- Page-specific script -->
+        <script src="../js/topmenu.js" defer></script>
+        <script src="../js/lang_include.js"></script>
+    </head>
+    <body class="yui-skin-sam" id="header-com">
+      <div id="topm_topdiv">
+         <table id="topm_maintbl" border="0" cellpadding="0" cellspacing="0">
+         <tr>
+           <td>
+             <table width="100%" border="0" cellpadding="0" cellspacing="0">
+               <tr class="banner">
+                 <td align="left" class="topbanner_left"> 
+                 </td>
+                 <td align="right" class="topbanner_right">
+                   <div id="tm_div" class="topmenu_div">
+                     <table class="topmenu_table">
+                       <tr>
+                         <td class="topmenu_table" valign="bottom" colspan="3" align="right" border="1">
+                           <span id="_headerlogoutlink" class="topheaderlink">
+                             <img border="0" id="_headerlogoutimg" src="../images/logout.png" class="topmenu_img">
+                             <span id="_headerlogouttxt" class="topmenu_text"/>
+                           </span>
+                           <!-- load the jQuery widget sprite images initially -->
+                           <button id="lazy_loading" type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close" "><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">lazy_loading </span></button>
+                          </td>
+                         <td class="topmenu_table" valign="bottom" colspan="3" align="right" border="1">
+                           <span id="_headerrefreshlink" class="topheaderlink">
+                             <img border="0" id="_headerrefreshimg" src="../images/refresh.png" class="topmenu_img">
+                             <span id="_headerrefreshtxt" class="topmenu_text"/>
+                           </span>
+                         </td>
+                         <td class="topmenu_table" valign="bottom" colspan="3" align="right" border="1">
+                           <span id="_headerhelplink" class="topheaderlink">
+                             <img border="0" id="_headerhelpimg" src="../images/help.png" class="topmenu_img">
+                             <span id="_headerhelptxt" class="topmenu_text"/>
+                           </span>
+                         </td>
+                         <td class="topmenu_table" valign="bottom" colspan="3" align="right" border="1">
+                           <span id="_headeraboutlink" class="topheaderlink">
+                             <img border="0" id="_headeraboutimg" src="../images/about.png" class="topmenu_img">
+                             <span id="_headerabouttxt" class="topmenu_text"/>
+                           </span>
+                         </td>
+                       </tr>
+                     </table>
+                   </div>
+                 </td>
+               </tr>
+             </table>
+           </td>
+         </tr>
+         <tr>
+           <td>
+               <div id="bd">
+                   <div id="productsandservices" class="yuimenubar yuimenubarnav">
+                       <div class="bd" width="70%">
+                           <ul class="first-of-type">
+                               <li class="yuimenubaritem first-of-type">
+                                   <a id="system" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                   <a id="health" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                   <a id="configuration" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                   <a id="remote" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                   <a id="vmedia" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                   <a id="serverdiag" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                   <a id="miscellaneous" class="yuimenubaritemlabel" href="#"></a>
+                               </li>
+                               <li class="yuimenubaritem">
+                                 <a id="storageController" class="yuimenubaritemlabel" style="display: none;" href="#"></a>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+                </div>
+            </td>
+            </tr>
+            <tr>
+              <td class="sidebar_and_content">
+                <table class="sidebar_and_content" width=100% height=100%>
+                    <tr id="row_main_help_frame">
+                        <td width="160px" height="100%" class="sidebar">
+                            <table border="0" id="sidebar" height=100% width=100% class="menu_sidebar">
+                            </table>
+                        </td>
+                        <td class="sidebar_content_seperator"/>
+                        <td class="content" height="100%">
+                            <table class="content" border="0" width="100%" height="100%">
+                                <tr align="right">
+                                    <td id="td_mainFrame" valign="top" align="top" height="100%" width="100%">
+                                        <iframe align="top" width="100%" frameborder="0" height="100%" scrolling="auto" src="" name="MainFrame" id="frame_main"></iframe>
+                                    </td>
+                                    <td id="td_help" valign="top" align="right" height="100%" width="300px">
+                                        <iframe valign="top" align="right" frameborder="3" height="100%" scrolling="auto" src="" name="HelpFrame" id="frame_help" width="300px">
+                                        </iframe>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                  </table>
+              </td>
+            </tr>
+            <tr>
+                <td class="content_cr_seperator">
+                    <table class="content_cr_seperator" border="0">
+                        <tr><td></td></tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="copyright">
+                    <table>
+                        <tr><td>
+                        <span id="cr" class="copyright"></span>
+                        </td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>

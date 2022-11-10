@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Users - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>Users - Help</div>
+        <p>The list of configured users, along with their status and network privilege is displayed.</p>
+
+        <p>Use this page to configure the IPMI users and privileges for this server.</p>
+
+        <h2>User ID</h2>
+        <p>The ID of the user.</p>
+        <h2>User Name</h2>
+        <p>The account of the user.</p>
+        <h2>User Status</h2>
+        <p>The enable/disable status of the user.</p>
+        <h2>Network Privilege</h2>
+        <p>The network privilege status of the user.</p>
+
+        <!-- 	<p class="warning">  -->
+        <p>
+        <img src='../../images/warning.png'>
+        <b>NOTE:</b>
+        If UserID 1 (root) is available, It may not be renamed or deleted.
+        </p>
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Add User</div>
+        <p>Select an empty slot in the list and click to add a new user.</p>
+        <div class='actionsub'>Modify User</div>
+        <p>Select a user in the list and click to modify their settings.</p>
+        <div class='actionsub'>Delete User</div>
+        <p>Select a user in the list and click to delete.</p>
+    </body>
+</html>

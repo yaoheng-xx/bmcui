@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/inputvalidation.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_ipv6.js"></script>
+
+</head>
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" width="500">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="caption_div" class="mtitle"></div>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="5" width="500">
+        <tr><td></td><td colspan="2"><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+    </table>
+
+    <table border="0" cellpadding="0" cellspacing="5" width="500">
+        <tr>
+            <td width="20px">&nbsp;</td>
+            <td>&nbsp;</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="network_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <select id="_lanChannel" class="labelhead">
+                  <option value="channel_unknow">Unknow</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="mac_addr_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <span type="text" class="bold" id="_macAddress" class="labelhead"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="ipmi_channel_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <span type="text" class="bold" id="ipmi_channel" class="labelhead"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="nic_desc_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <span type="text" class="bold" id="nic_Description" class="labelhead"></span>
+            </td>
+        </tr>
+        <tr>
+        <td></td>
+            <td>
+                <label id="link_status_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <span type="text" class="bold" id="link_status" class="labelhead"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="2" class="labelhead">
+                <input type="radio" name="optNW" id="_optDHCP" />
+                    <label id="optDHCP_lbl"></label>
+                <br>
+                <input type="radio" name="optNW" id="_optStatic" />
+                    <label id="optStatic_lbl"></label>
+                <br>
+                <!--<input type="radio" name="optNW" id="_optDisable" />
+                    <label id="optDisable_lbl"></label>-->
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="ip_addr_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <input type="text" size=42 id="_ipAddress" class="labelhead"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="prefix_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <input type="text" size=2 id="_prefix" class="labelhead"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="gateway_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <input type="text" size=42 id="_gateway" class="labelhead"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="dns_pri_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <input type="text" size=42 id="_primaryDNS"  class="labelhead"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <label id="dns_sec_lbl" class="labelhead">
+                </label>
+            </td>
+            <td>
+                <input type="text" size=42 id="_secondDNS"  class="labelhead"/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <div class="btnTray"><input type="button" class="classicBtn" id="_save"/></div>
+                </div>
+            </td>
+    </table>
+</body>
+</html>

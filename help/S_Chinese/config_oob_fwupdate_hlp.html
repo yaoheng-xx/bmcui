@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>BIOS/IFWI 固件更新 - 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关闭</a></div>
+
+        <div class='helpmainhead'>BIOS/IFWI 固件更新 - 帮助</div>
+            <p>使用此页面上传新固件（BIOS/IFWI）。</p>
+
+            <h2>BIOS/IFWI 固件更新</h2>
+                <p>BIOS/IFWI 固件映像版本信息可供查看，以及选择和上传或拖放新的 BIOS/IFWI 固件映像的选项。通过在页面上放置新的 BIOS/IFWI 固件映像或选择上传，Web 服务开始其 BIOS/IFWI 固件映像上传过程，这将需要几分钟。</p>
+
+                <p>如果选择了 BIOS 更新选项 - 立即重置，BMC 将自动重启。由于所有 Web 会话将在 BMC 重新启动时终止，因此您需要再次登录以验证 BIOS/IFWI 固件更新是否成功。</p>
+
+                <p>如果没有选择 BIOS 更新选项 - 立即重置，它会将映像存储在 BMC 中。执行更新服务器重启（DC 循环），BIOS 会将映像挂载为 USB 虚拟媒体和映像。</p>
+
+            <h2>BIOS 版本</h2>
+                <p>显示当前的 BIOS 版本。</p>
+            <h2>管理引擎（ME）固件版本号</h2>
+                <p>显示当前 ME 固件版本。</p>
+
+        <div class='helpactionhead'>动作</div>
+            <div class='actionsub'>BIOS 更新选项</div>
+                <p>恢复 - 如果您想使用恢复选项更新 BIOS/IFWI 固件，请选择恢复选项。</p>
+                <p>立即重置 - 选择立即重置以在 BIOS/IFWI 固件映像成功上传后重新启动 BMC。</p>
+            <div class='actionsub'>拖放文件到此页面 / 选择文件 / 浏览</div>
+                <p>在此页面上拖放文件或点击选择文件 / 浏览以上传。</p>
+            <div class='actionsub'>上传</div>
+                <p>上传 BIOS/IFWI 固件映像文件。</p>
+    </body>
+</html>

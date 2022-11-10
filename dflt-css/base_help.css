@@ -1,0 +1,43 @@
+.warning { color:red }
+.noTopBotMargin { margin-top:0px; margin-bottom:0px }
+
+table.dataintable {
+    margin-top:10px;
+    border-collapse:collapse;
+    border:1px solid #aaa;
+    width:50%;
+}
+
+table.dataintable th {
+    vertical-align:baseline;
+    padding:5px 15px 5px 5px;
+    /*background-color:#d5d5d5;*/
+    background-color:#009933;
+    border:1px solid #aaa;
+    text-align:center;
+}
+
+table.dataintable th#col1 { width: 10% }
+table.dataintable th#col2 { width: 10% }
+table.dataintable th#col3 { width: 3% }
+table.dataintable th#col4 { width: 3% }
+
+table.dataintable td {
+    vertical-align:text-top;
+    padding:5px 15px 5px 5px;
+    background-color:#ffffff;
+    border:1px solid #aaa;
+    text-align:left;
+}
+
+table.dataintable td.helpTableHead {
+    background-color:#2E74B5;
+    font-weight: bold;
+    text-align:center;
+}
+
+table.dataintable td.helpTableHead2 {
+    background-color:#9CC2E5;
+    font-weight: bold;
+    text-align:center;
+}

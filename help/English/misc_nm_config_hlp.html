@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>NM Configuration - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>NM Configuration - Help</div>
+        <p>Configure node manager policy settings.</p>
+
+        <h2>Policy ID</h2>
+        <p>The policy ID to add/edit/delete. The valid range is 0-255.</p>
+        <p>In the policy table, policy numbers with an asterisk (*) are policies set externally using a non-platform domain. Changing parameters on these policies will not affect their triggers, trigger limits, reporting periods, correction timeouts, or aggressive CPU throttling settings.</p>
+
+        <h2>Timers</h2>
+        <p>If enabled, you may configure policy suspension periods. Each policy may have up to five suspension periods.</p>
+        <p>Suspend periods are repeatable by day-of-week. Start and stop times are designated in 24-hour format, in increments of 6 minutes. To specify a suspension period crossing midnight, two suspension periods must be used.</p>
+
+        <h2>Enable</h2>
+        <p>Check this box if the policy is to be enabled immediately.</p>
+
+        <h2>Shutdown</h2>
+        <p>Check this box to enable a system shutdown if the policy is exceeded and cannot be corrected within the correction timeout period. The operating system will be given 30 seconds to shut down gracefully. If the system is still not shut down after 30 seconds, the BMC will initiate an immediate shutdown.</p>
+
+        <h2>Alert</h2>
+        <p>It displays whether the log event is enabled/disabled (0 - Disabled, 1 - Enabled)</p>
+
+        <h2>Power Limit (Watt)</h2>
+        <p>The desired platform power limit is in watts.</p>
+
+        <h2>Add Node Manager Policies</h2>
+        <p>Input the policy number.</p>
+        <p>Setting Enable Policy: Disable/Enable.</p>
+        <p>Setting Policy Exception Action: No Action, Alert (Log Event) and/or Shutdown.</p>
+        <p>Setting Power Limit(Watt). Valid range will be displayed in the alert if invalid power limit is given.</p>
+        <p>Click the 'Save' button to save.</p>
+
+        <h2>Log Event</h2>
+        <p>Check this box to enable the node manager to send a platform event message to the BMC when a policy is exceeded.</p>
+
+        <h2>Edit Node Manager Policies</h2>
+        <p>Select an existing policy from Policy Table.</p>
+        <p>Setting Enable Policy: Disable/Enable.</p>
+        <p>Setting Policy Exception Action: No Action, Alert (Log Event) and/or Shutdown.</p>
+        <p>Setting Power Limit(Watt). A valid range will be displayed in the alert if an invalid power limit is given.</p>
+        <p>Click the 'Save' button to save.</p>
+
+        <h2>Delete Node Manager Policies</h2>
+        <p>Select an existing policy from Policy Table.</p>
+        <p>Click the 'Delete' button to delete.</p>
+
+        <h2>Use Policy Suspend Timers</h2>
+        <p>Select the 'Yes' radio button if you want to enable Policy Suspend Timers.</p>
+        <p>Choosing the time periods that you want to suspend the NM policy.</p>
+        <p>Click the 'Save' button to save.</p>
+
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Save</div>
+        <p>Click 'Save' to save any changes made.</p>
+        <div class='actionsub'>Delete</div>
+        <p>Select a policy in the list and click to delete.</p>
+        <div class='actionsub'>Cancel</div>
+        <p>Click 'Cancel' to discard changes.</p>
+    </body>
+</html>

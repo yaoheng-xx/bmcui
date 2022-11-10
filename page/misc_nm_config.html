@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+    <script language="javascript" src="../js/generalTableController.js"></script>
+    <script language="javascript" src="../js/config_nm_misc.js"></script> 
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/misc_nm_config.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+</head>
+<body class="content_body">
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="content_table">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="caption_div" class="mtitle"></div></td></tr>
+        <tr>
+            <td></td>
+            <td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+        <tr>
+            <td colspan="3"><br><span class="TableInfo" id="HtmlPolicyTableInfo"></span></td></tr>
+        <tr>
+            <td></td>
+            <td colspan="3"><div class="list_tbl" id="HtmlPolicyTable" ></div></td></tr>
+        <tr><td></td><td></td></tr>
+        <tr><td></td>
+            <td colspan="3"><div id="desc_div" class="mtitle"></div></td>
+        </tr>
+        <tr><td></td>
+            <td colspan="3">
+                <table border="0" cellpadding="0" cellspacing="0" width= "600">
+                    <tr>
+                        <td id="nm_col1">
+                            <label id="policy_num_lbl" class="labelhead">
+                            <br/>
+                            </label>
+                            <input type="text" id="_nm_policy_number" maxlength ="3" class="labelhead"/>
+                        </td>
+                        <td id="nm_col2">
+                            <input type="checkbox" id="_nm_enable"  class="labelhead"/>
+                            <label id="enable_lbl" class="labelhead" for= "_nm_enable">
+                            </label>
+                        </td>
+                        <td id="nm_col3">
+                            <input type="checkbox" id="_nm_shutdown"  class="labelhead"/>
+                            <label id="shutdown_lbl" class="labelhead" for= "_nm_shutdown">
+                            </label>
+                        </td>
+                        <td id="nm_col4">
+                            <input type="checkbox" id="_nm_logevent"  class="labelhead"/>
+                            <label id="event_lbl" class="labelhead" for= "_nm_logevent">
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br/>
+                            <label id="powerlimit_lbl" class="labelhead">
+                            </label>
+                            <input type="text" id="_nm_power_limit" maxlength ="5" class="labelhead"/>
+                        </td>
+                    </tr>
+		</table>
+	</td></tr>
+	<tr><td></td>
+		<td>
+		<table border="0" cellpadding="0" cellspacing="0" width= "400">
+                    <tr>
+			<td>
+                            <label id="timers_lbl" class="labelhead">
+                            </label>
+			</td><td>
+                            <input type="radio" name="useTimers" id="_optTimersEnable"/>
+                            <label id="yes_lbl" class="labelhead" for= "_optTimersEnable">
+                            </label>
+			</td><td>
+                            <input type="radio" name="useTimers" id="_optTimersDisable"/>
+                            <label id="no_lbl" class="labelhead" for= "_optTimersDisable">
+                            </label>
+                        </td>
+                    </tr>
+                </table>
+	</td></tr>
+        <tr><td></td>
+            <td colspan="3"><div id="ScheduleTable"></div></td>
+        </tr>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr><td></td>
+            <td colspan="3">
+                <input type="button" class="btnStyle" id="btn_modify" >
+                <input type="button" class="btnStyle" id="btn_del">
+                <input type="button" class="btnStyle" id="btn_cancel" >
+	</td></tr>
+    </table>
+</body>
+</html>
+

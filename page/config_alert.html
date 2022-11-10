@@ -1,0 +1,173 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/inputvalidation.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+    <script language="javascript" src="../js/config_alert.js"></script>
+
+</head>
+
+<body class="content_body">
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="content_table">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td>
+                <div id="caption_div" class="mtitle"></div>
+            </td>
+        </tr>
+        <tr>
+            <td><br></td>
+            <td>
+                <div id="kcs_segment_state" class="Categorytext"></div>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <table cellspacing="0" cellpadding="0" border="0" width="500">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <fieldset class="group" class="cfgAlertFs">
+                    <legend id="trigger_alert_legeng" class="legendcaption">
+                    </legend>
+
+                    <table cellspacing="0" cellpadding="0" border="0" width="600" id="pef_types">
+                        <tr>
+                            <td> 
+                                <input type="checkbox" id="_check_temperature" value="1" />
+                                <label id="event_temperature_lbl" class="labelhead"></label>
+                            </td>
+                            <td> <input type="checkbox" id="_check_voltage_out_of_range" value="10" />
+                                <label id="event_out_of_range_lbl" class="labelhead"></label>
+                            </td>
+                        </tr><tr>
+                            <td>
+                                <input type="checkbox" id="_check_fan_failure" value="2" />
+                                <label id="fan_fail_lbl" class="labelhead"></label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="_check_psu_failure" value="3" />
+                                <label id="psu_fail_lbl" class="labelhead"></label>
+                            </td>
+                        </tr><tr>
+                            <td>
+                                <input type="checkbox" id="_check_psu_redundancy_failure" value="4" />
+                                <label id="event_psu_redundancy_failure_lbl" class="labelhead"></label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="_check_system_restart" value="5" />
+                                <label id="system_restart_lbl" class="labelhead"></label>
+                            </td>
+                        </tr><tr>
+                            <td>
+                                <input type="checkbox" id="_check_processor_therm_trip" value="6" />
+                                <label id="therm_trip_lbl" class="labelhead"></label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="_check_processor_dimm_therm_trip" value="7" />
+                                <label id="dimm_therm_trip_lbl" class="labelhead"></label>
+                            </td>
+                        </tr><tr>
+                            <td>
+                                <input type="checkbox" id="_check_memeory_error" value="8" />
+                                <label id="memory_error_lbl" class="labelhead"></label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="_check_cpu_error" value="9" />
+                                <label id="cpu_error_lbl" class="labelhead"></label>
+                            </td>
+                        </tr>
+              </tr>   
+        <tr>
+            <td colspan="2"><br />
+        </tr>
+        <tr>
+            <td colspan="2">
+                <div class="btnTray">
+                    <input type="button" class="classicBtn" id="_checkAllBtn" />
+                    <input type="button" class="classicBtn" id="_clearAllBtn" />
+                </div>
+            </td>
+        </tr>
+
+    </table>
+    </fieldset>
+    </td>
+    </tr>
+    <tr>
+        <td colspan="3"><br /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <fieldset class="group" class="cfgAlertFs">
+                <legend id="alert_dest1_legend" class="legendcaption">
+                </legend>
+                <table cellspacing="0" cellpadding="5" border="0" width="450">
+                    <tr>
+                        <td>
+                            <label id="alert_mail_to_lbl" class="labelhead">
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="_input_alert1_email_address" maxlength="63" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"><br /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <fieldset class="group" class="cfgAlertFs">
+                <legend id="alert_dest2_legend" class="legendcaption">
+                </legend>
+
+                <table cellspacing="0" cellpadding="5" border="0" width="450">
+                    <tr>
+                        <td>
+                            <label id="alert2_mail_to_lbl" class="labelhead">
+                            </label>
+                        </td>
+                        <td>
+                            <input type="text" id="_input_alert2_email_address" maxlength="63" />
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="3">
+            <div class="btnTray">
+                <input type="button" class="classicBtn" id="_saveBtn" />
+                <input type="button" class="classicBtn" id="_sendTestAlertsBtn" />
+            </div>
+        </td>
+    </tr>
+    </table>
+</body>
+
+</html>

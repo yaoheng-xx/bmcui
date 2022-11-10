@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>System Defaults - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>System Defaults - Help</div>
+        <p>Use this page to reset all BMC settings to factory defaults.</p>
+
+        <h2>This operation cannot be undone.</h2>
+        <p>Caution: This operation cannot be undone. Once complete, all remote management, including the web server, will not be accessible until users and network settings are restored locally.</p>
+        <p>Settings lost include, but are not limited to:</p>
+        <ul>
+            <li>All network addresses and settings</li>
+            <li>Power restore policies</li>
+            <li>Platform event filters</li>
+            <li>Alert destinations</li>
+        </ul>
+        <p>This will not affect the BMC's system event log, sensor data repository, or any Node Manager settings and policies.</p>
+
+        <h2>Restore Default - Partial</h2>
+        <p>Click 'Restore' to initiate restore defaults but keep lan and user.</p>
+        <h2>Restore Default - Full</h2>
+        <p>Click 'Restore' to reset all BMC settings to factory defaults.</p>
+
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Restore</div>
+        <p>Click 'Restore' to reset all BMC settings to factory defaults.</p>
+
+        <p class="warning">
+        <img src='../../images/warning.png'>
+        <b>Caution: </b>
+        This action will reset all BMC settings to factory defaults and cannot be undone.</p>
+    </body>
+</html>

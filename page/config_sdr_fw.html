@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/config_sdr_fw.js"></script>
+</head>
+
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="0" class="content_table">
+        <tr>
+            <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="submenu_sdr_fw_div" class="mtitle"></div></td></tr>
+        <tr><td colspan="2"><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+    </table>
+    <p id="sdrfw_desc_p" class="text_desc"></p>
+    <br>
+    <fieldset class="widel group">
+        <legend id="sdr_fw_conf_legend" class="legendcaption">
+        </legend>
+        <div id="inputControlsMessage" class="nodisplay">
+        </div>
+        <div id="cfgSdrInputControls">
+            <table cellspacing="0" cellpadding="5" border="0" width="450">
+                <tr class="hide">
+                    <td class="bold">
+                        <strong id="sdrfile_td"></strong>
+                    </td>
+                    <td>
+                        <label id="curSDR">
+                        </label>
+                    </td>
+                </tr>
+                <tr class="hide">
+                    <td class="bold">
+                        <strong id="configfile_td"></strong>
+                    </td>
+                    <td>
+                        <label id="curCFG">
+                        </label>
+                    </td>
+                </tr>
+                <tr class="hide">
+                    <td class="bold">
+                        <strong id="lastupload_td"></strong>
+                    </td>
+                    <td>
+                        <label id="curTS">
+                        </label>
+                    </td>
+                </tr>
+                <tr class="hide">
+                    <td class="bold">
+                        <strong id="opt_conf"></strong>
+                    </td>
+
+                    <td>
+                        <input type="file" id="cfgFileBrowse" accept=".cfg" class="cfgsdrinput">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        <strong id="opt_file"></strong>
+                    </td>
+
+                    <td>
+                        <input type="file" id="sdrFileBrowse" accept=".dat" class="cfgsdrinput">
+                    </td>
+                </tr>
+            </table>
+            <table cellspacing="0" cellpadding="5" border="0">
+                <tr>
+                    <td>
+                        <div class="btnTray">
+                            <input type="button" class="classicBtn" id="uploadBtn" width="390" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="btnTray hide">
+                            <input type="button" class="classicBtn" id="parseBtn" width="390" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </fieldset>
+    <fieldset id="cfgSdrCaption" class="group hide">
+        <legend id="proctag_legend" class="legendcaption">
+        </legend>
+        <div id="tagListDesc" class="lignleft"></div>
+        <table id="tagTable" class="content_table"></table>
+    </fieldset>
+    <div id="enableControl" class="hide">
+        <table cellspacing="0" cellpadding="5" border="0" width="500">
+            <tr>
+                <td class="bold"><strong id="enconfig_td"></strong></td>
+                <td>
+                    <input type="radio" name="adminEnableDisable" id="EnableAutoCfgRadio" value="rel" />
+                    <label id="enable_lbl" class="labelhead" for="EnableAutoCfgRadio">
+                    </label>
+                </td>
+                <td>
+                    <input type="radio" name="adminEnableDisable" id="DisableAutoCfgRadio" value="rel" />
+                    <label id="disable_lbl" class="labelhead" for="DisableAutoCfgRadio">
+                    </label>
+                </td>
+                <td>
+                    <input type="button" class="classicBtn" id="sendEnableDisableBtn" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>IPv4 Network Settings - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>IPv4 Network Settings - Help</div>
+            <p>Use this page to configure the network settings for server management.</p>   
+            <h2>Hostname</h2>
+                <p>The hostname is an RFC 1123 compliant string with less than 64 alpha-numeric characters. Hyphen characters are allowed as long as the hyphen is not the first or final character in the hostname.
+                The default value is "BMC" + MAC address.
+                (eg: MAC address is '00 1e 67 f9 2f b3', default hostname will be 'bmc-mac001e67f92fb3')
+                </p>
+
+            <h2>Interface</h2>
+                <p>Lists the Interface available for server management.</p>
+
+            <h2>MAC Address</h2>
+                <p>The MAC address of the device (read-only).</p>
+                
+            <h2>IPMI Channel</h2>
+                <p>Display IPMI Channel number (read-only).</p>
+
+            <h2>NIC Description</h2>
+                <p>Display NIC dedicated to BMC / Host or shared between Host and BMC of Interface (read-only).</p>
+
+            <h2>Link Status</h2>
+                <p>Display NIC Link status of Interface (read-only).</p>
+
+            <h2>Obtain an IP address automatically (use DHCP)</h2>
+                <p>Select the option to enable the IPv4 DHCP. IP Address, Subnet Mask, Gateway and DNS Server input fields will be disabled if the "Obtain an IP address automatically (use DHCP)" option is selected.</p>
+            <h2>Use the following IP address</h2>
+                <p>Select the option to configure the static IPv4 address. IP Address, Subnet Mask, Gateway and DNS Server input fields will be enabled to configure if the "Use the following IP address" option selected </p>
+
+            <h2>IP Address</h2>
+                <p>Select the type of IP assignment with the radio buttons.
+                If configuring a static IP, enter the requested IP Address, Subnet Mask,
+                Gateway, Primary DNS and Secondary DNS Server in the given fields.</p>
+                    <ul>
+                        <li>- IP Address made of 4 numbers separated by dots as in "xxx.xxx.xxx.xxx".</li>
+                        <li>- 'xxx' ranges from 0 to 255.</li>
+                        <li>- First 'xxx' must not be 0.</li>
+                    </ul>          
+            <h2>Subnet Mask</h2>
+                <p>Displays the Subnet Mask of the device.</p>
+            <h2>Gateway</h2>
+                 <p>Denotes the Gateway details of the device.</p>
+            <h2>Primary DNS Server</h2>
+                <p>Display the Primary DNS Server of the device.</p>
+            <h2>Secondary DNS Server</h2>
+                <p>The Secondary DNS Server of the device.</p>
+                
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>Save</div>
+                <p>Click 'Save' to save any changes made.</p>
+
+                <p class="warning">
+                <img src='../../images/warning.png'>
+                <b>NOTE:</b>
+                The Dedicated Management NIC IP address must be on a different subnet than the baseboard IP address used for management traffic.</p>
+                <br>
+
+                <p class="warning">
+                <img src='../../images/warning.png'>
+                <b>NOTE:</b>
+                Please close any active KVM sessions prior to changing the network settings, in order to avoid disconnection from the server.</p>
+    </body>
+</html>

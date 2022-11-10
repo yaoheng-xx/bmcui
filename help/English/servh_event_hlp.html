@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Event Log - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+        <div class='helpmainhead'>Event Log - Help</div>
+            <p>The Event Log page displays the server management event log</p>
+            <h2>Severity Category</h2>
+                <ul>
+                    <li>Informational: Operating normally.</li>
+                    <li>Warning: A condition that requires attention.</li>
+                    <li>Critical: Requires immediate attention.</li>
+                </ul>
+            <h2>Total Event Log</h2>
+                <p>The System Event Log is able to store thousands of event records. The earliest hundreds of events will be discarded when the event log space is full.</p>
+            <h2>Timestamp</h2>
+                <p>The date and time when the log entry was created.</p>
+            <h2>Severity</h2>
+                <p>The severity of the system event log.</p>
+            <h2>Description</h2>
+                <p>The message of the log entry.</p>
+            <h2>Number of entries per page</h2>
+                <p>Specify how many events are displayed per page.</p>
+
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>Clear Event Log</div>
+                <p>Clear the event log.</p>
+            <div class='actionsub'>Save Event Log</div>
+                <p>Save the event log entries to a JSON file <i>EVENT_LOG.json</i>.</p>
+            <div class='actionsub'>Refresh Event Log</div>
+                <p>Refresh the event log, this page does not automatically refresh</p>
+    </body>
+</html>

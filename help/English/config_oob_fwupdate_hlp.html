@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>BIOS/IFWI Firmware Update - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+        </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>BIOS/IFWI Firmware Update - Help</div>
+            <p>Use this page to upload new firmware(BIOS/IFWI).</p>
+
+            <h2>BIOS/IFWI Firmware Update</h2>
+                <p>The BIOS/IFWI Firmware image version information is available for viewing, as well as the option to select and upload or drag and drop a new BIOS/IFWI firmware image. By dropping a new BIOS/IFWI firmware image on the page or selecting upload, the web service begins its BIOS/IFWI firmware image upload process, which will take a couple of minutes.</p>
+
+                <p>If BIOS Update Option - Reset Immediately is selected, BMC will reboot automatically. As all web sessions will be terminated on a BMC reboot, you will be required to log in again to verify that the BIOS/IFWI firmware update was successful.</p>
+
+                <p>If BIOS Update Option - Reset Immediately is not selected, it will store the image inside the BMC. Perform the update server reboot (DC cycle), BIOS will mount the image as a USB virtual media image.</p>
+
+            <h2>BIOS Rev</h2>
+                <p>Displays the current BIOS version.</p>
+            <h2>Mgmt Engine (ME) FW Rev</h2>
+                <p>Displays the current ME firmware version.</p>
+               
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>BIOS Update Options</div>
+                <p>Recovery - Select the recovery option, if you want to update BIOS/IFWI Firmware with the recovery option.</p>
+                <p>Reset Immediately - Select the Reset Immediately to reboot the BMC after the BIOS/IFWI firmware image is uploaded successfully.</p>
+            <div class='actionsub'>Drop a file on this page / Choose File / Browse</div>
+                <p>Drop a file on this page or choose Choose File / Browse to upload.</p>
+            <div class='actionsub'>Upload</div>
+                <p>Upload the BIOS/IFWI firmware image file.</p>
+    </body>
+</html>

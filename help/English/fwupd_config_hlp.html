@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Firmware Update - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+        </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>Firmware Update - Help</div>
+            <p>Use this page to upload new firmware.</p>
+
+            <h2>Firmware Update</h2>
+                <p>Current firmware version information is available for viewing, as well as the option to select and upload or drag and drop a new firmware image. By dropping a new firmware image on the page or selecting upload, the BMC will begin its firmware update process, which will take a couple of minutes, finishing with the BMC rebooting to run the new firmware.
+
+                Progress will be reported up until the time of reboot, after which it will take about one minute for the embedded web server to start responding again. As all web sessions will be terminated on a BMC reboot, you will be required to log in again to verify that the firmware update was successful.</p>
+
+            <h2>BMC FW Rev</h2>
+                <p>Displays the current firmware version.</p>
+            <h2>BMC Firmware Build Time</h2>
+                <p>Displays the firmware build time.</p>
+
+        <div class='helpactionhead'>Actions</div>
+            <div class='actionsub'>Choose File</div>
+                <p>Choose file to upload.</p>
+            <div class='actionsub'>Upload</div>
+                <p>Upload the firmware update image file to the BMC for update action.</p>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="shortcut icon" href="/preauth/images/favicon.ico">
+    <link rel="stylesheet" href="/preauth/css/login.css" type="text/css">
+    <script type="text/javascript" src="/preauth/js/flot/jquery.min.js"></script>
+    <script language="JavaScript" src="/preauth/js/utils_preauth.js"></script>
+    <script language="JavaScript" src="/preauth/js/login.js"></script>
+    <!-- <script language="JavaScript" src="/js/common.js"></script> -->
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="login_page_layout_table">
+  <tr class="banner">
+    <td>
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="banner_table">
+        <tr>
+          <td align="left" class="loginbanner_left"> 
+          </td>
+          <td align="right" class="loginbanner_right">
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" valign="middle"><br />
+      <table class="login_outer_table">
+      <tr>
+        <td id="login_prompt_td" height="50" colspan="3" align="center" valign="middle" class="login_title">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center" valign="middle">
+            <table width="220" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><table class="login_inner_table">
+                  <form name="form1" autocomplete="off">
+                  <tr>
+                    <td id="username_td" width="85" height="30" align="left" class="login_title">
+                    </td>
+                    <td width="120" align="left" valign="middle">
+                    <input name="name" id="username" size="20" maxlength="64" class="login_input" tabindex="1" type="text" autofocus>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td id="password_td" height="30" align="left" class="login_title">
+                    </td>
+                    <td height="15" align="left" valign="middle">
+                    <input name="pwd" id="userpwd" size="20" maxlength="20" class="login_input" tabindex="2" type="password" autocomplete="new-password">
+                    <input type="hidden" name="encodedpwd">
+                    </td>
+                  </tr>
+                  </form>
+                  <tr>
+                    <td id="language_td" height="30" align="left" class="login_title">
+                    </td>
+                    <td height="15" align="left">
+                      <select name="language_choice" class="button" id="language_choice">
+                        <option id="lang_en" value="en">English</option>
+                        <option id="lang_cn" value="cn">中文</option>
+                      </select>
+                    </td>
+                  </tr>
+              </table></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td colspan="3" align="center" valign="middle">
+            <table width="300" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td height="30" align="center" valign="middle"><input name="login_button" id="loginbtn" value="Login" class="bw" type="button" /></td>
+            </tr>
+            </table>
+        </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

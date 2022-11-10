@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+		<META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+		<title></title>
+		<!-- common css -->
+		<link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+		<link rel="stylesheet" href="../css/basic.css" type="text/css">
+		<link rel="stylesheet" href="../css/grid/listgrid.css" type="text/css">
+		<!--<link href="../style/page_style.css" rel="stylesheet" type="text/css" />
+		<script language="javascript" src="../lib/include.js"></script>
+		<script language="javascript" src="../str/EN/tz_str.js"></script>-->
+		
+		<!--common javascipt library -->
+		<script language="javascript" src="../js/utils.js"></script>
+		<script language="javascript" src="../js/eVal.js"></script>
+		<script language="javascript" src="../js/moment.js"></script>
+		<script language="javascript" src="../js/moment-timezone.js"></script>
+		<script language="javascript" src="../js/moment-with-locales.js"></script>
+		<script language="javascript" src="../js/moment-timezone-with-data.js"></script>
+		<script language="javascript" src="../js/lang/English/tz_str.js"></script>
+		<script language="javascript" src="../../js/iframe_event.js"></script>
+		<script language="javascript" src="../js/config_ntp.js"></script>
+	</head>
+
+	<body class="content_body_fixed">
+		<span class="LoadingStyle" id="loading"></span>
+		<table border="0" cellpadding="0" cellspacing="5" class="content_table">
+			<tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td><td><div id="ntp_caption_div" class="mtitle"></div></td></tr>
+			<tr><td><div class="errorDisplay" id="_divNTPError"></div></td></tr>
+			<tr><td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+		</table>
+		<div>
+			<tr><td>&nbsp;</td>
+				<td width ="100px">&nbsp;</td>
+					<span id="hh_field" class="labelhead"></span> &nbsp;<font color="#00AAFF" size="7">:</font>&nbsp;
+					<span id="min_field" class="labelhead"></span> &nbsp;<font color="#00AAFF" size="7">:</font>&nbsp;
+					<span id="ss_field" class="labelhead"></span>
+			</tr>
+		</div>
+		<tr></tr>
+		<div>
+			<tr><td>&nbsp;</td>
+				<td width ="100px">&nbsp;</td>
+					<span id="yy_field" class="labelhead"></span> &nbsp;<font color="#00AAFF" size="4">/</font>&nbsp;
+					<span id="mon_field" class="labelhead"></span> &nbsp;<font color="#00AAFF" size="4">/</font>&nbsp;
+					<span id="dd_field" class="labelhead"></span>&nbsp; &nbsp;
+					<span id="wdd_field" class="labelhead"></span>
+			</tr>
+		<div>
+		<tr>
+			<td></td>
+			<td colspan="3">
+				<table cellspacing="2" cellpadding="5" border="0" width="700">
+					<tr>
+						<td><label id="ntp_timezone_lbl" class="labelhead"> <!--CFG_NTP_TIMEZONE--></label></td>
+						<td>
+							<select id="_lstUTCTZone" class="classicTxtBox">
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label id="ntp_primary_lbl" class="labelhead"> <!--CFG_NTP_PRIMARY--></label></td>
+						<td><input type="text" id="_txtNTPServer1" maxlength="128" class="classicTxtBox" /></td>
+					</tr>
+
+					<tr>
+						<td><label id="ntp_secondary_lbl" class="labelhead"> <!--CFG_NTP_SECONDARY--></label></td>
+						<td><input type="text" id="_txtNTPServer2" maxlength="128" class="classicTxtBox" /></td>
+					</tr>
+
+					<tr>
+						<td colspan=2>
+							<input type="checkbox" id="_chkNTPEnable" value="1" />
+							<label id="ntp_enable_lbl" class="labelhead"> <!--CFG_NTP_SYNC_NTP--></label>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+
+		<tr><td></td>
+			<td colspan="3" >
+				<div class="list_tbl" id="HtmlAlertTable" ></div>
+				<br>
+				<input type="button" class="btnStyle" id="_btnRefresh">
+				<input type="button" class="btnStyle" id="_btnSave">
+			</td>
+		<tr>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Logical Device Information - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'>
+            <a id="closeHelp" href='#' class='closeBtn'>close</a>
+        </div>
+        <div class='helpmainhead'>Logical Device Information - Help</div>
+        <p>Use this page to display the logical Device Information of the RAID controller.</p>
+        <h2>Name</h2>
+            <p>Displays the name of the Logical Device. </p>
+        <h2>RAID Type</h2>
+            <p>The RAID type of the Logical Device. <br/>
+                Allowed value: "RAID0", "RAID00", "RAID1", "RAID10", "RAID1E", "RAID5", "RAID50", "RAID6", "RAID60"</p>
+        <h2>Strip Size Bytes</h2>
+            <p>The number of blocks (bytes) in a strip in a disk array that uses striped data mapping. <br/>
+                Allowed value: "64K", "128K, "256K", "512K", "1MB" etc.</p>
+        <h2>Read Cache Policy Type</h2>
+            <p>Indicates the read cache policy setting for the Logical Device. <br/>
+                Allowed value: "NoReadAhead", "ReadAhead"</p>
+        <h2>Write Cache Policy Type</h2>
+            <p>Indicates the write cache policy setting for the Logical Device.
+                Allowed value: "WriteThrough", "WriteBack", "AlwaysWriteBack"</p>
+        <h2>Capacity Bytes</h2>
+            <p>The size of the smallest addressable unit (Block) of this Logical Device in bytes.</p>
+        <h2>Physical Devices IDs</h2>
+            <p>Displays the Number of physical devices mapped to this Logical Device.</p>
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Create Logical Device</div>
+            <p>To Create the new Logical devices, Click the 'Create Logical Device' action button. It will redirect to Create Logical Devices page.</p>
+        <div class='actionsub'>Delete</div>
+            <p>Click the Delete icon and confirm the alert message to delete the selected Logical Device.</p>
+    </body>
+</html>

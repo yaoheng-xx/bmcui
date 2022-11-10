@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>活动目录或LDAP设置 - 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关闭</a></div>
+        <div class='helpmainhead'>活动目录与LDAP设置 - 帮助</div>
+        <p>通过选择按钮切换活动目录或LDAP配置。页面初始化后会切换到已激活的配置。如果都没有激活的配置，就会选择第三个按钮（失效）。</p>
+        <p>选中复选框以启用/禁用 基于SSL的身份验证。只有上传过SSL证书以后改选项才能勾选。</p>
+        <h2>通过SSL来对目录身份认证</h2>
+        <p>通过勾选校检框来选择是否使用SSL加密。</p>
+        <h2>重要信息：</h2>
+        <p>关于目录服务配置的一些要点。</p>
+        <h2>服务器URL</h2>
+        <p> 客户端通过URL与服务器上的目录服务进程通信。</p>
+        <ul>
+            <li>- URL由LDAP前缀、IP地址与port组成，样式如“ldap：\\xxx.xxx.xxx.xxx:xxx”。
+                其中IP地址由 4 个数字组成，用点分隔，如“xxx.xxx.xxx.xxx”。</li>
+            <li>- 前缀可以设置为ldap与ldaps，用来区分是否启用SSL。</li>
+            <li>- “xxx” 范围从 0 到 255。</li>
+            <li>- 第一个 “xxx” 不能为 0。</li>
+            <li>- URL可以不设置端口，这样系统会使用默认端口。</li>
+            <li>- 支持主机名</li>
+        </ul>
+        <h2>绑定DN</h2>
+            <p>活动目录 服务器的专有名称，例如
+            “cn=Manager, dc=my-domain, dc=com”。
+            </p>
+        <h2>绑定密码</h2>
+            <p>活动目录服务器的认证密码；
+            密码长度必须至少为 4 个字符。
+            </p>
+        <h2>搜索基址</h2>
+            <p>活动目录 服务器的搜索基址，例如
+            “dc=my-domain, dc=com”。
+            </p>
+        <h2>用户 ID 属性（可选）</h2>
+            <p>活动目录 服务器的用户 ID</p>
+        <h2>目录服务组配置</h2>
+            <p>这是创建组配置的过程，其中包含名称、权限等多个详细信息</p>
+
+        <h2>远程组名</h2>
+            <p>输入远程组名</p>
+        <h2>本地权限</h2>
+            <p>远程组名对应的本地权限</p>
+        <div class='helpactionhead'>动作</div>
+        <div class='actionsub'>保存</div>
+            <p>单击“保存”按钮以保存配置。</p>
+        <div class='actionsub'>删除</div>
+            <p>单击“删除”按钮以删除组配置</p> 
+            <p>当从表中选择配置的组时，删除按钮将可用</p>
+    </body>
+</html>

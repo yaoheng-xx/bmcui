@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Firmware Update - Help</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/iframe_event.js"></script>
+    <script type="text/javascript" src="../../js/help.js"></script>
+</head>
+
+<body>
+    <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+    <div class='helpmainhead'>BMC Firmware Update - Help</div>
+    <p>Use this page to update BMC firmware.</p>
+    <h2>BMC Firmware Update</h2>
+    <p>Current BMC firmware version information is available for viewing, as well as the option to select and upload or drag and drop a new firmware image.</p>
+    <p>By dropping a new firmware image on the page or selecting upload, the BMC will begin its firmware file upload process, which will take a couple of minutes. Firmware file upload progress will be displayed.</p>
+    <h2>NOTE: </h2>
+    <p>
+        By default, BMC Update Option - Reset Immediately will be unchecked. So after the firmware image is uploaded
+        successfully user can do other operations and need to restart the BMC manually(DC cycle) to check the new firmware.
+    </p>
+    <p>
+        If you want to reset the BMC Immediately after the firmware image is uploaded, select the BMC Update Option - Reset Immediately
+        before uploading a new BMC firmware image.
+    </p>
+    <h2>BMC FW Rev</h2>
+    <p>Displays the current BMC firmware version.</p>
+    <h2>BMC Firmware Build Time</h2>
+    <p>Displays the BMC firmware build time.</p>
+    <div class='helpactionhead'>Actions</div>
+    <div class='actionsub'>BMC Update Options</div>
+    <p>Recovery - Select the recovery option, if you want to update BMC with the recovery option.</p>
+    <p>Reset Immediately - Select the Reset Immediately to reboot the BMC after the firmware image is uploaded successfully.</p>
+    <div class='actionsub'>Drop a file on this page / Choose File / Browse</div>
+    <p>Drop a file on this page or choose Choose File / Browse to upload.</p>
+    <div class='actionsub'>Upload</div>
+    <p>Upload the BMC firmware update image file to the BMC for update action.</p>
+</body>
+
+</html>

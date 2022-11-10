@@ -1,0 +1,23 @@
+The customize.json file is used to customize strings and menu behavior.
+
+If this file were overlayed on top of customize.json, the strings defined in
+js/lang/*/lang_str.js are overridden with these values.
+
+Setting the visible property on a menu will add a yuimenuitem-disabled class to
+the menubar item and a submenu_removed class to the sidebar menu item.  
+
+{
+   "strings": {
+       "LANG_COMMON_COPYRIGHT": {"English": "Copyright &copy 2016 - Some OEM, Inc. All Rights Reserved."},
+       "LANG_ABOUT_DIALOG_LEGAL_NOTICES":   {"English": "Some OEM Integrated BMC Web Console"},
+   },
+   "menus": {
+       "configuration": {
+           "config_ipv6": {"visible": "0"}
+           "config_vlan": {"visible": "0"}
+       },
+       "miscellaneous": {
+           "misc_nm_config": {"visible": "0"},
+       }
+   }
+}

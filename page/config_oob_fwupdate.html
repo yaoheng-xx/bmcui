@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/config_oob_fwupdate.js"></script>
+</head>
+<body>
+<span class="LoadingStyle" id="loading"></span>
+<table border="0" cellpadding="0" cellspacing="0" class="content_table">
+	<tr>
+        <td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+        <td><div id="submenu_div" class="mtitle"></div></td>
+    </tr>
+    <tr><td colspan="2"><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+</table>
+<p id="desc_p" class="text_desc">
+</p><br>
+    <fieldset class="widel group">
+        <legend id="submenu_legend" class="legendcaption">
+        </legend>
+          <div id="inputControlsMessage" class="nodisplay"></div>
+          <div id="inputControls" class="lignleft">
+            <table cellspacing="0" cellpadding="5" border="0" width="450">
+                <tr>
+                    <td class="bold">
+                        <span id="bios_rev_span" class="nowrap"></span>
+                    </td>
+                    <td>
+                        <label id="curBIOSVer">...</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        <span id="me_rev_span" class="nowrap"></span>
+                    </td>
+                    <td>
+                        <label id="curMEVer">...</label>
+                    </td>
+                </tr>
+                <!-- <tr id="PFRActVer">
+                    <td class="bold">
+                        <span id="pch_pfm_active_span" class="nowrap"></span>
+                    </td>
+                    <td>
+                        <label id="PCHPFMActiveVer">...</label>
+                    </td>
+                </tr>
+                <tr id="PFRRecoveryVer">
+                    <td class="bold">
+                        <span id="pch_pfm_recovery_span" class="nowrap"></span>
+                    </td>
+                    <td>
+                        <label id="PCHPFMRecoveryVer">...</label>
+                    </td>
+                </tr> -->
+                <!-- <tr id="ImageType">
+                     <td><label id="image_lbl" class="labelhead bold">
+                         </label>
+                     </td>
+                     <td>
+                         <select id="_imagetype" class="labelhead">
+                             <option value="-1">Unknow</option>
+                         </select>
+                     </td>
+                </tr> -->
+                <tr id="BiosRegion">
+                    <td><label id="Bios_Update_lbl" class="labelhead bold">...
+                        </label>
+                    </td>
+                    <td>
+                          <input type="checkbox" id="Bios_backup_check"><span id="bios_backup_option">...</span>
+                          <input type="checkbox" id="Bios_nvram_check"><span id="bios_nvram_option">...</span>
+                          <input type="checkbox" id="Bios_defer_check"><span id="bios_defer_option">...</span>
+                    </td>
+                </tr>
+                <tr id="Enforce_Password">
+                    <td><label id="Bios_password_lbl" class="labelhead bold">...
+                        </label>
+                    </td>
+                    <td>
+                          <input type="password" id="user_password" maxlength="20">
+                    </td>
+                </tr>
+                <tr id="fwUpdButtons">
+                    <td id="bios_me_image_upload" class="bold"></td>
+                    <td>
+                        <table cellspacing="0" cellpadding="5" border="0">
+                            <tr>
+                                <td>
+                                    <div class="fileChooser">
+                                        <input type="file" name="temp" id="FileBrowse" />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="btnTray">
+                                        <input type="button" class="classicBtn" id="uploadBtn" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr id="fwUpdStatus">
+                    <td colspan="2">
+                        <div id="fwupload">
+                            <span id="fwupload-label">
+                            </span>
+                            <span id="fwupload-value">
+                            </span>
+                        </div>
+			            <div id="fwready">
+                            <span id="fwready-value">
+                            </span>
+                        </div>
+                        <div id="fwerror">
+                            <span id="fwerror-label">
+                            </span>
+                            <span id="fwerror-value">
+                            </span>
+                            <input type="button" class="classicBtn" id="resetBtn" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+      </div>
+    </fieldset>
+</body>
+</html>

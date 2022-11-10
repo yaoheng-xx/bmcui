@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no_cache">
+    <META NAME="Insyde Software" CONTENT="(c) 2014 - Insyde Software">
+    <title></title>
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/config_rsys_ip.js"></script>
+</head>
+<body>
+<span class="LoadingStyle" id="loading"></span>
+<table border="0" cellpadding="0" cellspacing="0" class="content_table">
+    <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+        <td><div id="submenu_div" class="mtitle"></div></td></tr>
+    <tr><td colspan="2"></td></tr>
+    <tr><td colspan="2"><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+</table>
+<p id="desc_p" class="text_desc"></p>
+<br>
+    <fieldset class="widel group">
+        <legend id="submenu_legend" class="legendcaption">
+        </legend>
+          <div id="inputControlsMessage" class="nodisplay"></div>
+          <div id="inputControls" class="lignleft">
+            <table cellspacing="0" cellpadding="5" border="0" width="450">
+                <tr>
+                    <td class="bold">
+                        <label id="enable_remote_syslog_header" class="labelhead" >
+                        </label>
+                    </td>
+                    <td>
+                        <input type="checkbox" id="enable_remote_syslog" value="1" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="bold">
+
+                        <span id="current_rsys_ip_address" class="nowrap"></span>
+                    </td>
+                    <td>
+                        <label class="text_desc" id="curRsysIp">...</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        <span id="new_rsys_ip_address" class="nowrap"></span>
+                    </td>
+                    <td>
+                        <input class="text_desc" id="newRsysIp"  type="text"></input>
+                    </td>
+                </tr>
+                <tr id="saveButtons">
+                    <td>
+                        <table cellspacing="0" cellpadding="5" border="0">
+                            <tr>
+                                <td>
+                                    <div class="btnTray">
+                                        <input type="button" class="classicBtn" id="saveBtn" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+      </div>
+    </fieldset>
+</body>
+</html>

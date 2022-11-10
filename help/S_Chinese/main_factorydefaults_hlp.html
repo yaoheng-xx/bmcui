@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>系统默认值 — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+
+        <div class='helpmainhead'>系统默认值 — 帮助</div>
+        <p>使用这个页面重置所有的BMC设定为工厂默认值。</p>
+
+        <h2>这个操作不能恢复。</h2>
+        <p>警告：此操作无法恢复。一旦完成，所有的远程管理，包括web服务器都不能存取，直到本地的用户和网络设置恢复访问为止。</p>
+        <p>设置了包括，但不限于：</p>
+        <ul>
+            <li>所有网络地址和设定</li>
+            <li>电源恢复规则</li>
+            <li>平台事件过滤器</li>
+            <li>警报目的地</li>
+        </ul>
+        <p>这不会影响BMC的系统事件日志，SDR，或任何节点管理器的设置和规则。</p>
+
+        <h2>恢复默认值 - 部分</h2>
+        <p>单击恢复以启动恢复默认值，但保留 lan 和用户。</p>
+        <h2>恢复默认值 - 完整</h2>
+        <p>单击“恢复”将所有 BMC 设置重置为出厂默认设置。</p>
+
+        <div class='helpactionhead'>操作</div>
+        <div class='actionsub'>恢复</div>
+        <p>点击“恢复”将所有BMC设置重置为出厂默认设置。</p>
+
+        <p class="warning">
+        <img src='../../images/warning.png'>
+        <b>警告：</b>
+        此操作将重置所有BMC设置为出厂默认值且无法撤消。</p>
+    </body>
+</html>

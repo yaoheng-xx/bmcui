@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>VLAN - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>VLAN - Help</div>
+        <p>Use this page to configure an 802.1Q VLAN private network on the specified Physical Interface.</p>
+
+        <h2>Physical Interface</h2>
+        <p>
+        Lists the Physical Interface(s) available for server management.
+        The Physical Interfaces describe the physical NIC connection on the server.
+        All channels are onboard NICs.
+        The Baseboard Mgmt channel is a shared NIC configured for
+        management and shared with the operating system.
+        </p>
+
+        <h2>VLAN List</h2>
+        <p>Displays all the VLAN info in table format for the selected LAN Channel.</p>
+        <p>Virtual Interface - Configured Virtual Interface name will be displayed.</p>
+        <p>VLAN ID - Configured VLAN ID will be displayed.</p>
+        <ul>
+            <li> - Create new VLAN information. Please configure the following fields' VLAN ID and click the "Add" button to add a VLAN virtual interface.</li>
+            <li> - To delete the existing VLAN. Please click the delete icon at the end of the existing VLAN row.</p>
+        </ul>
+
+        <h2>VLAN ID</h2>
+        <p>Specify the VLAN ID to use. Values are from 1 to 4094.</p>
+
+        <div class='helpactionhead'>Actions</div>
+        <div class='actionsub'>Add</div>
+        <p>Click 'Add' to add a virtual interface to the selected LAN channel.</p>
+    </body>
+</html>

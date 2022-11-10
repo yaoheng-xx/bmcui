@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+  <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../dflt-css/base.css" type="text/css">
+    <link rel="stylesheet" href="../css/basic.css" type="text/css">
+    <script language="javascript" src="../js/lang/English/postcodes_str.js"></script>
+    <script language="javascript" src="../js/lang/English/postcodes_DXE_str.js"></script>
+    <script language="javascript" src="../js/utils.js"></script>
+    <script language="javascript" src="../js/servd_postcodes.js"></script>
+    <script language="javascript" src="../../js/iframe_event.js"></script>
+</head>
+<body>
+    <span class="LoadingStyle" id="loading"></span>
+    <table border="0" cellpadding="0" cellspacing="5" class="mtable">
+        <tr><td width="20px"><img src="../images/arrow_red.gif" border="0" class="redarrow"></td>
+            <td><div id="title_div" class="mtitle"></div></td></tr>
+        <tr><td></td>
+            <td><div id="kcs_segment_state" class="Categorytext"></div></td></tr>
+        <tr>
+            <td></td>
+            <!-- <td>
+                <div><label id="timeheader_lbl" class="labeltext"></label><select id="timeSelect" name="timeSel" disabled></select></div>
+            </td> -->
+        </tr>
+        <tr>
+            <td><br></td>
+            <td>
+                <div id="postBox"></div>
+                <fieldset class="postcodesFS group">
+                <legend id="previous_legend" class="legendcaption">
+                </legend>
+                <div id="prevPOSTtimeinfo" class="postTimeInfo"></div><table id="prevPOSTTable" class="post_table"></table>
+                </fieldset>
+                <fieldset class="postcodesFS group">
+                <legend id="current_legend" class="legendcaption">
+                </legend>
+                <div id="currPOSTtimeinfo" class="postTimeInfo"></div><table border="0" id="currPOSTTable" class="post_table"></table>
+                </fieldset>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

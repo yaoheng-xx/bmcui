@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Ipv6 网络设置 — 帮助</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>关</a></div>
+
+        <div class='helpmainhead'>Ipv6 网络设置 — 帮助</div>
+        <p>
+        使用此页面为服务器管理配置网络设置。
+        </p>
+
+        <h2>接口</h2>
+        <p>它列出了可用于管理服务器的局域网接口。</p>
+
+        <h2>MAC地址</h2>
+        <p>设备的MAC地址（只读）</p>
+        <h2>IPMI 频道</h2>
+        <p>显示 IPMI 通道号（只读）。</p>
+        <h2>接口描述</h2>
+        <p>显示专用于 BMC / Host 的 NIC，或在 LAN 接口的 Host 和 BMC 之间共享（只读）。</p>
+        <h2>链接状态</h2>
+        <p>显示 LAN 接口的 NIC 链接状态（只读）。</p>
+
+        <h2> 使用DHCPv6/SLAAC来自动获取IP地址</h2>
+        <p>选择启用 IPv6 DHCP 的选项。如果选择 “自动获取 IP 地址（使用 DHCPv6/SLAAC）” 选项，IP 地址、前缀长度、网关和 DNS 服务器输入字段将被禁用。</p>
+        <h2>使用如下IP地址</h2>
+        <p>选择配置静态 IPv6 地址的选项。如果选择“使用以下 IP 地址”选项，将启用 IP 地址、前缀长度、网关和 DNS 服务器输入字段进行配置</p>
+
+        <h2>IP地址</h2>
+        <p>使用单选按钮选择 IP 分配的类型。如果配置静态 IP，请在给定字段中输入请求的 IP 地址、IPv6 前缀长度以及可选的网关、主 DNS 和辅助 DNS 服务器。
+        </p>
+        <ul>
+            <li>- IPv6地址用冒号分开，由8、4位十六进制数字组成。</li>
+            <li>- A::可用于两个或两个以上的零域的单个序列。</li>
+        </ul>
+
+        <h2>网络前缀长度</h2>
+        <p>显示前缀长度的详细信息</p>
+        <h2>默认网关</h2>
+        <p>表示设备的网关详细信息。</p>
+        <h2>优先的DNS服务器IP</h2> 
+        <p>显示主 DNS 服务器详细信息</p>
+        <h2>备用的DNS服务器IP	</h2>
+        <p>显示辅助 DNS 服务器详细信息</p>
+
+        <div class='helpactionhead'>操作</div>
+
+        <div class='actionsub'>保存</div>
+        <p>点击“保存”按钮保存任何修改。</p>
+
+        <p class="warning">
+        <img src='../../images/warning.png'>
+        <b>备注：</b>
+        专用的管理网卡IP地址必须跟基板在不同的子网IP地址。
+        </p>
+        <br>
+        <p class="warning">
+        <img src='../../images/warning.png'>
+        <b>备注：</b>
+        在尝试修改网络设置前，请关闭所有打开的远程控制台重定向会话。否则所有的会话将丢失。
+        </p>
+    </body>
+</html>

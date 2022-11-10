@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>System Information - Help</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link href='../../dflt-css/base_help.css' rel='stylesheet' type='text/css'/>
+        <link href='../../css/help/help_styles.css' rel='stylesheet' type='text/css'/>
+        <script type="text/javascript" src="../../js/flot/jquery.min.js"></script>
+        <script type="text/javascript" src="../../js/iframe_event.js"></script>
+        <script type="text/javascript" src="../../js/help.js"></script>
+    </head>
+    <body>
+        <div class='closeX'><a id="closeHelp" href='#' class='closeBtn'>close</a></div>
+
+        <div class='helpmainhead'>System Information - Help</div>
+        <p>Use this page to view information about the server.</p>
+
+        <h2>Host Power Status</h2>
+        <p>Shows the power status of the host (on/off).</p>
+        <h2>Advanced Management Key</h2>
+        <p>Shows whether the advanced management functions are activated.</p>
+        <h2>Device (BMC) Available</h2>
+        <p>Indicates whether the BMC is available for normal management tasks.</p>
+        <h2>BIOS ID</h2>
+        <p>BIOS ID:BoardFamilyID.OEMID.MajorVer.MinorVer.RelNum.BuildDateTime.</p>
+        <h2>BMC FW Rev</h2>
+        <p>Major and minor revision of the BMC firmware.</p>
+        <h2>BMC Firmware Build Time</h2>
+        <p>The date and time of the installed BMC firmware.</p>
+        <h2>Backup BMC FW Rev</h2>
+        <p>Major and minor revision of the Backup BMC firmware.</p>
+		<h2>CPLD FW Rev</h2>
+        <p>Major and minor revision of the CPLD firmware.</p>
+        <h2>Mgmt Engine (ME) FW Rev</h2>
+        <p>Major and minor firmware revision for the Management Engine (ME). Only available if the host is powered on.</p>
+        <h2>Baseboard Serial Number</h2>
+        <p>The Serial number of this specific baseboard.</p>
+        <h2>Overall System Health</h2>
+        <p>Overall system health LED status is displayed.
+        <ul>
+            <li>LED Solid Green - System Health LED</li>
+            <li>LED Blinking Green - System Degraded LED</li>
+            <li>LED Blinking Amber - Non-critical fault LED</li>
+            <li>LED Amber - Critical fault LED</li>
+            <li>LED Blue - Identify LED</li>
+        </ul>
+        </p>
+
+        <h2>Web Session Timeout</h2>
+        <p>Set the maximum web service timeout in seconds. Timeout should be between 30 mins and 1 day. The Default timeout is 30 mins.</p>
+
+        <ul>
+            <li>1. Pull down the time-out values bar 30(mins)/1(hour)/2(hours)/4(hours)/8(hours)/1(day) to configure the value.</li>
+            <li>2. After selection, this web session time-out value will take effect.</li>
+            <li>3. Once the web session is time-out, the system will automatically redirect the user to the web login page.</li>
+        </ul>
+
+    </body>
+</html>

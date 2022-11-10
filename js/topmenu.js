@@ -161,6 +161,14 @@ grayout: 0*/
             },
             index : "config_vlan"
           },
+          ,
+          {
+            text : lang.LANG_CONFIG_ACTIVE_DIRECTORY,
+            onclick : {
+              fn : function() { page_mapping('configuration', 'config_ad'); }
+            },
+            index : "config_ad"
+          },
           {
             text : lang.LANG_CONFIG_SUBMENU_NTP_CONFIGUTRATION,
             onclick : {
